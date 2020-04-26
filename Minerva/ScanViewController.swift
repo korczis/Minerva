@@ -148,8 +148,6 @@ class ScanViewController: UIViewController {
     
     private func fetchBookInfo(isbn: String) {
         if let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key=") {
-            print(url)
-            
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {

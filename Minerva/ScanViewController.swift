@@ -60,6 +60,32 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialize scanner - capture + preview
+        initScanner()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func handleScannedCode(data: String) {
+        if(!lookupEnabled) {
+            return
+        }
+        
+        lookupEnabled = false
+        
+        if let book = bookCache[data] {
+            print("Using cached book info - ISBN: \(data)")
+            displayBookInfo(book: book)
+        } else {
+            print("Fetching book info - ISBN: \(data)")
+            fetchBookInfo(isbn: data)
+        }
+    }
+    
+    private func initScanner() {
         // Get the back-facing camera for capturing videos
         guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
             print("Failed to get the camera device")
@@ -104,27 +130,6 @@ class ScanViewController: UIViewController {
             qrCodeFrameView.layer.borderWidth = 2
             view.addSubview(qrCodeFrameView)
             view.bringSubviewToFront(qrCodeFrameView)
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func launchApp(decodedURL: String) {
-        if(!lookupEnabled) {
-            return
-        }
-        
-        lookupEnabled = false
-        
-        if let book = bookCache[decodedURL] {
-            print("Using cached book info - ISBN: \(decodedURL)")
-            displayBookInfo(book: book)
-        } else {
-            print("Fetching book info - ISBN: \(decodedURL)")
-            fetchBookInfo(isbn: decodedURL)
         }
     }
     
@@ -217,7 +222,6 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            // messageLabel.text = "No QR code is detected"
             return
         }
         
@@ -230,8 +234,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil && lookupEnabled {
-                launchApp(decodedURL: metadataObj.stringValue!)
-                // messageLabel.text = metadataObj.stringValue
+                handleScannedCode(data: metadataObj.stringValue!)
             }
         }
     }

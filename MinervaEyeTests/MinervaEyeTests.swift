@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import Minerva
+@testable import MinervaEye
 
-class MinervaTests: XCTestCase {
+class MinervaEyeTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

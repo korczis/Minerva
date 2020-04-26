@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Minerva.xcodeproj">
+      location = "self:/Users/korczis/dev/Minerva/MinervaEye.xcodeproj">
    </FileRef>
 </Workspace>

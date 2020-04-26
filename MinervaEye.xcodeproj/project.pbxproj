@@ -15,8 +15,8 @@
 		8B843A0D2456018B008B461A /* Minerva.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A0B2456018B008B461A /* Minerva.xcdatamodeld */; };
 		8B843A0F2456018C008B461A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A0E2456018C008B461A /* Assets.xcassets */; };
 		8B843A122456018C008B461A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A102456018C008B461A /* LaunchScreen.storyboard */; };
-		8B843A1D2456018C008B461A /* MinervaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A1C2456018C008B461A /* MinervaTests.swift */; };
-		8B843A282456018C008B461A /* MinervaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A272456018C008B461A /* MinervaUITests.swift */; };
+		8B843A1D2456018C008B461A /* MinervaEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A1C2456018C008B461A /* MinervaEyeTests.swift */; };
+		8B843A282456018C008B461A /* MinervaEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A272456018C008B461A /* MinervaEyeUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B8439FD2456018B008B461A /* Minerva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minerva.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8439FD2456018B008B461A /* Minerva Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minerva Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B843A002456018B008B461A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B843A022456018B008B461A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B843A042456018B008B461A /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -47,11 +47,11 @@
 		8B843A0E2456018C008B461A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B843A112456018C008B461A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B843A132456018C008B461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B843A182456018C008B461A /* MinervaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinervaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B843A1C2456018C008B461A /* MinervaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaTests.swift; sourceTree = "<group>"; };
+		8B843A182456018C008B461A /* MinervaEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinervaEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B843A1C2456018C008B461A /* MinervaEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaEyeTests.swift; sourceTree = "<group>"; };
 		8B843A1E2456018C008B461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B843A232456018C008B461A /* MinervaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinervaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B843A272456018C008B461A /* MinervaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaUITests.swift; sourceTree = "<group>"; };
+		8B843A232456018C008B461A /* MinervaEyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinervaEyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B843A272456018C008B461A /* MinervaEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaEyeUITests.swift; sourceTree = "<group>"; };
 		8B843A292456018C008B461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +83,9 @@
 		8B8439F42456018B008B461A = {
 			isa = PBXGroup;
 			children = (
-				8B8439FF2456018B008B461A /* Minerva */,
-				8B843A1B2456018C008B461A /* MinervaTests */,
-				8B843A262456018C008B461A /* MinervaUITests */,
+				8B8439FF2456018B008B461A /* MinervaEye */,
+				8B843A1B2456018C008B461A /* MinervaEyeTests */,
+				8B843A262456018C008B461A /* MinervaEyeUITests */,
 				8B8439FE2456018B008B461A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,14 +93,14 @@
 		8B8439FE2456018B008B461A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B8439FD2456018B008B461A /* Minerva.app */,
-				8B843A182456018C008B461A /* MinervaTests.xctest */,
-				8B843A232456018C008B461A /* MinervaUITests.xctest */,
+				8B8439FD2456018B008B461A /* Minerva Eye.app */,
+				8B843A182456018C008B461A /* MinervaEyeTests.xctest */,
+				8B843A232456018C008B461A /* MinervaEyeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B8439FF2456018B008B461A /* Minerva */ = {
+		8B8439FF2456018B008B461A /* MinervaEye */ = {
 			isa = PBXGroup;
 			children = (
 				8B843A002456018B008B461A /* AppDelegate.swift */,
@@ -113,33 +113,33 @@
 				8B843A132456018C008B461A /* Info.plist */,
 				8B843A0B2456018B008B461A /* Minerva.xcdatamodeld */,
 			);
-			path = Minerva;
+			path = MinervaEye;
 			sourceTree = "<group>";
 		};
-		8B843A1B2456018C008B461A /* MinervaTests */ = {
+		8B843A1B2456018C008B461A /* MinervaEyeTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B843A1C2456018C008B461A /* MinervaTests.swift */,
+				8B843A1C2456018C008B461A /* MinervaEyeTests.swift */,
 				8B843A1E2456018C008B461A /* Info.plist */,
 			);
-			path = MinervaTests;
+			path = MinervaEyeTests;
 			sourceTree = "<group>";
 		};
-		8B843A262456018C008B461A /* MinervaUITests */ = {
+		8B843A262456018C008B461A /* MinervaEyeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8B843A272456018C008B461A /* MinervaUITests.swift */,
+				8B843A272456018C008B461A /* MinervaEyeUITests.swift */,
 				8B843A292456018C008B461A /* Info.plist */,
 			);
-			path = MinervaUITests;
+			path = MinervaEyeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8B8439FC2456018B008B461A /* Minerva */ = {
+		8B8439FC2456018B008B461A /* MinervaEye */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B843A2C2456018C008B461A /* Build configuration list for PBXNativeTarget "Minerva" */;
+			buildConfigurationList = 8B843A2C2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEye" */;
 			buildPhases = (
 				8B8439F92456018B008B461A /* Sources */,
 				8B8439FA2456018B008B461A /* Frameworks */,
@@ -149,14 +149,14 @@
 			);
 			dependencies = (
 			);
-			name = Minerva;
+			name = MinervaEye;
 			productName = Minerva;
-			productReference = 8B8439FD2456018B008B461A /* Minerva.app */;
+			productReference = 8B8439FD2456018B008B461A /* Minerva Eye.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8B843A172456018C008B461A /* MinervaTests */ = {
+		8B843A172456018C008B461A /* MinervaEyeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B843A2F2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaTests" */;
+			buildConfigurationList = 8B843A2F2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEyeTests" */;
 			buildPhases = (
 				8B843A142456018C008B461A /* Sources */,
 				8B843A152456018C008B461A /* Frameworks */,
@@ -167,14 +167,14 @@
 			dependencies = (
 				8B843A1A2456018C008B461A /* PBXTargetDependency */,
 			);
-			name = MinervaTests;
+			name = MinervaEyeTests;
 			productName = MinervaTests;
-			productReference = 8B843A182456018C008B461A /* MinervaTests.xctest */;
+			productReference = 8B843A182456018C008B461A /* MinervaEyeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8B843A222456018C008B461A /* MinervaUITests */ = {
+		8B843A222456018C008B461A /* MinervaEyeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B843A322456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaUITests" */;
+			buildConfigurationList = 8B843A322456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEyeUITests" */;
 			buildPhases = (
 				8B843A1F2456018C008B461A /* Sources */,
 				8B843A202456018C008B461A /* Frameworks */,
@@ -185,9 +185,9 @@
 			dependencies = (
 				8B843A252456018C008B461A /* PBXTargetDependency */,
 			);
-			name = MinervaUITests;
+			name = MinervaEyeUITests;
 			productName = MinervaUITests;
-			productReference = 8B843A232456018C008B461A /* MinervaUITests.xctest */;
+			productReference = 8B843A232456018C008B461A /* MinervaEyeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8B8439F82456018B008B461A /* Build configuration list for PBXProject "Minerva" */;
+			buildConfigurationList = 8B8439F82456018B008B461A /* Build configuration list for PBXProject "MinervaEye" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -226,9 +226,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B8439FC2456018B008B461A /* Minerva */,
-				8B843A172456018C008B461A /* MinervaTests */,
-				8B843A222456018C008B461A /* MinervaUITests */,
+				8B8439FC2456018B008B461A /* MinervaEye */,
+				8B843A172456018C008B461A /* MinervaEyeTests */,
+				8B843A222456018C008B461A /* MinervaEyeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B843A1D2456018C008B461A /* MinervaTests.swift in Sources */,
+				8B843A1D2456018C008B461A /* MinervaEyeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B843A282456018C008B461A /* MinervaUITests.swift in Sources */,
+				8B843A282456018C008B461A /* MinervaEyeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +294,12 @@
 /* Begin PBXTargetDependency section */
 		8B843A1A2456018C008B461A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8B8439FC2456018B008B461A /* Minerva */;
+			target = 8B8439FC2456018B008B461A /* MinervaEye */;
 			targetProxy = 8B843A192456018C008B461A /* PBXContainerItemProxy */;
 		};
 		8B843A252456018C008B461A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8B8439FC2456018B008B461A /* Minerva */;
+			target = 8B8439FC2456018B008B461A /* MinervaEye */;
 			targetProxy = 8B843A242456018C008B461A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -442,15 +442,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
-				INFOPLIST_FILE = Minerva/Info.plist;
+				INFOPLIST_FILE = MinervaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = korczis.Minerva;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = korczis.MinervaEye;
+				PRODUCT_NAME = "Minerva Eye";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,15 +462,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KX95WW6S4G;
-				INFOPLIST_FILE = Minerva/Info.plist;
+				INFOPLIST_FILE = MinervaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = korczis.Minerva;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = korczis.MinervaEye;
+				PRODUCT_NAME = "Minerva Eye";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -492,7 +496,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minerva.app/Minerva";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinervaEye.app/MinervaEye";
 			};
 			name = Debug;
 		};
@@ -514,7 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minerva.app/Minerva";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinervaEye.app/MinervaEye";
 			};
 			name = Release;
 		};
@@ -561,7 +565,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8B8439F82456018B008B461A /* Build configuration list for PBXProject "Minerva" */ = {
+		8B8439F82456018B008B461A /* Build configuration list for PBXProject "MinervaEye" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B843A2A2456018C008B461A /* Debug */,
@@ -570,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B843A2C2456018C008B461A /* Build configuration list for PBXNativeTarget "Minerva" */ = {
+		8B843A2C2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEye" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B843A2D2456018C008B461A /* Debug */,
@@ -579,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B843A2F2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaTests" */ = {
+		8B843A2F2456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEyeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B843A302456018C008B461A /* Debug */,
@@ -588,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B843A322456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaUITests" */ = {
+		8B843A322456018C008B461A /* Build configuration list for PBXNativeTarget "MinervaEyeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B843A332456018C008B461A /* Debug */,

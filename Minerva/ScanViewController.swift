@@ -9,14 +9,26 @@
 import UIKit
 import AVFoundation
 
-struct BookVolumeInfo: Decodable {
+struct BookVolumeInfo: Encodable, Decodable {
     let title: String
     let subtitle: String?
     let description: String?
+    let publishedDate: String?
+    let pageCount: Int?
+    let printType: String?
+    let maturityRating: String?
+    let allowAnonLogging: Bool?
+    let contentVersion: String?
+    let language: String?
+    let previewLink: String?
+    let infoLink: String?
+    let canonicalVolumeLink: String?
+    
     let authors: [String]
+    let categories: [String]
 }
 
-struct BookItem: Decodable {
+struct BookItem: Encodable, Decodable {
     let kind: String
     let id: String
     let etag: String
@@ -24,7 +36,7 @@ struct BookItem: Decodable {
     let volumeInfo: BookVolumeInfo
 }
 
-struct BookQueryResult: Decodable {
+struct BookQueryResult: Encodable, Decodable {
     let kind: String
     let totalItems: Int
     let items: [BookItem]
@@ -64,6 +76,7 @@ class ScanViewController: UIViewController {
         initScanner()
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -134,7 +147,14 @@ class ScanViewController: UIViewController {
     }
     
     private func displayBookInfo(book: BookItem) {
-        // print(book);
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+           let data = try encoder.encode(book)
+            print(String(data: data, encoding: .utf8)!)
+        } catch {
+            print(error)
+        }
         
         // create the alert
         let title = book.volumeInfo.title;

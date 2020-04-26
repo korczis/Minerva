@@ -1,6 +1,6 @@
 //
-//  MinervaUITests.swift
-//  MinervaUITests
+//  MineraEyeUITests.swift
+//  MinervaEyeUITests
 //
 //  Created by Tomas Korcak on 4/26/20.
 //  Copyright © 2020 Tomas Korcak. All rights reserved.

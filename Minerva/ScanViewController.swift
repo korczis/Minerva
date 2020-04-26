@@ -11,8 +11,8 @@ import AVFoundation
 
 struct BookVolumeInfo: Decodable {
     let title: String
-    let subtitle: String
-    let description: String
+    let subtitle: String?
+    let description: String?
     let authors: [String]
 }
 
@@ -37,7 +37,9 @@ class ScanViewController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
-    var apiEnabled = true
+    var lookupEnabled: Bool = true
+    
+    var bookCache: [String: BookItem] = [:]
     
     private let supportedCodeTypes = [
         AVMetadataObject.ObjectType.upce,
@@ -111,31 +113,61 @@ class ScanViewController: UIViewController {
     }
     
     func launchApp(decodedURL: String) {
-        
-        if(!self.apiEnabled) {
+        if(!lookupEnabled) {
             return
         }
         
-        apiEnabled = false;
+        lookupEnabled = false
         
-        if let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(decodedURL)&key=") {
+        if let book = bookCache[decodedURL] {
+            print("Using cached book info - ISBN: \(decodedURL)")
+            displayBookInfo(book: book)
+        } else {
+            print("Fetching book info - ISBN: \(decodedURL)")
+            fetchBookInfo(isbn: decodedURL)
+        }
+    }
+    
+    private func displayBookInfo(book: BookItem) {
+        // print(book);
+        
+        // create the alert
+        let title = book.volumeInfo.title;
+        let message = book.volumeInfo.subtitle;
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+            self.lookupEnabled = true
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func fetchBookInfo(isbn: String) {
+        if let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key=") {
             print(url)
             
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
-                     // if let jsonString = String(data: data, encoding: .utf8) {
-                     //    print(jsonString)
-                     // }
-                    
                     do {
-                       let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
+                        let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
                         if(!res.items.isEmpty) {
-                            let item = res.items[0]
-                            print(item); // .volumeInfo.title;
+                            let book = res.items[0]
+                            
+                            self.bookCache[isbn] = book
+                            
+                            DispatchQueue.main.async {
+                                // self.tabBarController?.selectedIndex = 1
+                                self.displayBookInfo(book: book)
+                            }
                         }
-                       
+                        
                     } catch let error {
-                       print(error)
+                        self.lookupEnabled = true
+                        print(error)
                     }
                 }
             }
@@ -145,38 +177,38 @@ class ScanViewController: UIViewController {
     }
     
     private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
-      layer.videoOrientation = orientation
-      videoPreviewLayer?.frame = self.view.bounds
+        layer.videoOrientation = orientation
+        videoPreviewLayer?.frame = self.view.bounds
     }
     
     override func viewDidLayoutSubviews() {
-      super.viewDidLayoutSubviews()
-      
-      if let connection =  self.videoPreviewLayer?.connection  {
-        let currentDevice: UIDevice = UIDevice.current
-        let orientation: UIDeviceOrientation = currentDevice.orientation
-        let previewLayerConnection : AVCaptureConnection = connection
+        super.viewDidLayoutSubviews()
         
-        if previewLayerConnection.isVideoOrientationSupported {
-          switch (orientation) {
-          case .portrait:
-            updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
-            break
-          case .landscapeRight:
-            updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
-            break
-          case .landscapeLeft:
-            updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
-            break
-          case .portraitUpsideDown:
-            updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
-            break
-          default:
-            updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
-            break
-          }
+        if let connection =  self.videoPreviewLayer?.connection  {
+            let currentDevice: UIDevice = UIDevice.current
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            let previewLayerConnection : AVCaptureConnection = connection
+            
+            if previewLayerConnection.isVideoOrientationSupported {
+                switch (orientation) {
+                case .portrait:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                    break
+                case .landscapeRight:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+                    break
+                case .landscapeLeft:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+                    break
+                case .portraitUpsideDown:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
+                    break
+                default:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                    break
+                }
+            }
         }
-      }
     }
     
 }
@@ -199,7 +231,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if metadataObj.stringValue != nil {
+            if metadataObj.stringValue != nil && lookupEnabled {
                 launchApp(decodedURL: metadataObj.stringValue!)
                 // messageLabel.text = metadataObj.stringValue
             }

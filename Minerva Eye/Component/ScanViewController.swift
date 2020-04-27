@@ -11,9 +11,20 @@ import UIKit
 import SwiftUI
 
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @Binding var data: [BookItem]
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var boundsView: UIView?
+    
+    init(data: Binding<[BookItem]> = .constant([])) {
+        self._data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,7 +170,11 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         } catch {
             print(error)
         }
-
+        
+        DispatchQueue.main.async {
+            self.data.append(book)
+        }
+//
 //        // create the alert
 //        let title = book.volumeInfo.title;
 //        let message = book.volumeInfo.subtitle;
@@ -182,12 +197,10 @@ extension ScanViewController: UIViewControllerRepresentable {
     public typealias UIViewControllerType = ScanViewController
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ScanViewController>) -> ScanViewController {
-        
-        return ScanViewController()
+        return ScanViewController(data: $data)
     }
     
     func updateUIViewController(_ uiViewController: ScanViewController, context: UIViewControllerRepresentableContext<ScanViewController>) {
-        
     }
 }
 
@@ -195,6 +208,6 @@ extension ScanViewController: UIViewControllerRepresentable {
 
 struct ScanViewController_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        Text("ScanViewController Preview")
     }
 }

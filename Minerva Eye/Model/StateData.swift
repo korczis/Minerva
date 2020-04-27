@@ -9,17 +9,17 @@
 import SwiftUI
 import Combine
 
-final class BooksData: ObservableObject  {
-    @Published var cache: [String: BookItem] = [:]
-}
-
-final class LogsData: ObservableObject  {
-    @Published var entries: [String] = [
-        "this",
-        "is",
-        "log"
-    ]
-}
+//final class BooksData: ObservableObject  {
+//    @Published var cache: [String: BookItem] = [:]
+//}
+//
+//final class LogsData: ObservableObject  {
+//    @Published var entries: [String] = [
+//        "this",
+//        "is",
+//        "log"
+//    ]
+//}
 
 final class StateData: ObservableObject  {
     @Published var books: [BookItem] = [

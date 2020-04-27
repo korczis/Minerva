@@ -14,7 +14,7 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            ScanView()
+            ScanView(data: $stateData.books)
                 .tabItem {
                     VStack {
                         Image(systemName: "camera")

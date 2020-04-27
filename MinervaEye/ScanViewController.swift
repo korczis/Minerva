@@ -9,39 +9,6 @@
 import UIKit
 import AVFoundation
 
-struct BookVolumeInfo: Encodable, Decodable {
-    let title: String
-    let subtitle: String?
-    let description: String?
-    let publishedDate: String?
-    let pageCount: Int?
-    let printType: String?
-    let maturityRating: String?
-    let allowAnonLogging: Bool?
-    let contentVersion: String?
-    let language: String?
-    let previewLink: String?
-    let infoLink: String?
-    let canonicalVolumeLink: String?
-    
-    let authors: [String]
-    let categories: [String]
-}
-
-struct BookItem: Encodable, Decodable {
-    let kind: String
-    let id: String
-    let etag: String
-    let selfLink: String
-    let volumeInfo: BookVolumeInfo
-}
-
-struct BookQueryResult: Encodable, Decodable {
-    let kind: String
-    let totalItems: Int
-    let items: [BookItem]
-}
-
 class ScanViewController: UIViewController {
     
     var captureSession = AVCaptureSession()
@@ -165,6 +132,12 @@ class ScanViewController: UIViewController {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
             self.lookupEnabled = true
+            
+//            DispatchQueue.main.async {
+//                self.performSegue(withIdentifier: "BookDetailSegue", sender: self)
+//            }
+            
+            // self.showDetailViewController(BookInfoViewController as UIV, sender: book);
         }))
         
         // show the alert

@@ -17,6 +17,9 @@
 		8B843A0F2456018C008B461A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A0E2456018C008B461A /* Assets.xcassets */; };
 		8B843A122456018C008B461A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A102456018C008B461A /* LaunchScreen.storyboard */; };
 		8B843A282456018C008B461A /* MinervaEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A272456018C008B461A /* MinervaEyeUITests.swift */; };
+		8BDCA77A245680CC00B3B86E /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDCA779245680CC00B3B86E /* Schema.swift */; };
+		8BDCA77E2456829E00B3B86E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDCA77D2456829E00B3B86E /* MainViewController.swift */; };
+		8BDCA7802456986200B3B86E /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDCA77F2456986200B3B86E /* BookInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		8B843A232456018C008B461A /* MinervaEyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinervaEyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B843A272456018C008B461A /* MinervaEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaEyeUITests.swift; sourceTree = "<group>"; };
 		8B843A292456018C008B461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDCA779245680CC00B3B86E /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		8BDCA77D2456829E00B3B86E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8BDCA77F2456986200B3B86E /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 				8B843A102456018C008B461A /* LaunchScreen.storyboard */,
 				8B843A132456018C008B461A /* Info.plist */,
 				8B843A0B2456018B008B461A /* MinervaEye.xcdatamodeld */,
+				8BDCA779245680CC00B3B86E /* Schema.swift */,
+				8BDCA77D2456829E00B3B86E /* MainViewController.swift */,
+				8BDCA77F2456986200B3B86E /* BookInfoViewController.swift */,
 			);
 			path = MinervaEye;
 			sourceTree = "<group>";
@@ -265,11 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDCA77E2456829E00B3B86E /* MainViewController.swift in Sources */,
+				8BDCA77A245680CC00B3B86E /* Schema.swift in Sources */,
 				8B843A072456018B008B461A /* DatabaseViewController.swift in Sources */,
 				8B843A052456018B008B461A /* ScanViewController.swift in Sources */,
 				8B843A012456018B008B461A /* AppDelegate.swift in Sources */,
 				8B843A0D2456018B008B461A /* MinervaEye.xcdatamodeld in Sources */,
 				8B843A032456018B008B461A /* SceneDelegate.swift in Sources */,
+				8BDCA7802456986200B3B86E /* BookInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

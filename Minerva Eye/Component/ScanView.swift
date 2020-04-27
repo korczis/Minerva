@@ -11,16 +11,14 @@ import AVFoundation
 
 struct ScanView: View {
     var body: some View {
-        ScanViewController()
-        
-//        NavigationView {
-//            ZStack {
-//                ScanViewController()
+        NavigationView {
+            ZStack {
+                ScanViewController()
 //                Text("Scan Window")
 //                    .font(.title)
 //                    .navigationBarTitle(Text("Scanner"), displayMode: .inline)
-//            }
-//        }
+            }
+        }
     }
 }
 

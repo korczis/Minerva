@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection = 0
+    @EnvironmentObject var stateData: StateData
  
     var body: some View {
         TabView(selection: $selection){
@@ -22,16 +23,16 @@ struct ContentView: View {
                 }
                 .tag(0)
             
-            ManageView()
+            BooksView(data: stateData.books)
                 .tabItem {
                     VStack {
                         Image(systemName: "book")
-                        Text("Manage")
+                        Text("Books")
                     }
                 }
                 .tag(1)
             
-            LogsView()
+            LogsView(data: stateData.logs)
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet")
@@ -46,5 +47,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(StateData())
     }
 }

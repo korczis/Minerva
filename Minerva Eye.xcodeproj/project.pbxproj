@@ -1,0 +1,640 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38224571F4700538C91 /* AppDelegate.swift */; };
+		8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38424571F4700538C91 /* SceneDelegate.swift */; };
+		8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */; };
+		8BAAC38A24571F4700538C91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38924571F4700538C91 /* ContentView.swift */; };
+		8BAAC38C24571F4900538C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38B24571F4900538C91 /* Assets.xcassets */; };
+		8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */; };
+		8BAAC39224571F4900538C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */; };
+		8BAAC39D24571F4900538C91 /* Minerva_EyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */; };
+		8BAAC3A824571F4900538C91 /* Minerva_EyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */; };
+		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
+		8BE30E9924573B200042280E /* ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9824573B200042280E /* ManageView.swift */; };
+		8BE30E9B245743930042280E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9A245743930042280E /* ScanViewController.swift */; };
+		8BE30E9D245746F80042280E /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9C245746F80042280E /* Schema.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BAAC39924571F4900538C91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BAAC37724571F4600538C91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BAAC37E24571F4700538C91;
+			remoteInfo = "Minerva Eye";
+		};
+		8BAAC3A424571F4900538C91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BAAC37724571F4600538C91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BAAC37E24571F4700538C91;
+			remoteInfo = "Minerva Eye";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8BAAC37F24571F4700538C91 /* Minerva Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minerva Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BAAC38224571F4700538C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BAAC38424571F4700538C91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8BAAC38724571F4700538C91 /* Minerva_Eye.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Minerva_Eye.xcdatamodel; sourceTree = "<group>"; };
+		8BAAC38924571F4700538C91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BAAC38B24571F4900538C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BAAC39124571F4900538C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BAAC39324571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BAAC39824571F4900538C91 /* Minerva EyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minerva EyeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minerva_EyeTests.swift; sourceTree = "<group>"; };
+		8BAAC39E24571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BAAC3A324571F4900538C91 /* Minerva EyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minerva EyeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minerva_EyeUITests.swift; sourceTree = "<group>"; };
+		8BAAC3A924571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BE30E9624573A570042280E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		8BE30E9824573B200042280E /* ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageView.swift; sourceTree = "<group>"; };
+		8BE30E9A245743930042280E /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		8BE30E9C245746F80042280E /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BAAC37C24571F4700538C91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC39524571F4900538C91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC3A024571F4900538C91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BAAC37624571F4600538C91 = {
+			isa = PBXGroup;
+			children = (
+				8BAAC38124571F4700538C91 /* Minerva Eye */,
+				8BAAC39B24571F4900538C91 /* Minerva EyeTests */,
+				8BAAC3A624571F4900538C91 /* Minerva EyeUITests */,
+				8BAAC38024571F4700538C91 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BAAC38024571F4700538C91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BAAC37F24571F4700538C91 /* Minerva Eye.app */,
+				8BAAC39824571F4900538C91 /* Minerva EyeTests.xctest */,
+				8BAAC3A324571F4900538C91 /* Minerva EyeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BAAC38124571F4700538C91 /* Minerva Eye */ = {
+			isa = PBXGroup;
+			children = (
+				8BE30E95245739D30042280E /* Component */,
+				8BAAC38224571F4700538C91 /* AppDelegate.swift */,
+				8BAAC38424571F4700538C91 /* SceneDelegate.swift */,
+				8BAAC38924571F4700538C91 /* ContentView.swift */,
+				8BAAC38B24571F4900538C91 /* Assets.xcassets */,
+				8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */,
+				8BAAC39324571F4900538C91 /* Info.plist */,
+				8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */,
+				8BAAC38D24571F4900538C91 /* Preview Content */,
+				8BE30E9C245746F80042280E /* Schema.swift */,
+			);
+			path = "Minerva Eye";
+			sourceTree = "<group>";
+		};
+		8BAAC38D24571F4900538C91 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8BAAC39B24571F4900538C91 /* Minerva EyeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */,
+				8BAAC39E24571F4900538C91 /* Info.plist */,
+			);
+			path = "Minerva EyeTests";
+			sourceTree = "<group>";
+		};
+		8BAAC3A624571F4900538C91 /* Minerva EyeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */,
+				8BAAC3A924571F4900538C91 /* Info.plist */,
+			);
+			path = "Minerva EyeUITests";
+			sourceTree = "<group>";
+		};
+		8BE30E95245739D30042280E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				8BE30E9624573A570042280E /* ScanView.swift */,
+				8BE30E9A245743930042280E /* ScanViewController.swift */,
+				8BE30E9824573B200042280E /* ManageView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BAAC37E24571F4700538C91 /* Minerva Eye */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BAAC3AC24571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva Eye" */;
+			buildPhases = (
+				8BAAC37B24571F4700538C91 /* Sources */,
+				8BAAC37C24571F4700538C91 /* Frameworks */,
+				8BAAC37D24571F4700538C91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Minerva Eye";
+			productName = "Minerva Eye";
+			productReference = 8BAAC37F24571F4700538C91 /* Minerva Eye.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BAAC39724571F4900538C91 /* Minerva EyeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BAAC3AF24571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva EyeTests" */;
+			buildPhases = (
+				8BAAC39424571F4900538C91 /* Sources */,
+				8BAAC39524571F4900538C91 /* Frameworks */,
+				8BAAC39624571F4900538C91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BAAC39A24571F4900538C91 /* PBXTargetDependency */,
+			);
+			name = "Minerva EyeTests";
+			productName = "Minerva EyeTests";
+			productReference = 8BAAC39824571F4900538C91 /* Minerva EyeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BAAC3A224571F4900538C91 /* Minerva EyeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BAAC3B224571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva EyeUITests" */;
+			buildPhases = (
+				8BAAC39F24571F4900538C91 /* Sources */,
+				8BAAC3A024571F4900538C91 /* Frameworks */,
+				8BAAC3A124571F4900538C91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BAAC3A524571F4900538C91 /* PBXTargetDependency */,
+			);
+			name = "Minerva EyeUITests";
+			productName = "Minerva EyeUITests";
+			productReference = 8BAAC3A324571F4900538C91 /* Minerva EyeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BAAC37724571F4600538C91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Tomas Korcak";
+				TargetAttributes = {
+					8BAAC37E24571F4700538C91 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					8BAAC39724571F4900538C91 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 8BAAC37E24571F4700538C91;
+					};
+					8BAAC3A224571F4900538C91 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 8BAAC37E24571F4700538C91;
+					};
+				};
+			};
+			buildConfigurationList = 8BAAC37A24571F4600538C91 /* Build configuration list for PBXProject "Minerva Eye" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BAAC37624571F4600538C91;
+			productRefGroup = 8BAAC38024571F4700538C91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BAAC37E24571F4700538C91 /* Minerva Eye */,
+				8BAAC39724571F4900538C91 /* Minerva EyeTests */,
+				8BAAC3A224571F4900538C91 /* Minerva EyeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BAAC37D24571F4700538C91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BAAC39224571F4900538C91 /* LaunchScreen.storyboard in Resources */,
+				8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */,
+				8BAAC38C24571F4900538C91 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC39624571F4900538C91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC3A124571F4900538C91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BAAC37B24571F4700538C91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BE30E9D245746F80042280E /* Schema.swift in Sources */,
+				8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */,
+				8BE30E9B245743930042280E /* ScanViewController.swift in Sources */,
+				8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */,
+				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
+				8BE30E9924573B200042280E /* ManageView.swift in Sources */,
+				8BAAC38A24571F4700538C91 /* ContentView.swift in Sources */,
+				8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC39424571F4900538C91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BAAC39D24571F4900538C91 /* Minerva_EyeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAAC39F24571F4900538C91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BAAC3A824571F4900538C91 /* Minerva_EyeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BAAC39A24571F4900538C91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BAAC37E24571F4700538C91 /* Minerva Eye */;
+			targetProxy = 8BAAC39924571F4900538C91 /* PBXContainerItemProxy */;
+		};
+		8BAAC3A524571F4900538C91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BAAC37E24571F4700538C91 /* Minerva Eye */;
+			targetProxy = 8BAAC3A424571F4900538C91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BAAC39124571F4900538C91 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8BAAC3AA24571F4900538C91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8BAAC3AB24571F4900538C91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BAAC3AD24571F4900538C91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Minerva Eye/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-Eye";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BAAC3AE24571F4900538C91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Minerva Eye/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-Eye";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8BAAC3B024571F4900538C91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "Minerva EyeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-EyeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minerva Eye.app/Minerva Eye";
+			};
+			name = Debug;
+		};
+		8BAAC3B124571F4900538C91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "Minerva EyeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-EyeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minerva Eye.app/Minerva Eye";
+			};
+			name = Release;
+		};
+		8BAAC3B324571F4900538C91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "Minerva EyeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-EyeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Minerva Eye";
+			};
+			name = Debug;
+		};
+		8BAAC3B424571F4900538C91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KX95WW6S4G;
+				INFOPLIST_FILE = "Minerva EyeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "korczis.Minerva-EyeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Minerva Eye";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BAAC37A24571F4600538C91 /* Build configuration list for PBXProject "Minerva Eye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BAAC3AA24571F4900538C91 /* Debug */,
+				8BAAC3AB24571F4900538C91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BAAC3AC24571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva Eye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BAAC3AD24571F4900538C91 /* Debug */,
+				8BAAC3AE24571F4900538C91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BAAC3AF24571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva EyeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BAAC3B024571F4900538C91 /* Debug */,
+				8BAAC3B124571F4900538C91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BAAC3B224571F4900538C91 /* Build configuration list for PBXNativeTarget "Minerva EyeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BAAC3B324571F4900538C91 /* Debug */,
+				8BAAC3B424571F4900538C91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8BAAC38724571F4700538C91 /* Minerva_Eye.xcdatamodel */,
+			);
+			currentVersion = 8BAAC38724571F4700538C91 /* Minerva_Eye.xcdatamodel */;
+			path = Minerva_Eye.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8BAAC37724571F4600538C91 /* Project object */;
+}

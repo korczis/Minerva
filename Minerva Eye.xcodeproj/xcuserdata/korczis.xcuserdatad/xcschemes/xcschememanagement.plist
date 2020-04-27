@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MinervaEye.xcscheme</key>
+		<key>Minerva Eye.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,20 +12,20 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8B8439FC2456018B008B461A</key>
+		<key>8BAAC37E24571F4700538C91</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
-		<key>8B843A172456018C008B461A</key>
+		<key>8BAAC39724571F4900538C91</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
-		<key>8B843A222456018C008B461A</key>
+		<key>8BAAC3A224571F4900538C91</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>

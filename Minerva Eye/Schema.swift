@@ -1,12 +1,10 @@
 //
 //  Schema.swift
-//  MinervaEye
+//  Minerva Eye
 //
 //  Created by Tomas Korcak on 4/27/20.
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
-
-import Foundation
 
 struct BookVolumeInfo: Encodable, Decodable {
     let title: String
@@ -24,7 +22,7 @@ struct BookVolumeInfo: Encodable, Decodable {
     let canonicalVolumeLink: String?
     
     let authors: [String]
-    let categories: [String]
+    let categories: [String]?
 }
 
 struct BookItem: Encodable, Decodable {
@@ -40,4 +38,3 @@ struct BookQueryResult: Encodable, Decodable {
     let totalItems: Int
     let items: [BookItem]
 }
-

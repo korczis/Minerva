@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 
-struct BookVolumeInfo: Encodable, Decodable {
+struct BookVolumeInfo: Hashable, Codable {
     let title: String
     let subtitle: String?
     let description: String?
@@ -25,7 +25,7 @@ struct BookVolumeInfo: Encodable, Decodable {
     let categories: [String]?
 }
 
-struct BookItem: Encodable, Decodable {
+struct BookItem: Hashable, Codable {
     let kind: String
     let id: String
     let etag: String
@@ -33,7 +33,7 @@ struct BookItem: Encodable, Decodable {
     let volumeInfo: BookVolumeInfo
 }
 
-struct BookQueryResult: Encodable, Decodable {
+struct BookQueryResult: Hashable, Codable {
     let kind: String
     let totalItems: Int
     let items: [BookItem]

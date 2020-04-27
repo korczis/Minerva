@@ -14,11 +14,11 @@ import SwiftUI
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var qrCodeFrameView: UIView?
+    var boundsView: UIView?
     
     // korczis
-    var lookupEnabled: Bool = true
-    var bookCache: [String: BookItem] = [:]
+//    var lookupEnabled: Bool = true
+//    var bookCache: [String: BookItem] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +64,9 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         captureSession.startRunning()
         
         // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
+        boundsView = UIView()
         
-        if let qrCodeFrameView = qrCodeFrameView {
+        if let qrCodeFrameView = boundsView {
             qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
             qrCodeFrameView.layer.borderWidth = 2
             view.addSubview(qrCodeFrameView)
@@ -102,7 +102,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
+            boundsView?.frame = CGRect.zero
             return
         }
 
@@ -112,7 +112,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             let barCodeObject = previewLayer?.transformedMetadataObject(for: metadataObject)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+            boundsView?.frame = barCodeObject!.bounds
                     
             // Process result
             found(code: stringValue)
@@ -124,19 +124,19 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     func found(code: String) {
         print(code)
         
-        if(!lookupEnabled) {
-            return
-        }
-        
-        lookupEnabled = false
-        
-        if let book = bookCache[code] {
-            print("Using cached book info - ISBN: \(code)")
-            displayBookInfo(book: book)
-        } else {
-            print("Fetching book info - ISBN: \(code)")
-            fetchBookInfo(isbn: code)
-        }
+//        if(!lookupEnabled) {
+//            return
+//        }
+//
+//        lookupEnabled = false
+//
+//        if let book = bookCache[code] {
+//            print("Using cached book info - ISBN: \(code)")
+//            displayBookInfo(book: book)
+//        } else {
+//            print("Fetching book info - ISBN: \(code)")
+//            fetchBookInfo(isbn: code)
+//        }
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -149,58 +149,58 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     // MARK: Helpers
     
-    private func displayBookInfo(book: BookItem) {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do {
-           let data = try encoder.encode(book)
-            print(String(data: data, encoding: .utf8)!)
-        } catch {
-            print(error)
-        }
-        
-        // create the alert
-        let title = book.volumeInfo.title;
-        let message = book.volumeInfo.subtitle;
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-            self.lookupEnabled = true
-        }))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func fetchBookInfo(isbn: String) {
-        if let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key=") {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    do {
-                        let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
-                        if(!res.items.isEmpty) {
-                            let book = res.items[0]
-                            
-                            self.bookCache[isbn] = book
-                            
-                            DispatchQueue.main.async {
-                                // self.tabBarController?.selectedIndex = 1
-                                self.displayBookInfo(book: book)
-                            }
-                        }
-                        
-                    } catch let error {
-                        self.lookupEnabled = true
-                        print(error)
-                    }
-                }
-            }
-            
-            task.resume()
-        }
-    }
+//    private func displayBookInfo(book: BookItem) {
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        do {
+//           let data = try encoder.encode(book)
+//            print(String(data: data, encoding: .utf8)!)
+//        } catch {
+//            print(error)
+//        }
+//
+//        // create the alert
+//        let title = book.volumeInfo.title;
+//        let message = book.volumeInfo.subtitle;
+//
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+//
+//        // add an action (button)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+//            self.lookupEnabled = true
+//        }))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//
+//    private func fetchBookInfo(isbn: String) {
+//        if let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key=") {
+//            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//                if let data = data {
+//                    do {
+//                        let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
+//                        if(!res.items.isEmpty) {
+//                            let book = res.items[0]
+//
+//                            self.bookCache[isbn] = book
+//
+//                            DispatchQueue.main.async {
+//                                // self.tabBarController?.selectedIndex = 1
+//                                self.displayBookInfo(book: book)
+//                            }
+//                        }
+//
+//                    } catch let error {
+//                        self.lookupEnabled = true
+//                        print(error)
+//                    }
+//                }
+//            }
+//
+//            task.resume()
+//        }
+//    }
 }
 
 extension ScanViewController: UIViewControllerRepresentable {

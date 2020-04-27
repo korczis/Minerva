@@ -25,11 +25,20 @@ struct ContentView: View {
             ManageView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "list.bullet")
+                        Image(systemName: "book")
                         Text("Manage")
                     }
                 }
                 .tag(1)
+            
+            LogsView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.bullet")
+                        Text("Logs")
+                    }
+                }
+                .tag(2)
         }
     }
 }

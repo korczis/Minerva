@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0E9C9924565994001DE2A0 /* MinervaEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A1C2456018C008B461A /* MinervaEyeTests.swift */; };
 		8B843A012456018B008B461A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A002456018B008B461A /* AppDelegate.swift */; };
 		8B843A032456018B008B461A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A022456018B008B461A /* SceneDelegate.swift */; };
 		8B843A052456018B008B461A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A042456018B008B461A /* ScanViewController.swift */; };
 		8B843A072456018B008B461A /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A062456018B008B461A /* DatabaseViewController.swift */; };
 		8B843A0A2456018B008B461A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A082456018B008B461A /* Main.storyboard */; };
-		8B843A0D2456018B008B461A /* Minerva.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A0B2456018B008B461A /* Minerva.xcdatamodeld */; };
+		8B843A0D2456018B008B461A /* MinervaEye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A0B2456018B008B461A /* MinervaEye.xcdatamodeld */; };
 		8B843A0F2456018C008B461A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A0E2456018C008B461A /* Assets.xcassets */; };
 		8B843A122456018C008B461A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B843A102456018C008B461A /* LaunchScreen.storyboard */; };
-		8B843A1D2456018C008B461A /* MinervaEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A1C2456018C008B461A /* MinervaEyeTests.swift */; };
 		8B843A282456018C008B461A /* MinervaEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843A272456018C008B461A /* MinervaEyeUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +111,7 @@
 				8B843A0E2456018C008B461A /* Assets.xcassets */,
 				8B843A102456018C008B461A /* LaunchScreen.storyboard */,
 				8B843A132456018C008B461A /* Info.plist */,
-				8B843A0B2456018B008B461A /* Minerva.xcdatamodeld */,
+				8B843A0B2456018B008B461A /* MinervaEye.xcdatamodeld */,
 			);
 			path = MinervaEye;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 				8B843A072456018B008B461A /* DatabaseViewController.swift in Sources */,
 				8B843A052456018B008B461A /* ScanViewController.swift in Sources */,
 				8B843A012456018B008B461A /* AppDelegate.swift in Sources */,
-				8B843A0D2456018B008B461A /* Minerva.xcdatamodeld in Sources */,
+				8B843A0D2456018B008B461A /* MinervaEye.xcdatamodeld in Sources */,
 				8B843A032456018B008B461A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B843A1D2456018C008B461A /* MinervaEyeTests.swift in Sources */,
+				8B0E9C9924565994001DE2A0 /* MinervaEyeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,13 +604,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8B843A0B2456018B008B461A /* Minerva.xcdatamodeld */ = {
+		8B843A0B2456018B008B461A /* MinervaEye.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				8B843A0C2456018B008B461A /* Minerva.xcdatamodel */,
 			);
 			currentVersion = 8B843A0C2456018B008B461A /* Minerva.xcdatamodel */;
-			path = Minerva.xcdatamodeld;
+			path = MinervaEye.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

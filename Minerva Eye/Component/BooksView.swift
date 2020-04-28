@@ -16,9 +16,23 @@ struct BookDetailView: View {
             Text(data.volumeInfo.title)
                 .font(.title)
             
-            Text("Author: \(data.volumeInfo.authors[0])")
+            Text("Author")
+                .font(.headline)
+                .padding(.top, 10)
+            Text("\(data.volumeInfo.authors[0])")
+                .padding(.top, 3)
+                
+            Text("Subtitle")
+                .font(.headline)
+                .padding(.top, 10)
+            Text("\(data.volumeInfo.subtitle ?? "N/A")")
+                .padding(.top, 3)
             
-            Text("Subtitle: \(data.volumeInfo.subtitle ?? "N/A")")
+            Text("Description")
+                .font(.headline)
+                .padding(.top, 10)
+            Text("\(data.volumeInfo.description ?? "N/A")")
+                .padding(.top, 3)
             
             Spacer()
         }

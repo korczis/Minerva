@@ -16,11 +16,11 @@ struct BookDetailView: View {
             Text(data.title ?? "N/A")
                 .font(.title)
             
-//            Text("Author")
-//                .font(.headline)
-//                .padding(.top, 10)
-//            Text("\(data.volumeInfo.authors[0])")
-//                .padding(.top, 3)
+            Text("Author")
+                .font(.headline)
+                .padding(.top, 10)
+            Text("\(data.author ?? "N/A")")
+                .padding(.top, 3)
                 
             Text("Subtitle")
                 .font(.headline)
@@ -46,6 +46,8 @@ struct BooksViewRow: View {
         VStack(alignment: .leading) {
             Text(data.title ?? "N/A")
                 .font(.title)
+            
+            Text(data.author ?? "N/A")
         }
     }
 }

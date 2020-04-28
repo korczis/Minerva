@@ -155,7 +155,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
                     .map { book in
                         if let book = book {
                             self.cache[code] = book
-                            self.displayBookInfo(book: book)
+                            self.displayBookInfo(isbn: code, book: book)
                             // DispatchQueue.main.async { self.displayBookInfo(book: book) }
                         }
                     }
@@ -173,7 +173,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     // MARK: Helpers
     
-    private func displayBookInfo(book: BookItem) {
+    private func displayBookInfo(isbn: String, book: BookItem) {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
@@ -184,23 +184,18 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         DispatchQueue.main.async {
-//            print("Adding book to the list")
-//            self.data.append(book)
-            
-            print("Adding Book to Core Data, before save - context: \(self.managedObjectContext)")
-            
             let item = Book(context: self.managedObjectContext)
             item.title = book.volumeInfo.title
             item.subtitle = book.volumeInfo.subtitle ?? "N/A"
+            item.author = book.volumeInfo.authors.joined(separator: ", ")
             item.desc = book.volumeInfo.description ?? "N/A"
+            item.isbn = isbn
             
             do {
                 try self.managedObjectContext.save()
             } catch let error {
                 print("Error saving context, reason: \(error)")
             }
-            
-            print("Adding Book to Core Data, after save - context: \(self.managedObjectContext)")
         }
     }
 

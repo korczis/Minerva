@@ -6,8 +6,8 @@
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 
-import SwiftUI
-import Combine
+//import SwiftUI
+//import Combine
 
 //final class BooksData: ObservableObject  {
 //    @Published var cache: [String: BookItem] = [:]
@@ -21,20 +21,20 @@ import Combine
 //    ]
 //}
 
-final class StateData: ObservableObject  {
-    @Published var books: [BookItem] = [
-    ]
-    
-    @Published var logs: [String] = [
-        "Log message #0",
-        "Log message #1",
-        "Log message #2",
-        "Log message #3",
-        "Log message #4",
-        "Log message #5",
-        "Log message #6",
-        "Log message #7",
-        "Log message #8",
-        "Log message #9",
-    ]
-}
+//final class StateData: ObservableObject  {
+//    @Published var books: [BookItem] = [
+//    ]
+//    
+//    @Published var logs: [String] = [
+//        "Log message #0",
+//        "Log message #1",
+//        "Log message #2",
+//        "Log message #3",
+//        "Log message #4",
+//        "Log message #5",
+//        "Log message #6",
+//        "Log message #7",
+//        "Log message #8",
+//        "Log message #9",
+//    ]
+//}

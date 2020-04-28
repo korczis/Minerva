@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isbn" optional="YES" attributeType="String"/>
         <attribute name="subtitle" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="isbn"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="LogEntry" representedClassName="LogEntry" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -13,7 +19,7 @@
         <attribute name="ts" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="Book" positionX="-54" positionY="-9" width="128" height="28"/>
         <element name="LogEntry" positionX="-36" positionY="36" width="128" height="88"/>
     </elements>
 </model>

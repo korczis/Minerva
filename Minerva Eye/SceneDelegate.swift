@@ -6,6 +6,7 @@
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 
+import CoreData
 import UIKit
 import SwiftUI
 
@@ -23,6 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Get the managed object context from the shared persistent container.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
 
         print("Created scene context - \(context)")
         

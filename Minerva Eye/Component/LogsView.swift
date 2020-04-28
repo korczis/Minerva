@@ -8,14 +8,6 @@
 
 import SwiftUI
 
-//struct LogDetail: View {
-//    var log: String = ""
-//
-//    var body: some View {
-//        Text("Log Detail")
-//    }
-//}
-
 struct LogsView: View {
     var data: [String] = []
     
@@ -28,15 +20,6 @@ struct LogsView: View {
                 Text(log)
             }
         }
-//        NavigationView {
-//            ForEach(logsData.entries, id: \.self) { log in
-//                NavigationLink(destination: LogDetail(log: log)) {
-//                    Text(log)
-//                }
-//                Text(log)
-//            }
-//            .navigationBarTitle(Text("Landmarks"))
-//        }
     }
 }
 

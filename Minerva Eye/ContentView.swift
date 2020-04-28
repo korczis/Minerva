@@ -32,14 +32,14 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            LogsView(data: stateData.logs)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "list.bullet")
-                        Text("Logs")
-                    }
-                }
-                .tag(2)
+//            LogsView(data: stateData.logs)
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "list.bullet")
+//                        Text("Logs")
+//                    }
+//                }
+//                .tag(2)
         }
     }
 }

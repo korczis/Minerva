@@ -8,6 +8,39 @@
 
 import SwiftUI
 
+struct BookDetailView: View {
+    var data: BookItem
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(data.volumeInfo.title)
+                .font(.title)
+            
+            Text("Author: \(data.volumeInfo.authors[0])")
+            
+            Text("Subtitle: \(data.volumeInfo.subtitle!)")
+            
+            Spacer()
+        }
+    }
+}
+
+
+struct BookListView: View {
+    var data: [BookItem] = []
+    
+    var body: some View {
+        NavigationView {
+            List(data, id: \.self) { book in
+                NavigationLink(destination: BookDetailView(data: book)) {
+                    BooksViewRow(data: book)
+                }
+            }
+            .navigationBarTitle(Text("Books"))
+        }
+    }
+}
+
 struct BooksViewRow: View {
     var data: BookItem
     
@@ -26,12 +59,10 @@ struct BooksView: View {
     
     var body: some View {
         VStack {
-            Text("Books")
-                .font(.title)
+//            Text("Books")
+//                .font(.title)
             
-            List(data, id: \.self) { book in
-                BooksViewRow(data: book)
-            }
+            BookListView(data: data)
         }
     }
 }

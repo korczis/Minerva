@@ -9,6 +9,7 @@
 import Foundation
 
 class Resolver {
+    // static private var cache: [String: BookItem] = [:]
     
     enum LookupError: Error {
         case wrongRequest

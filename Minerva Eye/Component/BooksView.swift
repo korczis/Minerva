@@ -25,22 +25,6 @@ struct BookDetailView: View {
     }
 }
 
-
-struct BookListView: View {
-    var data: [BookItem] = []
-    
-    var body: some View {
-        NavigationView {
-            List(data, id: \.self) { book in
-                NavigationLink(destination: BookDetailView(data: book)) {
-                    BooksViewRow(data: book)
-                }
-            }
-            .navigationBarTitle(Text("Books"))
-        }
-    }
-}
-
 struct BooksViewRow: View {
     var data: BookItem
     
@@ -56,19 +40,34 @@ struct BooksViewRow: View {
 
 struct BooksView: View {
     var data: [BookItem] = []
+    var handleScan: () -> ()
     
     var body: some View {
         VStack {
-//            Text("Books")
-//                .font(.title)
-            
-            BookListView(data: data)
+            NavigationView {
+                List(data, id: \.self) { book in
+                    NavigationLink(destination: BookDetailView(data: book)) {
+                        BooksViewRow(data: book)
+                    }
+                }
+//                .navigationBarItems(
+//                    trailing: HStack {
+//                        Button(action: {
+//                            self.handleScan()
+//                        }) {
+//                            Image(systemName: "camera")
+//                                .font(.largeTitle)
+//                        }.foregroundColor(.blue)
+//                    }
+//                )
+                .navigationBarTitle(Text("Books"))
+            }
         }
     }
 }
 
 struct BooksView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksView()
+        BooksView(handleScan: {})
     }
 }

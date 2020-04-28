@@ -31,6 +31,7 @@ class Resolver {
         
         let semaphore = DispatchSemaphore(value: 0)
         
+        print("Calling Google Books API")
         URLSession.shared.dataTask(with: url) { data, response, error in
 //            print(data)
 //            print(response)

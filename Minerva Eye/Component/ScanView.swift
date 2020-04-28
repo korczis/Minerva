@@ -20,9 +20,7 @@ struct ScanView: View {
         NavigationView {
             ZStack {
                 ScanViewController(data: $data)
-//                Text("Scan Window")
-//                    .font(.title)
-//                    .navigationBarTitle(Text("Scanner"), displayMode: .inline)
+                    .navigationBarTitle(Text("Scan"))
             }
         }
     }

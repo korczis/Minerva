@@ -13,6 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var stateData: StateData
  
     var body: some View {
+//        BooksView(data: stateData.books)
+
         TabView(selection: $selection){
             ScanView(data: $stateData.books)
                 .tabItem {
@@ -22,8 +24,12 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            
-            BooksView(data: stateData.books)
+
+            BooksView(data: stateData.books, handleScan: {
+                    DispatchQueue.main.async {
+                        self.selection = 0
+                    }
+                })
                 .tabItem {
                     VStack {
                         Image(systemName: "book")

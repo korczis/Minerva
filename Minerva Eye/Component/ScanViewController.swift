@@ -183,7 +183,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         DispatchQueue.main.async {
-            print("Appending data")
+            print("Adding book to the list")
             self.data.append(book)
         }
 //

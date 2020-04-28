@@ -176,9 +176,9 @@
 		8BE30E95245739D30042280E /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				8BE30E9824573B200042280E /* BooksView.swift */,
 				8BE30E9624573A570042280E /* ScanView.swift */,
 				8BE30E9A245743930042280E /* ScanViewController.swift */,
-				8BE30E9824573B200042280E /* BooksView.swift */,
 				8B4B7ED8245758F300B94D17 /* LogsView.swift */,
 			);
 			path = Component;

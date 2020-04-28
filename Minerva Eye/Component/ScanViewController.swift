@@ -13,6 +13,9 @@ import SwiftUI
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @Binding var data: [BookItem]
     
+    // FIXME: This is per view! Should be computed or inferred!
+    private var cache: [String: BookItem] = [:]
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var boundsView: UIView?
@@ -133,22 +136,30 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             found(code: stringValue)
         }
         
+        // When metadata are proccessed, continue capturing again
+        captureSession.startRunning()
+        
         dismiss(animated: true)
     }
     
     func found(code: String) {
         print("Recognized code \(code)")
         
-        DispatchQueue.global(qos: .utility)
+        if let _ = self.cache[code] {
+            print("Already processed \(code)")
+        } else {
+            DispatchQueue.global(qos: .utility)
             .async {
                 let _ = Resolver.fetchBookInfo(isbn: code)
                     .map { book in
                         if let book = book {
+                            self.cache[code] = book
                             self.displayBookInfo(book: book)
                             // DispatchQueue.main.async { self.displayBookInfo(book: book) }
                         }
                     }
             }
+        }
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -172,6 +183,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         DispatchQueue.main.async {
+            print("Appending data")
             self.data.append(book)
         }
 //

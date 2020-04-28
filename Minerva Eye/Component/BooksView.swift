@@ -8,16 +8,29 @@
 
 import SwiftUI
 
+struct BooksViewRow: View {
+    var data: BookItem
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(data.volumeInfo.title)
+                .font(.title)
+            
+            Text(data.volumeInfo.authors[0])
+        }
+    }
+}
+
 struct BooksView: View {
     var data: [BookItem] = []
     
     var body: some View {
         VStack {
-            Text("Books View")
+            Text("Books")
                 .font(.title)
             
-            List(data, id: \.self) { log in
-                Text(log.volumeInfo.title)
+            List(data, id: \.self) { book in
+                BooksViewRow(data: book)
             }
         }
     }

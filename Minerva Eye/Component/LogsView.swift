@@ -21,7 +21,7 @@ struct LogsView: View {
     
     var body: some View {
         VStack {
-            Text("Logs View")
+            Text("Logs")
                 .font(.title)
             
             List(data, id: \.self) { log in

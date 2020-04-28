@@ -10,13 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection = 0
-    @EnvironmentObject var stateData: StateData
  
     var body: some View {
 //        BooksView(data: stateData.books)
 
         TabView(selection: $selection){
-            ScanView(data: $stateData.books)
+            ScanView()
                 .tabItem {
                     VStack {
                         Image(systemName: "camera")
@@ -25,7 +24,7 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-            BooksView(data: stateData.books, handleScan: {
+            BooksView(handleScan: {
                     DispatchQueue.main.async {
                         self.selection = 0
                     }
@@ -50,9 +49,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(StateData())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//            .environmentObject(StateData())
+//    }
+//}

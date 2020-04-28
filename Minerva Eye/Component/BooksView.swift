@@ -9,29 +9,29 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    var data: BookItem
+    var data: Book
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(data.volumeInfo.title)
+            Text(data.title ?? "N/A")
                 .font(.title)
             
-            Text("Author")
-                .font(.headline)
-                .padding(.top, 10)
-            Text("\(data.volumeInfo.authors[0])")
-                .padding(.top, 3)
+//            Text("Author")
+//                .font(.headline)
+//                .padding(.top, 10)
+//            Text("\(data.volumeInfo.authors[0])")
+//                .padding(.top, 3)
                 
             Text("Subtitle")
                 .font(.headline)
                 .padding(.top, 10)
-            Text("\(data.volumeInfo.subtitle ?? "N/A")")
+            Text("\(data.subtitle ?? "N/A")")
                 .padding(.top, 3)
             
             Text("Description")
                 .font(.headline)
                 .padding(.top, 10)
-            Text("\(data.volumeInfo.description ?? "N/A")")
+            Text("\(data.desc ?? "N/A")")
                 .padding(.top, 3)
             
             Spacer()
@@ -40,20 +40,26 @@ struct BookDetailView: View {
 }
 
 struct BooksViewRow: View {
-    var data: BookItem
+    var data: Book
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(data.volumeInfo.title)
+            Text(data.title ?? "N/A")
                 .font(.title)
-            
-            Text(data.volumeInfo.authors[0])
         }
     }
 }
 
 struct BooksView: View {
-    var data: [BookItem] = []
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+        ]
+    ) var data: FetchedResults<Book>
+    
     var handleScan: () -> ()
     
     var body: some View {
@@ -64,16 +70,6 @@ struct BooksView: View {
                         BooksViewRow(data: book)
                     }
                 }
-//                .navigationBarItems(
-//                    trailing: HStack {
-//                        Button(action: {
-//                            self.handleScan()
-//                        }) {
-//                            Image(systemName: "camera")
-//                                .font(.largeTitle)
-//                        }.foregroundColor(.blue)
-//                    }
-//                )
                 .navigationBarTitle(Text("Books"))
             }
         }

@@ -10,16 +10,12 @@ import SwiftUI
 import AVFoundation
 
 struct ScanView: View {
-    @Binding var data: [BookItem]
-    
-    init(data: Binding<[BookItem]> = .constant([])) {
-        self._data = data
-    }
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
         NavigationView {
             ZStack {
-                ScanViewController(data: $data)
+                ScanViewController(managedObjectContext: self.managedObjectContext)
                     .navigationBarTitle(Text("Scan"))
             }
         }

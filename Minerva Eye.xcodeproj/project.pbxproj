@@ -110,6 +110,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8B4B7EE92458A98600B94D17 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		8BAAC37624571F4600538C91 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +147,7 @@
 				8BAAC38224571F4700538C91 /* AppDelegate.swift */,
 				8BAAC38424571F4700538C91 /* SceneDelegate.swift */,
 				8BAAC38924571F4700538C91 /* ContentView.swift */,
+				8B4B7EE92458A98600B94D17 /* Entity */,
 				8BAAC38B24571F4900538C91 /* Assets.xcassets */,
 				8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */,
 				8BAAC39324571F4900538C91 /* Info.plist */,

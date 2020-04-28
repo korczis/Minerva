@@ -17,13 +17,8 @@ extension Book {
         return NSFetchRequest<Book>(entityName: "Book")
     }
 
-<<<<<<< Updated upstream
-    @NSManaged public var title: String?
-    @NSManaged public var id: UUID?
-=======
     @NSManaged public var id: UUID?
     @NSManaged public var title: String?
->>>>>>> Stashed changes
     @NSManaged public var subtitle: String?
     @NSManaged public var isbn: String?
     @NSManaged public var desc: String?

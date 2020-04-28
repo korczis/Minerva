@@ -7,11 +7,12 @@
 //
 
 import AVFoundation
-import UIKit
+import CoreData
 import SwiftUI
+import UIKit
 
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @Binding var data: [BookItem]
+    var managedObjectContext: NSManagedObjectContext
     
     // FIXME: This is per view! Should be computed or inferred!
     private var cache: [String: BookItem] = [:]
@@ -20,11 +21,11 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     var previewLayer: AVCaptureVideoPreviewLayer!
     var boundsView: UIView?
     
-    init(data: Binding<[BookItem]> = .constant([])) {
-        self._data = data
-        super.init(nibName: nil, bundle: nil)
-    }
-
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.managedObjectContext = managedObjectContext
+       super.init(nibName: nil, bundle: nil)
+   }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -183,23 +184,24 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         DispatchQueue.main.async {
-            print("Adding book to the list")
-            self.data.append(book)
+//            print("Adding book to the list")
+//            self.data.append(book)
+            
+            print("Adding Book to Core Data, before save - context: \(self.managedObjectContext)")
+            
+            let item = Book(context: self.managedObjectContext)
+            item.title = book.volumeInfo.title
+            item.subtitle = book.volumeInfo.subtitle ?? "N/A"
+            item.desc = book.volumeInfo.description ?? "N/A"
+            
+            do {
+                try self.managedObjectContext.save()
+            } catch let error {
+                print("Error saving context, reason: \(error)")
+            }
+            
+            print("Adding Book to Core Data, after save - context: \(self.managedObjectContext)")
         }
-//
-//        // create the alert
-//        let title = book.volumeInfo.title;
-//        let message = book.volumeInfo.subtitle;
-//
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-//
-//        // add an action (button)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-//            // self.lookupEnabled = true
-//        }))
-//
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
     }
 
 }
@@ -209,7 +211,7 @@ extension ScanViewController: UIViewControllerRepresentable {
     public typealias UIViewControllerType = ScanViewController
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ScanViewController>) -> ScanViewController {
-        return ScanViewController(data: $data)
+        return ScanViewController(managedObjectContext: self.managedObjectContext)
     }
     
     func updateUIViewController(_ uiViewController: ScanViewController, context: UIViewControllerRepresentableContext<ScanViewController>) {

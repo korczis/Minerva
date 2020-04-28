@@ -18,7 +18,7 @@ struct BookDetailView: View {
             
             Text("Author: \(data.volumeInfo.authors[0])")
             
-            Text("Subtitle: \(data.volumeInfo.subtitle!)")
+            Text("Subtitle: \(data.volumeInfo.subtitle ?? "N/A")")
             
             Spacer()
         }

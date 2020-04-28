@@ -9,7 +9,7 @@
 import Foundation
 
 class Resolver {
-    // static private var cache: [String: BookItem] = [:]
+    static private var cache: [String: BookItem] = [:]
     
     enum LookupError: Error {
         case wrongRequest
@@ -17,6 +17,11 @@ class Resolver {
     }
     
     static func fetchBookInfo(isbn: String) -> Result<BookItem?, LookupError> {
+        if let book = cache[isbn] {
+            print("Using cached book info - ISBN: \(isbn)")
+            return .success(book)
+        }
+        
         let path = "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key="
         guard let url = URL(string: path) else {
             return .failure(.wrongRequest)
@@ -40,6 +45,7 @@ class Resolver {
                     let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
                     if(!res.items.isEmpty) {
                         let book = res.items[0]
+                        self.cache[isbn] = book
                         result = .success(book)
                     }
                     

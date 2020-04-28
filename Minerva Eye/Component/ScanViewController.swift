@@ -137,7 +137,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func found(code: String) {
-        print(code)
+        print("Recognized code \(code)")
         
         DispatchQueue.global(qos: .utility)
             .async {

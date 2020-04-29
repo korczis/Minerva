@@ -31,14 +31,14 @@ class Resolver {
         
         let semaphore = DispatchSemaphore(value: 0)
         
-        print("Calling Google Books API")
+        print("Calling Google Books API - ISBN: \(isbn)")
         URLSession.shared.dataTask(with: url) { data, response, error in
 //            print(data)
 //            print(response)
 //            print(error)
             
             if let error = error {
-                print("Google Books API failed, error: \(error)")
+                print("Google Books API failed - ISBN: \(isbn), error: \(error)")
                 result = .failure(.wrongResponse)
             }
             
@@ -53,8 +53,8 @@ class Resolver {
                         result = .success(book)
                     }
                     
-                } catch {
-                    print("Unable to decode Google API response")
+                } catch  {
+                    print("Unable to decode Google API response - ISBN: \(isbn)")
                     result = .failure(.wrongResponse)
                 }
             }

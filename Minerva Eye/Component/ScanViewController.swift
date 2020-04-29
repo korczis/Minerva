@@ -106,6 +106,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        DispatchQueue.main.async {
+            self.logMessage = ""
+        }
+        
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
         }
@@ -195,17 +199,17 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     // MARK: Helpers
     
     private func saveBookInfo(isbn: String, book: BookItem) {
-        self.logMessage = "Saving book info \(isbn)"
+        self.logMessage = "Saving book info, ISBN: \(isbn)"
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
            let data = try encoder.encode(book)
             print(String(data: data, encoding: .utf8)!)
-            self.logMessage = "Decoded book info \(isbn)"
+            self.logMessage = "Decoded book info, ISBN: \(isbn)"
         } catch {
             print(error)
-            self.logMessage = "Unable to decode book info \(isbn)"
+            self.logMessage = "Unable to decode book info, ISBN: \(isbn)"
         }
         
         DispatchQueue.main.async {
@@ -222,10 +226,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             
             do {
                 try self.managedObjectContext.save()
-                self.logMessage = "Saved book info \(isbn)"
+                self.logMessage = "Saved book info, ISBN: \(isbn)"
             } catch let error {
                 print("Error saving context, reason: \(error)")
-                self.logMessage = "Unable to save book info \(isbn)"
+                self.logMessage = "Unable to save book info: ISBN \(isbn), reason: \(error)"
             }
         }
     }

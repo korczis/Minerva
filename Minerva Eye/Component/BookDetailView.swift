@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct BookDetailView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var data: Book
     
     var body: some View {
@@ -102,6 +104,22 @@ struct BookDetailView: View {
                 Spacer()
             }
             .navigationBarTitle("Book Details")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    print("Deleting book \(self.data)")
+                    
+                    do {
+                        self.managedObjectContext.delete(self.data)
+                        try self.managedObjectContext.save()
+                    } catch {
+                        print("Failed to delete book \(self.data)")
+                    }
+                    
+                     self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Delete")
+                }
+            )
             .padding()
         }
     }

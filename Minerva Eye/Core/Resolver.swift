@@ -37,11 +37,14 @@ class Resolver {
 //            print(response)
 //            print(error)
             
-            if let _ = error {
+            if let error = error {
+                print("Google Books API failed, error: \(error)")
                 result = .failure(.wrongResponse)
             }
             
             if let data = data {
+                print("Google API returned data - \(data)")
+                
                 do {
                     let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
                     if(!res.items.isEmpty) {
@@ -51,6 +54,7 @@ class Resolver {
                     }
                     
                 } catch {
+                    print("Unable to decode Google API response")
                     result = .failure(.wrongResponse)
                 }
             }

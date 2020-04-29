@@ -163,15 +163,22 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         DispatchQueue.global(qos: .utility).async {
             self.logMessage = "Fetching book info, ISBN: \(code)"
             
-            let _ = Resolver.fetchBookInfo(isbn: code)
-                .map { book in
-                    if let book = book {
-                        self.cache[code] = book
-                        self.saveBookInfo(isbn: code, book: book)
-                        // DispatchQueue.main.async { self.displayBookInfo(book: book) }
-                    }
-                }
+            let res = Resolver.fetchBookInfo(isbn: code)
+
+//            if let data = try? res.get() {
+//                if (data == nil) {
+//                    self.logMessage = "Fetching book info failed, ISBN: \(code)"
+//                }
+//            }
             
+            let _ = res.map { book in
+                if let book = book {
+                    self.cache[code] = book
+                    self.saveBookInfo(isbn: code, book: book)
+                    // DispatchQueue.main.async { self.displayBookInfo(book: book) }
+                }
+            }
+
             // When metadata are proccessed, continue capturing again
             self.captureSession.startRunning()
         }

@@ -12,29 +12,32 @@ struct BookDetailView: View {
     var data: Book
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(data.title ?? "N/A")
-                .font(.title)
-            
-            Text("Author")
-                .font(.headline)
-                .padding(.top, 10)
-            Text("\(data.author ?? "N/A")")
-                .padding(.top, 3)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                Text(data.title ?? "N/A")
+                    .font(.title)
                 
-            Text("Subtitle")
-                .font(.headline)
-                .padding(.top, 10)
-            Text("\(data.subtitle ?? "N/A")")
-                .padding(.top, 3)
-            
-            Text("Description")
-                .font(.headline)
-                .padding(.top, 10)
-            Text("\(data.desc ?? "N/A")")
-                .padding(.top, 3)
-            
-            Spacer()
+                Text("Author")
+                    .font(.headline)
+                    .padding(.top, 10)
+                Text("\(data.authors?.joined(separator: ", ") ?? "N/A")")
+                    .padding(.top, 3)
+                    
+                Text("Subtitle")
+                    .font(.headline)
+                    .padding(.top, 10)
+                Text("\(data.subtitle ?? "N/A")")
+                    .padding(.top, 3)
+                
+                Text("Description")
+                    .font(.headline)
+                    .padding(.top, 10)
+                Text("\(data.desc ?? "N/A")")
+                    .padding(.top, 3)
+                    .lineLimit(nil)
+                
+                Spacer()
+            }
         }
     }
 }
@@ -47,7 +50,7 @@ struct BooksViewRow: View {
             Text(data.title ?? "N/A")
                 .font(.title)
             
-            Text(data.author ?? "N/A")
+            Text(data.authors?.joined(separator: ", ") ?? "N/A")
         }
     }
 }

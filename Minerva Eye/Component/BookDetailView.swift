@@ -25,7 +25,7 @@ struct BookDetailView: View {
                     Text("\(data.authors?.joined(separator: ", ") ?? "N/A")")
                         .padding(.top, 3)
                 }
-                    
+                
                 // Subtitle
                 if data.subtitle != nil {
                     Text("Subtitle")
@@ -34,6 +34,53 @@ struct BookDetailView: View {
                     Text("\(data.subtitle ?? "N/A")")
                         .padding(.top, 3)
                 }
+                
+                // Categories
+                if data.categories != nil {
+                    Text("Categories")
+                        .font(.headline)
+                        .padding(.top, 10)
+                    Text("\(data.categories?.joined(separator: ", ") ?? "N/A")")
+                        .padding(.top, 3)
+                }
+                
+                // Subtitle
+                if data.language != nil {
+                    Text("Language")
+                        .font(.headline)
+                        .padding(.top, 10)
+                    Text("\(data.language ?? "N/A")")
+                        .padding(.top, 3)
+                }
+                
+                // ISBN
+                if data.isbn != nil {
+                    Text("ISBN")
+                        .font(.headline)
+                        .padding(.top, 10)
+                    Text("\(data.isbn ?? "N/A")")
+                        .padding(.top, 3)
+                }
+                
+                // Pubished Date
+                if data.publishedDate != nil {
+                    Text("Published Data")
+                        .font(.headline)
+                        .padding(.top, 10)
+                    Text("\(data.publishedDate ?? "N/A")")
+                        .padding(.top, 3)
+                }
+                
+                
+                
+//                // Pages
+//                if data.pageCount != nil {
+//                    Text("Pages")
+//                        .font(.headline)
+//                        .padding(.top, 10)
+//                    Text("\(data.pageCount)")
+//                        .padding(.top, 3)
+//                }
                 
                 // Description
                 if data.desc != nil {
@@ -55,6 +102,7 @@ struct BookDetailView: View {
                 Spacer()
             }
             .navigationBarTitle("Book Details")
+            .padding()
         }
     }
     

@@ -24,7 +24,7 @@ struct ContentView: View {
 //        BooksView(data: stateData.books)
 
         TabView(selection: $selection){
-            BooksView(handleScan: {
+            BooksListView(handleScan: {
                 DispatchQueue.main.async {
                     self.selection = 0
                 }

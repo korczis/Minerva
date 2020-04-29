@@ -15,6 +15,19 @@ struct ContentView: View {
 //        BooksView(data: stateData.books)
 
         TabView(selection: $selection){
+            BooksView(handleScan: {
+                DispatchQueue.main.async {
+                    self.selection = 0
+                }
+            })
+                .tabItem {
+                    VStack {
+                        Image(systemName: "book")
+                        Text("Books")
+                    }
+                }
+                .tag(0)
+            
             ScanView()
                 .tabItem {
                     VStack {
@@ -22,21 +35,8 @@ struct ContentView: View {
                         Text("Scan")
                     }
                 }
-                .tag(0)
-
-            BooksView(handleScan: {
-                    DispatchQueue.main.async {
-                        self.selection = 0
-                    }
-                })
-                .tabItem {
-                    VStack {
-                        Image(systemName: "book")
-                        Text("Books")
-                    }
-                }
                 .tag(1)
-            
+
 //            LogsView(data: stateData.logs)
 //                .tabItem {
 //                    VStack {

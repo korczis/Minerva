@@ -12,7 +12,7 @@ import SwiftUI
 import UIKit
 
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @State private var resolving = 0
+    @Binding var logMessage: String
     
     var managedObjectContext: NSManagedObjectContext
     
@@ -23,9 +23,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     var previewLayer: AVCaptureVideoPreviewLayer!
     var boundsView: UIView?
     
-    init(managedObjectContext: NSManagedObjectContext) {
+    init(logMessage: Binding<String>, managedObjectContext: NSManagedObjectContext) {
+        self._logMessage = logMessage
         self.managedObjectContext = managedObjectContext
-       super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: nil)
    }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,7 +119,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
     }
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection:
+        AVCaptureConnection) {
+        
+        // self.logMessage = "Metadata found"
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
@@ -130,10 +134,13 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
                         
-//            if let _ = self.cache[stringValue] {
-//                print("Already processed \(stringValue)")
-//                return
-//            }
+            // Prevent multiple lookups of same code/isbn
+            if let _ = self.cache[stringValue] {
+                let msg = "Book already processed, ISBN: \(stringValue)"
+                self.logMessage = msg
+                print(msg)
+                return
+            }
             
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             let barCodeObject = previewLayer?.transformedMetadataObject(for: metadataObject)
@@ -142,36 +149,33 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             // Stop capturing during processing
             captureSession.stopRunning()
             
-            // Process the data
-            found(code: stringValue)
-            
-            // When metadata are proccessed, continue capturing again
-            captureSession.startRunning()
+            // Process the data - responsible for self.captureSession.startRunning() !
+            process(code: stringValue)
         }
         
         dismiss(animated: true)
     }
     
-    func found(code: String) {
-        print("Recognized code \(code)")
+    func process(code: String) {
+        self.logMessage = "Processing book, ISBN: \(code)"
         
-        if let _ = self.cache[code] {
-            print("Already processed \(code)")
-        } else {
-            DispatchQueue.global(qos: .utility)
-            .async {
-                let _ = Resolver.fetchBookInfo(isbn: code)
-                    .map { book in
-                        if let book = book {
-                            self.cache[code] = book
-                            self.displayBookInfo(isbn: code, book: book)
-                            // DispatchQueue.main.async { self.displayBookInfo(book: book) }
-                        }
+        DispatchQueue.global(qos: .utility).async {
+            self.logMessage = "Fetching book info, ISBN: \(code)"
+            
+            let _ = Resolver.fetchBookInfo(isbn: code)
+                .map { book in
+                    if let book = book {
+                        self.cache[code] = book
+                        self.saveBookInfo(isbn: code, book: book)
+                        // DispatchQueue.main.async { self.displayBookInfo(book: book) }
                     }
-            }
+                }
+            
+            // When metadata are proccessed, continue capturing again
+            self.captureSession.startRunning()
         }
     }
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -182,7 +186,9 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     // MARK: Helpers
     
-    private func displayBookInfo(isbn: String, book: BookItem) {
+    private func saveBookInfo(isbn: String, book: BookItem) {
+        self.logMessage = "Saving book info \(isbn)"
+        
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
@@ -215,7 +221,7 @@ extension ScanViewController: UIViewControllerRepresentable {
     public typealias UIViewControllerType = ScanViewController
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ScanViewController>) -> ScanViewController {
-        return ScanViewController(managedObjectContext: self.managedObjectContext)
+        return ScanViewController(logMessage: self.$logMessage, managedObjectContext: self.managedObjectContext)
     }
     
     func updateUIViewController(_ uiViewController: ScanViewController, context: UIViewControllerRepresentableContext<ScanViewController>) {

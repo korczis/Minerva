@@ -11,12 +11,17 @@ import AVFoundation
 
 struct ScanView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @State var logMessage: String = ""
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ScanViewController(managedObjectContext: self.managedObjectContext)
-                    .navigationBarTitle(Text("Scan"))
+            VStack {
+                ZStack {
+                    ScanViewController(logMessage: $logMessage, managedObjectContext: self.managedObjectContext)
+                        .navigationBarTitle(Text("Scan"))
+                }
+                Text(logMessage)
+                    .padding(.bottom, 3)
             }
         }
     }

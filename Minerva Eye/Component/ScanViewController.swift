@@ -106,6 +106,11 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Clean log message
+        DispatchQueue.main.async {
+            self.logMessage = ""
+        }
+        
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
         }
@@ -137,8 +142,8 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             // Prevent multiple lookups of same code/isbn
             if let _ = self.cache[stringValue] {
                 let msg = "Book already processed, ISBN: \(stringValue)"
+                Logger.log(msg: msg)
                 self.logMessage = msg
-                print(msg)
                 return
             }
             
@@ -201,10 +206,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         encoder.outputFormatting = .prettyPrinted
         do {
            let data = try encoder.encode(book)
-            print(String(data: data, encoding: .utf8)!)
+            Logger.log(msg: String(data: data, encoding: .utf8)!)
             self.logMessage = "Decoded book info \(isbn)"
         } catch {
-            print(error)
+            Logger.log(msg: "Unable to decode book info \(isbn)")
             self.logMessage = "Unable to decode book info \(isbn)"
         }
         
@@ -224,7 +229,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
                 try self.managedObjectContext.save()
                 self.logMessage = "Saved book info \(isbn)"
             } catch let error {
-                print("Error saving context, reason: \(error)")
+                Logger.log(msg: "Error saving context, reason: \(error)")
                 self.logMessage = "Unable to save book info \(isbn)"
             }
         }

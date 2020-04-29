@@ -39,11 +39,12 @@ struct BooksListView: View {
     func delete(at offsets: IndexSet) {
         offsets.forEach() { idx in
             // Saving the Delete operation
+            let book = data[idx]
             do {
-                managedObjectContext.delete(data[idx])
+                managedObjectContext.delete(book)
                 try managedObjectContext.save()
             } catch {
-                print("Failed saving")
+                Logger.log(msg: "Unable to delete book: \(book)")
             }
         }
     }

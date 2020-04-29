@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        print("SceneDelegate - scene")
+        Logger.log(msg: "SceneDelegate - scene")
         
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         context.automaticallyMergesChangesFromParent = true
         context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
 
-        print("Created scene context - \(context)")
+        Logger.log(msg: "Created scene context - \(context)")
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
@@ -52,21 +52,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
         
-        print("SceneDelegate - sceneDidDisconnect")
+        Logger.log(msg: "SceneDelegate - sceneDidDisconnect")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         
-         print("SceneDelegate - sceneDidBecomeActive")
+         Logger.log(msg: "SceneDelegate - sceneDidBecomeActive")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
         
-        print("SceneDelegate - sceneWillResignActive")
+        Logger.log(msg: "SceneDelegate - sceneWillResignActive")
         
     }
 
@@ -74,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
         
-        print("SceneDelegate - sceneWillEnterForeground")
+        Logger.log(msg: "SceneDelegate - sceneWillEnterForeground")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -82,7 +82,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
 
-        print("SceneDelegate - sceneDidEnterBackground")
+        Logger.log(msg: "SceneDelegate - sceneDidEnterBackground")
         
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()

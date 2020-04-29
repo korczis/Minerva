@@ -114,7 +114,7 @@ struct BookDetailView: View {
 //            let transform = CGAffineTransform(scaleX: 3, y: 3)
 //
 //            if let output = filter.outputImage?.transformed(by: transform) {
-//                print("generateBarcode() - generated barcode image")
+//                Logger.log(msg: "generateBarcode() - generated barcode image")
 //                let res = UIImage(ciImage: output)
 //                DispatchQueue.main.async {
 //                    self.barcodeImage = res
@@ -123,7 +123,7 @@ struct BookDetailView: View {
 //            }
 //        }
 //
-//        print("generateBarcode() - failed to generate barcode image")
+//        Logger.log(msg: "generateBarcode() - failed to generate barcode image")
 //        return nil
 //    }
 }

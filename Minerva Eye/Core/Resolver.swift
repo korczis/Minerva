@@ -11,6 +11,7 @@ import Foundation
 class Resolver {
     static private var cache: [String: BookItem] = [:]
     
+    
     enum LookupError: Error {
         case wrongRequest
         case wrongResponse
@@ -18,7 +19,7 @@ class Resolver {
     
     static func fetchBookInfo(isbn: String) -> Result<BookItem?, LookupError> {
         if let book = cache[isbn] {
-            print("Using cached book info - ISBN: \(isbn)")
+            Logger.log(msg: "Using cached book info - ISBN: \(isbn)")
             return .success(book)
         }
         
@@ -33,17 +34,17 @@ class Resolver {
         
         print("Calling Google Books API")
         URLSession.shared.dataTask(with: url) { data, response, error in
-//            print(data)
-//            print(response)
-//            print(error)
+//            Logger.log(msg: data)
+//            Logger.log(msg: response)
+//            Logger.log(msg: error)
             
             if let error = error {
-                print("Google Books API failed, error: \(error)")
+                Logger.log(msg: "Google Books API failed, error: \(error)")
                 result = .failure(.wrongResponse)
             }
             
             if let data = data {
-                print("Google API returned data - \(data)")
+                Logger.log(msg: "Google API returned data - \(data)")
                 
                 do {
                     let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
@@ -54,7 +55,7 @@ class Resolver {
                     }
                     
                 } catch {
-                    print("Unable to decode Google API response")
+                    Logger.log(msg: "Unable to decode Google API response")
                     result = .failure(.wrongResponse)
                 }
             }

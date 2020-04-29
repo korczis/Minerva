@@ -11,6 +11,7 @@
 		8B1510122459F58100313A36 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1510112459F58100313A36 /* BookListRowView.swift */; };
 		8B15101B2459FB8F00313A36 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1510192459FB8F00313A36 /* Book+CoreDataClass.swift */; };
 		8B15101C2459FB8F00313A36 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15101A2459FB8F00313A36 /* Book+CoreDataProperties.swift */; };
+		8B15101E245A2A1C00313A36 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15101D245A2A1C00313A36 /* Logger.swift */; };
 		8B4B7ED9245758F300B94D17 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7ED8245758F300B94D17 /* LogsView.swift */; };
 		8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7EDB24576BE800B94D17 /* Resolver.swift */; };
 		8B4B7EE32457906500B94D17 /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7EE22457906500B94D17 /* StateData.swift */; };
@@ -51,6 +52,7 @@
 		8B1510112459F58100313A36 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		8B1510192459FB8F00313A36 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "Minerva Eye/Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8B15101A2459FB8F00313A36 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "Minerva Eye/Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B15101D245A2A1C00313A36 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8B4B7ED8245758F300B94D17 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
 		8B4B7EDB24576BE800B94D17 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		8B4B7EE22457906500B94D17 /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				8BE30E9C245746F80042280E /* Schema.swift */,
 				8B4B7EDB24576BE800B94D17 /* Resolver.swift */,
+				8B15101D245A2A1C00313A36 /* Logger.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */,
 				8B1510102459F52D00313A36 /* BookDetailView.swift in Sources */,
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
+				8B15101E245A2A1C00313A36 /* Logger.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
 				8B15101C2459FB8F00313A36 /* Book+CoreDataProperties.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */,
@@ -518,7 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;
@@ -541,7 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				ENABLE_PREVIEWS = YES;

@@ -12,6 +12,8 @@ import SwiftUI
 import UIKit
 
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @State private var resolving = 0
+    
     var managedObjectContext: NSManagedObjectContext
     
     // FIXME: This is per view! Should be computed or inferred!
@@ -117,7 +119,6 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
@@ -128,17 +129,25 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        
+//            if let _ = self.cache[stringValue] {
+//                print("Already processed \(stringValue)")
+//                return
+//            }
             
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             let barCodeObject = previewLayer?.transformedMetadataObject(for: metadataObject)
             boundsView?.frame = barCodeObject!.bounds
             
-            // Process result
+            // Stop capturing during processing
+            captureSession.stopRunning()
+            
+            // Process the data
             found(code: stringValue)
+            
+            // When metadata are proccessed, continue capturing again
+            captureSession.startRunning()
         }
-        
-        // When metadata are proccessed, continue capturing again
-        captureSession.startRunning()
         
         dismiss(animated: true)
     }
@@ -187,7 +196,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             let item = Book(context: self.managedObjectContext)
             item.title = book.volumeInfo.title
             item.subtitle = book.volumeInfo.subtitle ?? "N/A"
-            item.author = book.volumeInfo.authors.joined(separator: ", ")
+            item.authors = book.volumeInfo.authors
             item.desc = book.volumeInfo.description ?? "N/A"
             item.isbn = isbn
             

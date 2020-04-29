@@ -45,6 +45,7 @@ struct BookDetailView: View {
                 
                 Spacer()
             }
+            .navigationBarTitle(data.title ?? "N/A")
         }
     }
     
@@ -104,12 +105,27 @@ struct BooksView: View {
     var body: some View {
         VStack {
             NavigationView {
-                List(data.indices, id: \.self) { idx in
-                    NavigationLink(destination: BookDetailView(data: self.data[idx])) {
-                        BooksViewRow(data: self.data[idx], idx: idx)
+                List {
+                    ForEach(data.indices, id: \.self) { idx in
+                        NavigationLink(destination: BookDetailView(data: self.data[idx])) {
+                            BooksViewRow(data: self.data[idx], idx: idx)
+                        }
                     }
+                    .onDelete(perform: delete)
                 }
                 .navigationBarTitle(Text("Books"))
+            }
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        offsets.forEach() { idx in
+            // Saving the Delete operation
+            do {
+                managedObjectContext.delete(data[idx])
+                try managedObjectContext.save()
+            } catch {
+                print("Failed saving")
             }
         }
     }

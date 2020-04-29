@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    var data: Book
+    @State var data: Book
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -36,19 +36,53 @@ struct BookDetailView: View {
                     .padding(.top, 3)
                     .lineLimit(nil)
                 
+//                Text("Before Image")
+//
+//                Image(uiImage: self.barcodeImage ?? generateBarcode(from: data.isbn!)!)
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 250.0, height: 250.0)
+                
                 Spacer()
             }
         }
     }
+    
+//    func generateBarcode(from string: String) -> UIImage? {
+//        let data = string.data(using: String.Encoding.ascii)
+//
+//        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
+//            filter.setValue(data, forKey: "inputMessage")
+//            let transform = CGAffineTransform(scaleX: 3, y: 3)
+//
+//            if let output = filter.outputImage?.transformed(by: transform) {
+//                print("generateBarcode() - generated barcode image")
+//                let res = UIImage(ciImage: output)
+//                DispatchQueue.main.async {
+//                    self.barcodeImage = res
+//                }
+//                return res
+//            }
+//        }
+//
+//        print("generateBarcode() - failed to generate barcode image")
+//        return nil
+//    }
 }
 
 struct BooksViewRow: View {
-    var data: Book
+    @State var data: Book
+    @State var idx: Int
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(data.title ?? "N/A")
-                .font(.title)
+            HStack {
+//                Text("\(idx)")
+//                    .font(.title)
+                
+                Text(data.title ?? "N/A")
+                    .font(.title)
+            }
             
             Text(data.authors?.joined(separator: ", ") ?? "N/A")
         }
@@ -70,9 +104,9 @@ struct BooksView: View {
     var body: some View {
         VStack {
             NavigationView {
-                List(data, id: \.self) { book in
-                    NavigationLink(destination: BookDetailView(data: book)) {
-                        BooksViewRow(data: book)
+                List(data.indices, id: \.self) { idx in
+                    NavigationLink(destination: BookDetailView(data: self.data[idx])) {
+                        BooksViewRow(data: self.data[idx], idx: idx)
                     }
                 }
                 .navigationBarTitle(Text("Books"))

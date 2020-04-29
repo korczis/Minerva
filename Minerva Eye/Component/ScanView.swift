@@ -22,6 +22,11 @@ struct ScanView: View {
                 }
                 Text(logMessage)
                     .padding(.bottom, 3)
+//                    .animate(withDuration: 1.0, delay: 0, options: .easyOut, animations: {
+//                        self.opacity = 0.0
+//                    })
+                    // .opacity(withAnimation(.easeOut(duration: 10.0)) { return 0 } )
+                    
             }
         }
     }

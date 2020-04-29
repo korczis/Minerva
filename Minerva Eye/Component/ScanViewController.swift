@@ -202,9 +202,9 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         DispatchQueue.main.async {
             let item = Book(context: self.managedObjectContext)
             item.title = book.volumeInfo.title
-            item.subtitle = book.volumeInfo.subtitle ?? "N/A"
+            item.subtitle = book.volumeInfo.subtitle
             item.authors = book.volumeInfo.authors
-            item.desc = book.volumeInfo.description ?? "N/A"
+            item.desc = book.volumeInfo.description
             item.isbn = isbn
             
             do {

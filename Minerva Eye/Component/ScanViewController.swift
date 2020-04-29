@@ -143,8 +143,9 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             }
             
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            let barCodeObject = previewLayer?.transformedMetadataObject(for: metadataObject)
-            boundsView?.frame = barCodeObject!.bounds
+            
+//            let barCodeObject = previewLayer?.transformedMetadataObject(for: metadataObject)
+//            boundsView?.frame = barCodeObject!.bounds
             
             // Stop capturing during processing
             captureSession.stopRunning()

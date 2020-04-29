@@ -118,6 +118,7 @@ struct BookDetailView: View {
                      self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Delete")
+                        .foregroundColor(.red)
                 }
             )
             .padding()

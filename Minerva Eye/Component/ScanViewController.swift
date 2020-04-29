@@ -195,8 +195,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         do {
            let data = try encoder.encode(book)
             print(String(data: data, encoding: .utf8)!)
+            self.logMessage = "Decoded book info \(isbn)"
         } catch {
             print(error)
+            self.logMessage = "Unable to decode book info \(isbn)"
         }
         
         DispatchQueue.main.async {
@@ -213,8 +215,10 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             
             do {
                 try self.managedObjectContext.save()
+                self.logMessage = "Saved book info \(isbn)"
             } catch let error {
                 print("Error saving context, reason: \(error)")
+                self.logMessage = "Unable to save book info \(isbn)"
             }
         }
     }

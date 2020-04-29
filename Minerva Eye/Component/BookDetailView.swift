@@ -64,7 +64,7 @@ struct BookDetailView: View {
                 
                 // Pubished Date
                 if data.publishedDate != nil {
-                    Text("Published Data")
+                    Text("Published Date")
                         .font(.headline)
                         .padding(.top, 10)
                     Text("\(data.publishedDate ?? "N/A")")

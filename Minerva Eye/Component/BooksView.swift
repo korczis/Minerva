@@ -45,7 +45,7 @@ struct BookDetailView: View {
                 
                 Spacer()
             }
-            .navigationBarTitle(data.title ?? "N/A")
+            .navigationBarTitle("Book Details")
         }
     }
     

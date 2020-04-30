@@ -9,6 +9,10 @@
 import CoreImage
 import SwiftUI
 
+struct CodeRenderer {
+    static let ciContext: CIContext = CIContext()
+}
+
 struct BookDetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -147,8 +151,6 @@ extension UIImage {
     convenience init?(barcode: String) {
         let data = barcode.data(using: String.Encoding.ascii)
         
-        let ciContext = CIContext()
-        
         guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else {
             return nil
         }
@@ -159,7 +161,7 @@ extension UIImage {
             return nil
         }
 
-        guard let cgImage = ciContext.createCGImage(output, from: output.extent) else {
+        guard let cgImage = CodeRenderer.ciContext.createCGImage(output, from: output.extent) else {
             return nil
         }
         
@@ -169,8 +171,6 @@ extension UIImage {
     
     convenience init?(qrcode: String) {
         let data = qrcode.data(using: String.Encoding.ascii)
-        
-        let ciContext = CIContext()
         
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
@@ -182,7 +182,7 @@ extension UIImage {
             return nil
         }
 
-        guard let cgImage = ciContext.createCGImage(output, from: output.extent) else {
+        guard let cgImage = CodeRenderer.ciContext.createCGImage(output, from: output.extent) else {
             return nil
         }
         

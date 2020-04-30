@@ -18,6 +18,7 @@
 		8B534CA0245B60C0001DA368 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534C9E245B60C0001DA368 /* Book+CoreDataClass.swift */; };
 		8B534CA1245B60C0001DA368 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534C9F245B60C0001DA368 /* Book+CoreDataProperties.swift */; };
 		8B534CA6245B78FF001DA368 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CA5245B78FF001DA368 /* Book+CoreDataProperties.swift */; };
+		8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CA8245B7D17001DA368 /* ImageHelper.swift */; };
 		8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38224571F4700538C91 /* AppDelegate.swift */; };
 		8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38424571F4700538C91 /* SceneDelegate.swift */; };
 		8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */; };
@@ -62,6 +63,7 @@
 		8B534C9E245B60C0001DA368 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8B534C9F245B60C0001DA368 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8B534CA5245B78FF001DA368 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "Minerva Eye/Model/Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B534CA8245B7D17001DA368 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		8BAAC37F24571F4700538C91 /* Minerva Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minerva Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAAC38224571F4700538C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BAAC38424571F4700538C91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		8B534CA7245B7D01001DA368 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8B534CA8245B7D17001DA368 /* ImageHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		8BAAC37624571F4600538C91 = {
 			isa = PBXGroup;
 			children = (
@@ -167,17 +177,18 @@
 		8BAAC38124571F4700538C91 /* Minerva Eye */ = {
 			isa = PBXGroup;
 			children = (
-				8B4B7EE42457D78300B94D17 /* Minerva Eye.entitlements */,
-				8B4B7EDD245781A500B94D17 /* Model */,
 				8B4B7EDA24576BC600B94D17 /* Core */,
 				8BE30E95245739D30042280E /* Component */,
+				8B4B7EE92458A98600B94D17 /* Entity */,
+				8B534CA7245B7D01001DA368 /* Helper */,
+				8B4B7EDD245781A500B94D17 /* Model */,
 				8BAAC38224571F4700538C91 /* AppDelegate.swift */,
 				8BAAC38424571F4700538C91 /* SceneDelegate.swift */,
 				8BAAC38924571F4700538C91 /* ContentView.swift */,
-				8B4B7EE92458A98600B94D17 /* Entity */,
 				8B151023245B218400313A36 /* LaunchScreen.storyboard */,
 				8BAAC38B24571F4900538C91 /* Assets.xcassets */,
 				8BAAC39324571F4900538C91 /* Info.plist */,
+				8B4B7EE42457D78300B94D17 /* Minerva Eye.entitlements */,
 				8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */,
 				8BAAC38D24571F4900538C91 /* Preview Content */,
 			);
@@ -366,6 +377,7 @@
 				8B151026245B23F500313A36 /* MainView.swift in Sources */,
 				8B151020245B214700313A36 /* BooksView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */,
+				8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */,
 				8B534CA0245B60C0001DA368 /* Book+CoreDataClass.swift in Sources */,
 				8B1510122459F58100313A36 /* BookListRowView.swift in Sources */,
 				8BE30E9924573B200042280E /* BooksListView.swift in Sources */,
@@ -527,7 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -551,7 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

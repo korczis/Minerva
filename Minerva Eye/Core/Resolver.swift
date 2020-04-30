@@ -61,7 +61,7 @@ class Resolver {
             
             semaphore.signal()
         }.resume()
-        
+                
         _ = semaphore.wait(wallTimeout: .distantFuture)
         
         return result

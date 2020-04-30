@@ -23,20 +23,8 @@ struct BooksListView: View {
     var body: some View {
         VStack {
             NavigationView {
-//                Text("Long Press Me")
-//                    .contextMenu {
-//                        Button(action: {
-//                           //  self.showEditView = true
-//                        }, label: {
-//                            HStack {
-//                                Text("Edit")
-//                                Image(systemName: "pencil")
-//                            }
-//                        })
-//                }
-                
-                List {
-                    ForEach(data, id: \.self) { book in
+               List {
+                    ForEach(data, id: \.self.isbn) { book in
                         NavigationLink(destination: BookDetailView(data: book)) {
                             BooksListRowView(data: book)
                         }
@@ -44,7 +32,7 @@ struct BooksListView: View {
                     .onDelete(perform: delete)
                 }
                 .navigationBarTitle(Text("Books"))
-            .id(UUID())
+                .id(UUID())
             }
         }
     }

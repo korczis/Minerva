@@ -5,6 +5,7 @@
         <attribute name="categories" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imgCover" optional="YES" attributeType="Binary"/>
         <attribute name="isbn" optional="YES" attributeType="String"/>
         <attribute name="language" optional="YES" attributeType="String"/>
         <attribute name="pageCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" customClassName="Int"/>
@@ -18,6 +19,6 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Book" positionX="-54" positionY="-9" width="128" height="193"/>
+        <element name="Book" positionX="-54" positionY="-9" width="128" height="208"/>
     </elements>
 </model>

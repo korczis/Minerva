@@ -27,5 +27,6 @@ extension Book {
     @NSManaged public var publishedDate: String?
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
+    @NSManaged public var imgCover: Data?
 
 }

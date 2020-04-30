@@ -6,12 +6,15 @@
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 
+import CoreImage
 import SwiftUI
 
 struct BookDetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var data: Book
+    var ciContext: CIContext = CIContext()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -94,12 +97,14 @@ struct BookDetailView: View {
                         .lineLimit(nil)
                 }
                 
-//                Text("Before Image")
-//
-//                Image(uiImage: self.barcodeImage ?? generateBarcode(from: data.isbn!)!)
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 250.0, height: 250.0)
+                VStack {
+                    Image(uiImage: UIImage(barcode: data.isbn!)!)
+                        .renderingMode(.original)
+                        .resizable()
+                        .scaledToFit()
+                        .border(Color.black, width: 2)
+                }
+                .background(Color.white)
                 
                 Spacer()
             }
@@ -124,25 +129,52 @@ struct BookDetailView: View {
             .padding()
         }
     }
+}
+
+extension UIImage {
+
+    convenience init?(barcode: String) {
+        let data = barcode.data(using: String.Encoding.ascii)
+        
+        let ciContext = CIContext()
+        
+        guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else {
+            return nil
+        }
+        filter.setValue(data, forKey: "inputMessage")
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        
+        guard let output = filter.outputImage?.transformed(by: transform) else {
+            return nil
+        }
+
+        guard let cgImage = ciContext.createCGImage(output, from: output.extent) else {
+            return nil
+        }
+        
+        self.init(cgImage: cgImage)
+    }
     
-//    func generateBarcode(from string: String) -> UIImage? {
-//        let data = string.data(using: String.Encoding.ascii)
-//
-//        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
-//            filter.setValue(data, forKey: "inputMessage")
-//            let transform = CGAffineTransform(scaleX: 3, y: 3)
-//
-//            if let output = filter.outputImage?.transformed(by: transform) {
-//                print("generateBarcode() - generated barcode image")
-//                let res = UIImage(ciImage: output)
-//                DispatchQueue.main.async {
-//                    self.barcodeImage = res
-//                }
-//                return res
-//            }
-//        }
-//
-//        print("generateBarcode() - failed to generate barcode image")
-//        return nil
-//    }
+    
+    convenience init?(qrcode: String) {
+        let data = qrcode.data(using: String.Encoding.ascii)
+        
+        let ciContext = CIContext()
+        
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
+            return nil
+        }
+        filter.setValue(data, forKey: "inputMessage")
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        
+        guard let output = filter.outputImage?.transformed(by: transform) else {
+            return nil
+        }
+
+        guard let cgImage = ciContext.createCGImage(output, from: output.extent) else {
+            return nil
+        }
+        
+        self.init(cgImage: cgImage)
+    }
 }

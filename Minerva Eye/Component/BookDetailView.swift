@@ -18,9 +18,7 @@ struct BookDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var data: Book
-    @State private var showingAlert = false
-    
-    var ciContext: CIContext = CIContext()
+     @State private var showingAlert = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -103,21 +101,34 @@ struct BookDetailView: View {
                         .lineLimit(nil)
                 }
                 
-                VStack {
-                    Image(uiImage: UIImage(barcode: data.isbn!)!)
-                        .renderingMode(.original)
-                        .resizable()
-                        .scaledToFit()
-                        .border(Color.black, width: 2)
+                if data.isbn != nil {
+                    VStack {
+                       Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
+                           .renderingMode(.original)
+                           .resizable()
+                           .scaledToFit()
+                           .border(Color.black, width: 2)
+                   }
+                   .background(Color.white)
                 }
-                .background(Color.white)
                 
                 Spacer()
             }
             .navigationBarTitle("Book Details")
             .navigationBarItems(trailing:
                 Button(action: {
-                    self.showingAlert = true
+                     self.showingAlert = true
+                    
+//                    print("Deleting book \(self.data)")
+//
+//                    do {
+//                        self.managedObjectContext.delete(self.data)
+//                        try self.managedObjectContext.save()
+//                    } catch {
+//                        print("Failed to delete book \(self.data)")
+//                    }
+//
+//                    self.presentationMode.wrappedValue.dismiss()
                 })
                 {
                     Text("Delete")
@@ -129,15 +140,18 @@ struct BookDetailView: View {
                         message: Text("There is no way back"),
                         primaryButton: .destructive(Text("Delete")) {
                             print("Deleting book \(self.data)")
-                            
-                            do {
-                                self.managedObjectContext.delete(self.data)
-                                try self.managedObjectContext.save()
-                            } catch {
-                                print("Failed to delete book \(self.data)")
+
+                            DispatchQueue.main.async {
+                                do {
+                                    self.managedObjectContext.delete(self.data)
+                                    try self.managedObjectContext.save()
+                                } catch {
+                                    print("Failed to delete book \(self.data)")
+                                }
+
+                                self.presentationMode.wrappedValue.dismiss()
                             }
-                            
-                             self.presentationMode.wrappedValue.dismiss()
+
                     }, secondaryButton: .cancel())
                 }
             )

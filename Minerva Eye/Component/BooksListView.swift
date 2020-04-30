@@ -52,7 +52,7 @@ struct BooksListView: View {
     }
 }
 
-struct BooksView_Previews: PreviewProvider {
+struct BooksListView_Previews: PreviewProvider {
     static var previews: some View {
         BooksListView(handleScan: {})
     }

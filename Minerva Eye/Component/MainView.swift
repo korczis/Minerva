@@ -11,6 +11,23 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         BooksView()
+            .navigationBarTitle("Books")
+        
+//        NavigationView {
+//            NavigationLink(destination: BooksView()) {
+//                HStack {
+//                    Image(systemName: "book")
+//                        .font(.title)
+//                    Text("Books")
+//                        .fontWeight(.semibold)
+//                        .font(.title)
+//                }
+//                .padding()
+//                .foregroundColor(.white)
+//                .background(Color.blue)
+//                .cornerRadius(40)
+//            }
+//        }
     }
 }
 

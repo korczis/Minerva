@@ -32,6 +32,25 @@ struct BooksListView: View {
                     .onDelete(perform: delete)
                 }
                 .navigationBarTitle(Text("Books"))
+                .navigationBarItems(leading:
+                    HStack {
+                        Button("Minerva Eye") {
+                            print("Minerva Eye - tapped!")
+                        }
+                        .disabled(true)
+                    }, trailing:
+                    HStack {
+                        Button("Settings") {
+                            print("Settings - tapped!")
+                        }
+                        .disabled(true)
+
+                        Button("Profile") {
+                            print("Profile - tapped!")
+                        }
+                        .disabled(true)
+                    }
+                )
                 .id(UUID())
             }
         }

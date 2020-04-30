@@ -11,6 +11,8 @@ import CoreImage
 import Foundation
 import SwiftUI
 
+// Inspired/Stolen: https://www.vadimbulavin.com/asynchronous-swiftui-image-loading-from-url-with-combine-and-swift/
+
 extension EnvironmentValues {
     var imageCache: ImageCache {
         get { self[ImageCacheKey.self] }

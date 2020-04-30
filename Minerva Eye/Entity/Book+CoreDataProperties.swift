@@ -2,7 +2,7 @@
 //  Book+CoreDataProperties.swift
 //  Minerva Eye
 //
-//  Created by Tomas Korcak on 4/28/20.
+//  Created by Tomas Korcak on 5/1/20.
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 //
@@ -17,15 +17,16 @@ extension Book {
         return NSFetchRequest<Book>(entityName: "Book")
     }
 
-<<<<<<< Updated upstream
-    @NSManaged public var title: String?
-    @NSManaged public var id: UUID?
-=======
-    @NSManaged public var id: UUID?
-    @NSManaged public var title: String?
->>>>>>> Stashed changes
-    @NSManaged public var subtitle: String?
-    @NSManaged public var isbn: String?
+    @NSManaged public var authors: [String]?
+    @NSManaged public var categories: [String]?
     @NSManaged public var desc: String?
+    @NSManaged public var id: UUID?
+    @NSManaged public var isbn: String?
+    @NSManaged public var language: String?
+    @NSManaged public var pageCount: Int64
+    @NSManaged public var publishedDate: String?
+    @NSManaged public var subtitle: String?
+    @NSManaged public var title: String?
+    @NSManaged public var imgCover: Data?
 
 }

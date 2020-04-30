@@ -23,6 +23,14 @@ struct ScanView: View {
                 Text(logMessage)
                     .padding(.bottom, 3)                    
             }
+            .navigationBarItems(leading:
+                HStack {
+                    Button("Books") {
+                        print("Books - tapped!")
+                    }
+                    .disabled(true)
+                }
+            )
         }
     }
 }

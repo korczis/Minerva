@@ -14,6 +14,8 @@ struct BookDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var data: Book
+    @State private var showingAlert = false
+    
     var ciContext: CIContext = CIContext()
     
     var body: some View {
@@ -111,19 +113,28 @@ struct BookDetailView: View {
             .navigationBarTitle("Book Details")
             .navigationBarItems(trailing:
                 Button(action: {
-                    print("Deleting book \(self.data)")
-                    
-                    do {
-                        self.managedObjectContext.delete(self.data)
-                        try self.managedObjectContext.save()
-                    } catch {
-                        print("Failed to delete book \(self.data)")
-                    }
-                    
-                     self.presentationMode.wrappedValue.dismiss()
-                }) {
+                    self.showingAlert = true
+                })
+                {
                     Text("Delete")
                         .foregroundColor(.red)
+                }
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Delete this book?"),
+                        message: Text("There is no way back"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            print("Deleting book \(self.data)")
+                            
+                            do {
+                                self.managedObjectContext.delete(self.data)
+                                try self.managedObjectContext.save()
+                            } catch {
+                                print("Failed to delete book \(self.data)")
+                            }
+                            
+                             self.presentationMode.wrappedValue.dismiss()
+                    }, secondaryButton: .cancel())
                 }
             )
             .padding()
@@ -132,7 +143,7 @@ struct BookDetailView: View {
 }
 
 extension UIImage {
-
+    
     convenience init?(barcode: String) {
         let data = barcode.data(using: String.Encoding.ascii)
         

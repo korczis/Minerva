@@ -35,6 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let contentView = ContentView()
             // .environmentObject(StateData())
             .environment(\.managedObjectContext, context)
+//            .environment(\.imageCache, ImageCache())
            
 
         // Use a UIHostingController as window root view controller.

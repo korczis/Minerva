@@ -18,87 +18,109 @@ struct BookDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var data: Book
-     @State private var showingAlert = false
+    @State private var showingAlert = false
+    
+    private let pasteboard = UIPasteboard.general
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 Text(data.title ?? "N/A")
                     .font(.title)
+                    .onTapGesture(count: 2) {
+                        self.pasteboard.string = self.data.title!
+                   }
                 
-                // Authors
-                if data.authors != nil {
-                    Text("Author")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.authors?.joined(separator: ", ") ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                // Subtitle
-                if data.subtitle != nil {
-                    Text("Subtitle")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.subtitle ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                // Categories
-                if data.categories != nil {
-                    Text("Categories")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.categories?.joined(separator: ", ") ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                // Subtitle
-                if data.language != nil {
-                    Text("Language")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.language ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                // ISBN
-                if data.isbn != nil {
-                    Text("ISBN")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.isbn ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                // Pubished Date
-                if data.publishedDate != nil {
-                    Text("Published Date")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.publishedDate ?? "N/A")")
-                        .padding(.top, 3)
-                }
-                
-                
-                
-//                // Pages
-//                if data.pageCount != nil {
-//                    Text("Pages")
-//                        .font(.headline)
-//                        .padding(.top, 10)
-//                    Text("\(data.pageCount)")
-//                        .padding(.top, 3)
-//                }
-                
-                // Description
-                if data.desc != nil {
-                    Text("Description")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    Text("\(data.desc ?? "N/A")")
-                        .padding(.top, 3)
-                        .lineLimit(nil)
+                // Details
+                Group {
+                    // Authors
+                    if data.authors != nil {
+                        Text("Author")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.authors?.joined(separator: ", ") ?? "N/A")")
+                            .padding(.top, 3)
+                    }
+                    
+                    // Subtitle
+                    if data.subtitle != nil {
+                        Text("Subtitle")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.subtitle ?? "N/A")")
+                            .onTapGesture(count: 2) {
+                                 self.pasteboard.string = self.data.subtitle!
+                            }
+                            .padding(.top, 3)
+                    }
+                    
+                    // Categories
+                    if data.categories != nil {
+                        Text("Categories")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.categories?.joined(separator: ", ") ?? "N/A")")
+                            .padding(.top, 3)
+                    }
+                    
+                    // Language
+                    if data.language != nil {
+                        Text("Language")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.language ?? "N/A")")
+                            .onTapGesture(count: 2) {
+                                 self.pasteboard.string = self.data.language!
+                            }
+                            .padding(.top, 3)
+                    }
+                    
+                    // ISBN
+                    if data.isbn != nil {
+                        Text("ISBN")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.isbn ?? "N/A")")
+                            .onTapGesture(count: 2) {
+                                 self.pasteboard.string = self.data.isbn!
+                            }
+                            .padding(.top, 3)
+                    }
+                    
+                    // Pubished Date
+                    if data.publishedDate != nil {
+                        Text("Published Date")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.publishedDate ?? "N/A")")
+                            .onTapGesture(count: 2) {
+                                 self.pasteboard.string = self.data.publishedDate!
+                            }
+                            .padding(.top, 3)
+                    }
+                    
+                    // Pages
+                     Text("Pages")
+                       .font(.headline)
+                       .padding(.top, 10)
+                    Text("\(data.pageCount)")
+                        .onTapGesture(count: 2) {
+                             self.pasteboard.string = "\(self.data.pageCount)"
+                        }
+                       .padding(.top, 3)
+                    
+                    // Description
+                    if data.desc != nil {
+                        Text("Description")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text("\(data.desc ?? "N/A")")
+                            .onTapGesture(count: 2) {
+                                 self.pasteboard.string = self.data.desc!
+                            }
+                            .padding(.top, 3)
+                            .lineLimit(nil)
+                    }
                 }
                 
                 if data.isbn != nil {
@@ -118,17 +140,6 @@ struct BookDetailView: View {
             .navigationBarItems(trailing:
                 Button(action: {
                      self.showingAlert = true
-                    
-//                    print("Deleting book \(self.data)")
-//
-//                    do {
-//                        self.managedObjectContext.delete(self.data)
-//                        try self.managedObjectContext.save()
-//                    } catch {
-//                        print("Failed to delete book \(self.data)")
-//                    }
-//
-//                    self.presentationMode.wrappedValue.dismiss()
                 })
                 {
                     Text("Delete")

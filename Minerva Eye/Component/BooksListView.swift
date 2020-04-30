@@ -32,18 +32,21 @@ struct BooksListView: View {
                     .onDelete(perform: delete)
                 }
                 .navigationBarTitle(Text("Books"))
+            .id(UUID())
             }
         }
     }
     
     func delete(at offsets: IndexSet) {
-        offsets.forEach() { idx in
-            // Saving the Delete operation
-            do {
-                managedObjectContext.delete(data[idx])
-                try managedObjectContext.save()
-            } catch {
-                print("Failed saving")
+        DispatchQueue.main.async {
+            offsets.forEach() { idx in
+                // Saving the Delete operation
+                do {
+                    self.managedObjectContext.delete(self.data[idx])
+                    try self.managedObjectContext.save()
+                } catch {
+                    print("Failed saving")
+                }
             }
         }
     }

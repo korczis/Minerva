@@ -1,21 +1,21 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Minerva Eye
 //
-//  Created by Tomas Korcak on 4/27/20.
+//  Created by Tomas Korcak on 4/30/20.
 //  Copyright © 2020 Tomas Korcak. All rights reserved.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
-        MainView()
+        BooksView()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

@@ -11,7 +11,9 @@
 		8B1510122459F58100313A36 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1510112459F58100313A36 /* BookListRowView.swift */; };
 		8B15101B2459FB8F00313A36 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1510192459FB8F00313A36 /* Book+CoreDataClass.swift */; };
 		8B15101C2459FB8F00313A36 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15101A2459FB8F00313A36 /* Book+CoreDataProperties.swift */; };
-		8B4B7ED9245758F300B94D17 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7ED8245758F300B94D17 /* LogsView.swift */; };
+		8B151020245B214700313A36 /* BooksViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15101F245B214700313A36 /* BooksViewView.swift */; };
+		8B151024245B218400313A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B151023245B218400313A36 /* LaunchScreen.storyboard */; };
+		8B151026245B23F500313A36 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B151025245B23F500313A36 /* MainView.swift */; };
 		8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7EDB24576BE800B94D17 /* Resolver.swift */; };
 		8B4B7EE32457906500B94D17 /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B7EE22457906500B94D17 /* StateData.swift */; };
 		8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38224571F4700538C91 /* AppDelegate.swift */; };
@@ -20,7 +22,6 @@
 		8BAAC38A24571F4700538C91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38924571F4700538C91 /* ContentView.swift */; };
 		8BAAC38C24571F4900538C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38B24571F4900538C91 /* Assets.xcassets */; };
 		8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */; };
-		8BAAC39224571F4900538C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */; };
 		8BAAC39D24571F4900538C91 /* Minerva_EyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */; };
 		8BAAC3A824571F4900538C91 /* Minerva_EyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */; };
 		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
@@ -51,7 +52,9 @@
 		8B1510112459F58100313A36 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		8B1510192459FB8F00313A36 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "Minerva Eye/Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8B15101A2459FB8F00313A36 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "Minerva Eye/Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8B4B7ED8245758F300B94D17 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		8B15101F245B214700313A36 /* BooksViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewView.swift; sourceTree = "<group>"; };
+		8B151023245B218400313A36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B151025245B23F500313A36 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8B4B7EDB24576BE800B94D17 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		8B4B7EE22457906500B94D17 /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
 		8B4B7EE42457D78300B94D17 /* Minerva Eye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Minerva Eye.entitlements"; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		8BAAC38924571F4700538C91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8BAAC38B24571F4900538C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8BAAC39124571F4900538C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BAAC39324571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BAAC39824571F4900538C91 /* Minerva EyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minerva EyeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minerva_EyeTests.swift; sourceTree = "<group>"; };
@@ -158,8 +160,8 @@
 				8BAAC38424571F4700538C91 /* SceneDelegate.swift */,
 				8BAAC38924571F4700538C91 /* ContentView.swift */,
 				8B4B7EE92458A98600B94D17 /* Entity */,
+				8B151023245B218400313A36 /* LaunchScreen.storyboard */,
 				8BAAC38B24571F4900538C91 /* Assets.xcassets */,
-				8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */,
 				8BAAC39324571F4900538C91 /* Info.plist */,
 				8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */,
 				8BAAC38D24571F4900538C91 /* Preview Content */,
@@ -199,9 +201,10 @@
 				8B15100F2459F52D00313A36 /* BookDetailView.swift */,
 				8B1510112459F58100313A36 /* BookListRowView.swift */,
 				8BE30E9824573B200042280E /* BooksListView.swift */,
+				8B15101F245B214700313A36 /* BooksViewView.swift */,
+				8B151025245B23F500313A36 /* MainView.swift */,
 				8BE30E9624573A570042280E /* ScanView.swift */,
 				8BE30E9A245743930042280E /* ScanViewController.swift */,
-				8B4B7ED8245758F300B94D17 /* LogsView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -310,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BAAC39224571F4900538C91 /* LaunchScreen.storyboard in Resources */,
+				8B151024245B218400313A36 /* LaunchScreen.storyboard in Resources */,
 				8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */,
 				8BAAC38C24571F4900538C91 /* Assets.xcassets in Resources */,
 			);
@@ -346,11 +349,12 @@
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
 				8B15101C2459FB8F00313A36 /* Book+CoreDataProperties.swift in Sources */,
+				8B151026245B23F500313A36 /* MainView.swift in Sources */,
+				8B151020245B214700313A36 /* BooksViewView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */,
 				8B1510122459F58100313A36 /* BookListRowView.swift in Sources */,
 				8BE30E9924573B200042280E /* BooksListView.swift in Sources */,
 				8BAAC38A24571F4700538C91 /* ContentView.swift in Sources */,
-				8B4B7ED9245758F300B94D17 /* LogsView.swift in Sources */,
 				8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,17 +389,6 @@
 			targetProxy = 8BAAC3A424571F4900538C91 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8BAAC39024571F4900538C91 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BAAC39124571F4900538C91 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8BAAC3AA24571F4900538C91 /* Debug */ = {

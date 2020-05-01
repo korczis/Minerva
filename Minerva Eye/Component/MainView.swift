@@ -11,8 +11,17 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         BooksView()
-            .navigationBarTitle("Books", displayMode: .inline)
         
+//        NavigationView {
+//            BooksView()
+//                .navigationBarTitle("Books", displayMode: .inline)
+//        }
+//        .navigationViewStyle(StackNavigationViewStyle())
+//        .navigationViewStyle(DefaultNavigationViewStyle())
+//        .padding(0)
+//    }
+//
+//
 //        NavigationView {
 //            NavigationLink(destination: BooksView()) {
 //                HStack {

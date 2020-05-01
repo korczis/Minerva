@@ -151,7 +151,7 @@ struct BookDetailView: View {
                 
                 Spacer()
             }
-            .navigationBarTitle("Book Details")
+            .navigationBarTitle("Book Details", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button(action: {
                     self.showingAlert = true

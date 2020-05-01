@@ -11,7 +11,7 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         BooksView()
-            .navigationBarTitle("Books")
+            .navigationBarTitle("Books", displayMode: .inline)
         
 //        NavigationView {
 //            NavigationLink(destination: BooksView()) {

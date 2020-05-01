@@ -18,7 +18,7 @@ struct ScanView: View {
             VStack {
                 ZStack {
                     ScanViewController(logMessage: $logMessage, managedObjectContext: self.managedObjectContext)
-                        .navigationBarTitle(Text("Scan"))
+                        .navigationBarTitle(Text("Scan"), displayMode: .inline)
                 }
                 Text(logMessage)
                     .padding(.bottom, 3)                    

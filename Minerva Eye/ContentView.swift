@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+//struct MainView: View {
+//    var body: some View {
+//        Text("This is MainView")
+//    }
+//}
+
 struct ContentView: View {
     var body: some View {
         MainView()

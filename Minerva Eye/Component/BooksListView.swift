@@ -50,7 +50,7 @@ struct BooksListView: View {
 //                        .disabled(true)
 //                    }
 //                )
-                .navigationBarTitle(Text("Books"))
+                .navigationBarTitle(Text("Books"), displayMode: .inline)
                 .id(UUID())
             }
         }

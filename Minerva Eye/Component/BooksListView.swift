@@ -24,33 +24,33 @@ struct BooksListView: View {
         VStack {
             NavigationView {
                List {
-                    ForEach(data, id: \.self.isbn) { book in
+                    ForEach(data, id: \.self) { book in
                         NavigationLink(destination: BookDetailView(data: book)) {
                             BooksListRowView(data: book)
                         }
                     }
                     .onDelete(perform: delete)
                 }
+//                .navigationBarItems(
+//                    leading: HStack {
+//                        Button("Minerva Eye") {
+//                            print("Minerva Eye - tapped!")
+//                        }
+//                        .disabled(true)
+//                    },
+//                    trailing: HStack {
+//                        Button("Settings") {
+//                            print("Settings - tapped!")
+//                        }
+//                        .disabled(true)
+//
+//                        Button("Profile") {
+//                            print("Profile - tapped!")
+//                        }
+//                        .disabled(true)
+//                    }
+//                )
                 .navigationBarTitle(Text("Books"))
-                .navigationBarItems(leading:
-                    HStack {
-                        Button("Minerva Eye") {
-                            print("Minerva Eye - tapped!")
-                        }
-                        .disabled(true)
-                    }, trailing:
-                    HStack {
-                        Button("Settings") {
-                            print("Settings - tapped!")
-                        }
-                        .disabled(true)
-
-                        Button("Profile") {
-                            print("Profile - tapped!")
-                        }
-                        .disabled(true)
-                    }
-                )
                 .id(UUID())
             }
         }

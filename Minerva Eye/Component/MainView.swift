@@ -14,6 +14,10 @@ struct MainView: View {
         
 //        NavigationView {
 //            BooksView()
+//        }
+        
+//        NavigationView {
+//            BooksView()
 //                .navigationBarTitle("Books", displayMode: .inline)
 //        }
 //        .navigationViewStyle(StackNavigationViewStyle())

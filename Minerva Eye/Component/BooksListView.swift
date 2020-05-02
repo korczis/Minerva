@@ -39,11 +39,30 @@ struct BooksListView: View {
 //                        .disabled(true)
 //                    },
 //                    trailing: HStack {
+//                        Text("Options")
+//                        .contextMenu {
+//                            Button(action: {
+//                                // Export data
+//                                print("Export data")
+//                            }) {
+//                                Text("Export data")
+//                                Image(systemName: "tray.and.arrow.up")
+//                            }
+//
+//                            Button(action: {
+//                                // Import data
+//                                print("Export data")
+//                            }) {
+//                                Text("Import data")
+//                                Image(systemName: "tray.and.arrow.down")
+//                            }
+//                        }
+//
 //                        Button("Settings") {
 //                            print("Settings - tapped!")
 //                        }
 //                        .disabled(true)
-//
+
 //                        Button("Profile") {
 //                            print("Profile - tapped!")
 //                        }

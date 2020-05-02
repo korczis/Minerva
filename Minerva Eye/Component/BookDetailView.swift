@@ -138,7 +138,7 @@ struct BookDetailView: View {
                             placeholder: Text("Loading preview..."),
                             cache: self.cache
                         )
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .background(Color.gray)
                         
                         Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())

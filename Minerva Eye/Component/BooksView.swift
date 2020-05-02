@@ -30,6 +30,7 @@ struct BooksView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "book")
+                        // Text("Books")
                         Text("Books (\(self.data.count))")
                     }
                 }

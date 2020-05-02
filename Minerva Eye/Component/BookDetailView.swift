@@ -139,6 +139,7 @@ struct BookDetailView: View {
                             cache: self.cache
                         )
                         .aspectRatio(contentMode: .fit)
+                        .background(Color.gray)
                         
                         Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
                             .renderingMode(.original)

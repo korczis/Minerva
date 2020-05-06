@@ -11,36 +11,6 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         BooksView()
-        
-//        NavigationView {
-//            BooksView()
-//        }
-        
-//        NavigationView {
-//            BooksView()
-//                .navigationBarTitle("Books", displayMode: .inline)
-//        }
-//        .navigationViewStyle(StackNavigationViewStyle())
-//        .navigationViewStyle(DefaultNavigationViewStyle())
-//        .padding(0)
-//    }
-//
-//
-//        NavigationView {
-//            NavigationLink(destination: BooksView()) {
-//                HStack {
-//                    Image(systemName: "book")
-//                        .font(.title)
-//                    Text("Books")
-//                        .fontWeight(.semibold)
-//                        .font(.title)
-//                }
-//                .padding()
-//                .foregroundColor(.white)
-//                .background(Color.blue)
-//                .cornerRadius(40)
-//            }
-//        }
     }
 }
 

@@ -26,14 +26,6 @@ struct ScanView: View {
         }
         .navigationBarTitle(Text("Scan"), displayMode: .inline)
         .navigationViewStyle(StackNavigationViewStyle())
-//        .navigationBarItems(leading:
-//            HStack {
-//                Button("Books") {
-//                    print("Books - tapped!")
-//                }
-//                .disabled(true)
-//            }
-//        )
     }
 }
 

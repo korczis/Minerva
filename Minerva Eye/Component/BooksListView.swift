@@ -21,58 +21,16 @@ struct BooksListView: View {
     var handleScan: () -> ()
     
     var body: some View {
-        VStack {
-            NavigationView {
-               List {
-                    ForEach(data, id: \.self) { book in
-                        NavigationLink(destination: BookDetailView(data: book)) {
-                            BooksListRowView(data: book)
-                        }
-                    }
-                    .onDelete(perform: delete)
+        List {
+            ForEach(data, id: \.self) { book in
+                NavigationLink(destination: BookDetailView(data: book)) {
+                    BooksListRowView(data: book)
                 }
-//                .navigationBarItems(
-//                    leading: HStack {
-//                        Button("Minerva Eye") {
-//                            print("Minerva Eye - tapped!")
-//                        }
-//                        .disabled(true)
-//                    },
-//                    trailing: HStack {
-//                        Text("Options")
-//                        .contextMenu {
-//                            Button(action: {
-//                                // Export data
-//                                print("Export data")
-//                            }) {
-//                                Text("Export data")
-//                                Image(systemName: "tray.and.arrow.up")
-//                            }
-//
-//                            Button(action: {
-//                                // Import data
-//                                print("Export data")
-//                            }) {
-//                                Text("Import data")
-//                                Image(systemName: "tray.and.arrow.down")
-//                            }
-//                        }
-//
-//                        Button("Settings") {
-//                            print("Settings - tapped!")
-//                        }
-//                        .disabled(true)
-
-//                        Button("Profile") {
-//                            print("Profile - tapped!")
-//                        }
-//                        .disabled(true)
-//                    }
-//                )
-                .navigationBarTitle(Text("Books"), displayMode: .inline)
-                .id(UUID())
             }
+            .onDelete(perform: delete)
         }
+        .navigationBarTitle(Text("Books"), displayMode: .inline)
+        .id(UUID())
     }
     
     func delete(at offsets: IndexSet) {

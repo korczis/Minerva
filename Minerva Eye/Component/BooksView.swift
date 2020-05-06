@@ -9,47 +9,21 @@
 import SwiftUI
 
 struct BooksView: View {
-    @State private var selection = 0
-    
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @FetchRequest(
-        entity: Book.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Book.title, ascending: true),
-        ]
-    ) var data: FetchedResults<Book>
+    @State var handleScan: () -> ()
  
     var body: some View {
-        TabView(selection: $selection){
-            BooksListView(handleScan: {
-                DispatchQueue.main.async {
-                    self.selection = 0
-                }
-            })
-                .tabItem {
-                    VStack {
-                        Image(systemName: "book")
-                        // Text("Books")
-                        Text("Books (\(self.data.count))")
-                    }
-                }
-                .tag(0)
-            
-            ScanView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "camera")
-                        Text("Scan")
-                    }
-                }
-                .tag(1)
+        NavigationView {
+             VStack {
+                BooksListView(handleScan: self.handleScan)
+            }
         }
     }
 }
 
 struct BooksView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksView()
+        BooksView(handleScan: {})
     }
 }

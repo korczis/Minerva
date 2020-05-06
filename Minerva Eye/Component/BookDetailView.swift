@@ -134,7 +134,6 @@ struct BookDetailView: View {
                         // Preview
                         AsyncImage(
                             url: URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
-                            // url: URL(string: "https://image.tmdb.org/t/p/original/pThyQovXQrw2m0s9x82twj48Jq4.jpg")!,
                             placeholder: Text("Loading preview..."),
                             cache: self.cache
                         )

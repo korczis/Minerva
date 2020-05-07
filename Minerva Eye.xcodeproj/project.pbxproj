@@ -30,6 +30,7 @@
 		8BE30E9924573B200042280E /* BooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9824573B200042280E /* BooksListView.swift */; };
 		8BE30E9B245743930042280E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9A245743930042280E /* ScanViewController.swift */; };
 		8BE30E9D245746F80042280E /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9C245746F80042280E /* Schema.swift */; };
+		8BF521CB246387D1007302F7 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF521CA246387D1007302F7 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		8BE30E9824573B200042280E /* BooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListView.swift; sourceTree = "<group>"; };
 		8BE30E9A245743930042280E /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		8BE30E9C245746F80042280E /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		8BF521CA246387D1007302F7 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				8B151025245B23F500313A36 /* MainView.swift */,
 				8BE30E9624573A570042280E /* ScanView.swift */,
 				8BE30E9A245743930042280E /* ScanViewController.swift */,
+				8BF521CA246387D1007302F7 /* SplashScreenView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
 				8B151026245B23F500313A36 /* MainView.swift in Sources */,
 				8B151020245B214700313A36 /* BooksView.swift in Sources */,
+				8BF521CB246387D1007302F7 /* SplashScreenView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* Resolver.swift in Sources */,
 				8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */,
 				8B1510122459F58100313A36 /* BookListRowView.swift in Sources */,
@@ -557,7 +561,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -581,7 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

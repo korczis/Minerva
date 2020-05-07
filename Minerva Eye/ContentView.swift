@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MainView()
+        NavigationView {
+            // MainView()
+            SplashScreenView()
+        }
+        .navigationBarTitle(Text("Minerva"), displayMode: .inline)
     }
 }
 

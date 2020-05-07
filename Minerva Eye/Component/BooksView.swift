@@ -14,11 +14,11 @@ struct BooksView: View {
     @State var handleScan: () -> ()
  
     var body: some View {
-        NavigationView {
-             VStack {
-                BooksListView(handleScan: self.handleScan)
-            }
+        VStack {
+            BooksListView(handleScan: self.handleScan)
+            // .navigationBarTitle(Text("Library"), displayMode: .inline)
         }
+
     }
 }
 

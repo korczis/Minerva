@@ -30,6 +30,7 @@ struct MainView: View {
                         Image(systemName: "book")
                         Text("Books (\(self.data.count))")
                     }
+                    .navigationBarTitle(Text("Library"), displayMode: .inline)
             }
             .tag(0)
             
@@ -39,6 +40,7 @@ struct MainView: View {
                         Image(systemName: "camera")
                         Text("Scan")
                     }
+                    .navigationBarTitle(Text("Scan"), displayMode: .inline)
             }
             .tag(1)
         }

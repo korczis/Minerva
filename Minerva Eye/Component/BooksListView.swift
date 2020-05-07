@@ -29,7 +29,6 @@ struct BooksListView: View {
             }
             .onDelete(perform: delete)
         }
-        .navigationBarTitle(Text("Books"), displayMode: .inline)
         .id(UUID())
     }
     

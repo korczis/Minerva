@@ -43,7 +43,7 @@ struct InformationContainerView: View {
             NavigationLink(destination: MainView()) {
                 InformationDetailView(
                     title: "Library",
-                    subTitle: "Keep your books organized in library",
+                    subTitle: "Keep your books organized",
                     imageName: "book"
                 )
             }
@@ -51,10 +51,11 @@ struct InformationContainerView: View {
             NavigationLink(destination: MainView()) {
                 InformationDetailView(
                     title: "Scan",
-                    subTitle: "Add and manage your libary with your camera",
+                    subTitle: "Manage your books using ISBN/Barcodes",
                     imageName: "camera"
                 )
             }
+            
         }
         .padding(.horizontal)
     }
@@ -66,22 +67,14 @@ struct TitleView: View {
             VStack {
                 Text("Minerva Eye")
                     .font(.largeTitle)
-                    // .customTitleText()
                     .foregroundColor(.blue)
                 
                 Image(uiImage: UIImage(named: "AppIcon")!)
                     .resizable()
-                    //                .scaledToFit()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 180, alignment: .center)
                     .accessibility(hidden: true)
-                
-                // Text("Welcome to")
-                // .customTitleText()
-                
-                //            Text("Minerva Eye")
-                //                // .customTitleText()
-                //                .foregroundColor(.blue)
+            
             }
         }
     }
@@ -91,7 +84,6 @@ struct SplashScreenView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {
-                
                 Spacer()
                 
                 TitleView()
@@ -111,6 +103,17 @@ struct SplashScreenView: View {
                 //                    // .customButton()
                 //                }
                 //                .padding(.horizontal)
+
+                Group {
+                    Text("How-To")
+                        .font(.title)
+                        .padding()
+
+                   Text("1 - Go to scan view")
+                   Text("2 - Scan barcode of your book")
+                   Text("3 - Go books/library view")
+                   Text("4 - Click on your scanned book to see detail")
+                }
             }
         }
         .navigationBarTitle(Text("Home"), displayMode: .inline)

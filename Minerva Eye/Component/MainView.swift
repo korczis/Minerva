@@ -11,12 +11,12 @@ import SwiftUI
 struct MainView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
-//    @FetchRequest(
-//        entity: Book.entity(),
-//        sortDescriptors: [
-//            NSSortDescriptor(keyPath: \Book.title, ascending: true),
-//        ]
-//    ) var data: FetchedResults<Book>
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+        ]
+    ) var data: FetchedResults<Book>
     
     @State var selection: Int = 0
     
@@ -26,10 +26,10 @@ struct MainView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "book")
-                        Text("Books")
-                        // Text("Books (\(self.data.count))")
+//                        Text("Books")
+                         Text("Library (\(self.data.count))")
                     }
-                    // .navigationBarTitle(Text("Library"), displayMode: .inline)
+                    .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
             }
             .tag(0)
             

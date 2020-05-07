@@ -48,7 +48,7 @@ struct InformationContainerView: View {
                 )
             }
             
-            NavigationLink(destination: MainView(selection: 1)) {
+            NavigationLink(destination: MainView(selection: 0)) {
                 InformationDetailView(
                     title: "Scan",
                     subTitle: "Manage your books using ISBN/Barcodes",
@@ -63,7 +63,7 @@ struct InformationContainerView: View {
 
 struct TitleView: View {
     var body: some View {
-        NavigationLink(destination: MainView()) {
+        NavigationLink(destination: MainView(selection: 0)) {
             VStack {
                 Text("Minerva Eye")
                     .font(.largeTitle)
@@ -120,8 +120,10 @@ struct SplashScreenView: View {
     }
 }
 
-struct SplashScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
-    }
-}
+//struct SplashScreenView_Previews: PreviewProvider {
+//    @State var selection: Int = 0
+//    
+//    static var previews: some View {
+//        SplashScreenView(selection: $selection)
+//    }
+//}

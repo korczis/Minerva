@@ -17,9 +17,7 @@ struct BooksListView: View {
             NSSortDescriptor(keyPath: \Book.title, ascending: true),
         ]
     ) var data: FetchedResults<Book>
-    
-    var handleScan: () -> ()
-    
+        
     var body: some View {
         List {
             ForEach(data, id: \.self) { book in
@@ -47,8 +45,12 @@ struct BooksListView: View {
     }
 }
 
-struct BooksListView_Previews: PreviewProvider {
-    static var previews: some View {
-        BooksListView(handleScan: {})
-    }
-}
+//struct BooksListView_Previews: PreviewProvider {
+//    var handleScan: () -> () = {
+//        
+//    }
+//    
+//    static var previews: some View {
+//        BooksListView(handleScan: self.handleScan)
+//    }
+//}

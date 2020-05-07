@@ -9,14 +9,9 @@
 import SwiftUI
 
 struct BooksView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
-    @State var handleScan: () -> ()
- 
     var body: some View {
         VStack {
-            BooksListView(handleScan: self.handleScan)
-            // .navigationBarTitle(Text("Library"), displayMode: .inline)
+            BooksListView()
         }
 
     }
@@ -24,6 +19,6 @@ struct BooksView: View {
 
 struct BooksView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksView(handleScan: {})
+        BooksView()
     }
 }

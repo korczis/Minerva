@@ -40,17 +40,21 @@ struct InformationDetailView: View {
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            InformationDetailView(
-                title: "Library",
-                subTitle: "Keep your books organized in library",
-                imageName: "book"
-            )
+            NavigationLink(destination: MainView()) {
+                InformationDetailView(
+                    title: "Library",
+                    subTitle: "Keep your books organized in library",
+                    imageName: "book"
+                )
+            }
             
-            InformationDetailView(
-                title: "Scan",
-                subTitle: "Add and manage your libary with your camera",
-                imageName: "camera"
-            )
+            NavigationLink(destination: MainView()) {
+                InformationDetailView(
+                    title: "Scan",
+                    subTitle: "Add and manage your libary with your camera",
+                    imageName: "camera"
+                )
+            }
         }
         .padding(.horizontal)
     }
@@ -58,25 +62,27 @@ struct InformationContainerView: View {
 
 struct TitleView: View {
     var body: some View {
-        VStack {
-            Text("Minerva Eye")
-                .font(.largeTitle)
+        NavigationLink(destination: MainView()) {
+            VStack {
+                Text("Minerva Eye")
+                    .font(.largeTitle)
+                    // .customTitleText()
+                    .foregroundColor(.blue)
+                
+                Image(uiImage: UIImage(named: "AppIcon")!)
+                    .resizable()
+                    //                .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 180, alignment: .center)
+                    .accessibility(hidden: true)
+                
+                // Text("Welcome to")
                 // .customTitleText()
-                .foregroundColor(.blue)
-            
-            Image(uiImage: UIImage(named: "AppIcon")!)
-                .resizable()
-//                .scaledToFit()
-                 .aspectRatio(contentMode: .fit)
-                 .frame(width: 180, alignment: .center)
-                .accessibility(hidden: true)
-            
-            // Text("Welcome to")
-                // .customTitleText()
-            
-//            Text("Minerva Eye")
-//                // .customTitleText()
-//                .foregroundColor(.blue)
+                
+                //            Text("Minerva Eye")
+                //                // .customTitleText()
+                //                .foregroundColor(.blue)
+            }
         }
     }
 }
@@ -94,17 +100,17 @@ struct SplashScreenView: View {
                 
                 Spacer(minLength: 30)
                 
-                Button(action: {
-                    // let generator = UINotificationFeedbackGenerator()
-                    // generator.notificationOccurred(.success)
-                    print("Button clicked")
-                }) {
-                    NavigationLink(destination: MainView()) {
-                        Text("Lets start")
-                    }
-                    // .customButton()
-                }
-                .padding(.horizontal)
+                //                Button(action: {
+                //                    // let generator = UINotificationFeedbackGenerator()
+                //                    // generator.notificationOccurred(.success)
+                //                    print("Button clicked")
+                //                }) {
+                //                    NavigationLink(destination: MainView()) {
+                //                        Text("Lets start")
+                //                    }
+                //                    // .customButton()
+                //                }
+                //                .padding(.horizontal)
             }
         }
         .navigationBarTitle(Text("Home"), displayMode: .inline)

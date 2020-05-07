@@ -42,18 +42,47 @@ struct InformationContainerView: View {
         VStack(alignment: .leading) {
             NavigationLink(destination: MainView(selection: 0)) {
                 InformationDetailView(
+                    title: "Scan",
+                    subTitle: "Manage your books using ISBN/Barcodes",
+                    imageName: "camera"
+                )
+            }
+            
+            NavigationLink(destination: MainView(selection: 0)) {
+                InformationDetailView(
                     title: "Library",
                     subTitle: "Keep your books organized",
                     imageName: "book"
                 )
             }
             
-            NavigationLink(destination: MainView(selection: 0)) {
-                InformationDetailView(
-                    title: "Scan",
-                    subTitle: "Manage your books using ISBN/Barcodes",
-                    imageName: "camera"
-                )
+            Group {
+                HStack(alignment: .center) {
+                    Image(systemName: "questionmark.circle")
+                        .font(.largeTitle)
+                        .foregroundColor(.blue)
+                        .padding()
+                        .accessibility(hidden: true)
+                    
+                    VStack(alignment: .leading) {
+                        Text("Getting Started")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .accessibility(addTraits: .isHeader)
+                        
+                        Group {
+                            Text("Go to Scan View")
+                            Text("Scan ISBN/Barcode of your book")
+                            Text("Go to Library View")
+                            Text("Click on book see details")
+                        }
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+                        
+                }
+                .padding(.top)
             }
             
         }
@@ -104,16 +133,16 @@ struct SplashScreenView: View {
                 //                }
                 //                .padding(.horizontal)
 
-                Group {
-                    Text("How-To")
-                        .font(.title)
-                        .padding()
-
-                   Text("1 - Go to scan view")
-                   Text("2 - Scan barcode of your book")
-                   Text("3 - Go books/library view")
-                   Text("4 - Click on your scanned book to see detail")
-                }
+//                Group {
+//                    Text("How-To")
+//                        .font(.title)
+//                        .padding()
+//
+//                   Text("1 - Go to scan view")
+//                   Text("2 - Scan barcode of your book")
+//                   Text("3 - Go books/library view")
+//                   Text("4 - Click on your scanned book to see detail")
+//                }
             }
         }
         .navigationBarTitle(Text("Home"), displayMode: .inline)

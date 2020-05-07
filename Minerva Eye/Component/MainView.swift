@@ -16,7 +16,7 @@ struct MainView: View {
         ]
     ) var data: FetchedResults<Book>
     
-    @State private var selection = 0
+    @State var selection = 0
     
     var body: some View {
         TabView(selection: $selection){

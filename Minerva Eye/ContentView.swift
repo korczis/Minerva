@@ -40,22 +40,9 @@ struct InformationDetailView: View {
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink(destination: ScanView()) { // MainView(selection: MainView.Tab.Library
-                InformationDetailView(
-                    title: "Scan",
-                    subTitle: "Manage your books using ISBN/Barcodes",
-                    imageName: "camera"
-                )
-            }
+            Divider()
             
-            NavigationLink(destination: BooksView()) { // MainView(selection: MainView.Tab.Library)
-                InformationDetailView(
-                    title: "Library",
-                    subTitle: "Keep your books organized",
-                    imageName: "book"
-                )
-            }
-            
+            // MARK: Quick How-To
             Group {
                 HStack(alignment: .center) {
                     Image(systemName: "questionmark.circle")
@@ -74,15 +61,44 @@ struct InformationContainerView: View {
                             Text("Go to Scan View")
                             Text("Scan ISBN/Barcode of your book")
                             Text("Go to Library View")
-                            Text("Click on book see details")
+                            Text("Click on book to see the details")
                         }
                         .font(.body)
                         .foregroundColor(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                     }
-                        
+                    
                 }
                 .padding(.top)
+            }
+            
+            Divider()
+            
+            NavigationLink(destination: ScanView()) { // MainView(selection: MainView.Tab.Library
+                InformationDetailView(
+                    title: "Scan",
+                    subTitle: "Manage your books using ISBN/Barcodes",
+                    imageName: "camera"
+                )
+            }
+            
+            NavigationLink(destination: BooksView()) { // MainView(selection: MainView.Tab.Library)
+                InformationDetailView(
+                    title: "Library",
+                    subTitle: "Keep your books organized",
+                    imageName: "book"
+                )
+            }
+            
+            Divider()
+            
+            // MARK: Eye View
+            NavigationLink(destination: EyeView()) {
+                InformationDetailView(
+                    title: "Eye",
+                    subTitle: "Experimental Eye View",
+                    imageName: "eye"
+                )
             }
             
         }
@@ -104,7 +120,7 @@ struct TitleView: View {
                     .frame(width: 180, alignment: .center)
                     .accessibility(hidden: true)
                     .cornerRadius(25)
-            
+                
             }
         }
     }

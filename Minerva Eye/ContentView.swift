@@ -44,32 +44,34 @@ struct InformationContainerView: View {
             
             // MARK: Quick How-To
             Group {
-                HStack(alignment: .center) {
-                    Image(systemName: "questionmark.circle")
-                        .font(.largeTitle)
-                        .foregroundColor(.blue)
-                        .padding()
-                        .accessibility(hidden: true)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Getting Started")
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                            .accessibility(addTraits: .isHeader)
+                NavigationLink(destination: GettingStartedView()) {
+                    HStack(alignment: .center) {
+                        Image(systemName: "questionmark.circle")
+                            .font(.largeTitle)
+                            .foregroundColor(.blue)
+                            .padding()
+                            .accessibility(hidden: true)
                         
-                        Group {
-                            Text("Go to Scan View")
-                            Text("Scan ISBN/Barcode of your book")
-                            Text("Go to Library View")
-                            Text("Click on book to see the details")
+                        VStack(alignment: .leading) {
+                            Text("Getting Started")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                                .accessibility(addTraits: .isHeader)
+                            
+                            Group {
+                                Text("Scan book")
+                                Text("Open Library")
+                                Text("Tap the book")
+                            }
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
                         }
-                        .font(.body)
-                        .foregroundColor(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
+                        
                     }
-                    
+                    .padding(.top)
                 }
-                .padding(.top)
+                .disabled(true)
             }
             
             Divider()
@@ -77,7 +79,7 @@ struct InformationContainerView: View {
             NavigationLink(destination: ScanView()) { // MainView(selection: MainView.Tab.Library
                 InformationDetailView(
                     title: "Scan",
-                    subTitle: "Manage your books using ISBN/Barcodes",
+                    subTitle: "Add new books",
                     imageName: "camera"
                 )
             }
@@ -85,7 +87,7 @@ struct InformationContainerView: View {
             NavigationLink(destination: BooksView()) { // MainView(selection: MainView.Tab.Library)
                 InformationDetailView(
                     title: "Library",
-                    subTitle: "Keep your books organized",
+                    subTitle: "Manage your books",
                     imageName: "book"
                 )
             }

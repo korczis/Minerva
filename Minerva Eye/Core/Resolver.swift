@@ -17,6 +17,7 @@ class Resolver {
     }
     
     static func fetchBookInfo(isbn: String) -> Result<BookItem?, LookupError> {
+        
         if let book = cache[isbn] {
             print("Using cached book info - ISBN: \(isbn)")
             return .success(book)

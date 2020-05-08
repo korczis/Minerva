@@ -175,12 +175,16 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
 //                }
 //            }
             
-            let _ = res.map { book in
-                if let book = book {
-                    self.cache[code] = book
-                    self.saveBookInfo(isbn: code, book: book)
-                    // DispatchQueue.main.async { self.displayBookInfo(book: book) }
+            if (try? res.get()) != nil {
+                let _ = res.map { book in
+                    if let book = book {
+                        self.cache[code] = book
+                        self.saveBookInfo(isbn: code, book: book)
+                        // DispatchQueue.main.async { self.displayBookInfo(book: book) }
+                    }
                 }
+            } else {
+                self.logMessage = "Fetching book info failed, ISBN: \(code)"
             }
 
             // When metadata are proccessed, continue capturing again

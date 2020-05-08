@@ -9,43 +9,33 @@
 import SwiftUI
 import AVFoundation
 
-extension UIView {
-    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-            self.alpha = 1.0
-        }, completion: completion)
-    }
-
-    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-            self.alpha = 0.0
-        }, completion: completion)
-    }
-}
-
-//class ScanViewModel: ObservableObject {
-//    @Published var logMessage = "" {
-//        didSet {
-//            print("set")
-//            //do whatever you want
-//        }
+//extension UIView {
+//    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
+//            self.alpha = 1.0
+//        }, completion: completion)
+//    }
+//
+//    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
+//            self.alpha = 0.0
+//        }, completion: completion)
 //    }
 //}
 
-//func createLogLine(text: String): Text {
-//    return Text(text)
-//        .padding(.bottom, 3)
-//        .transition(.slide)
-//        .onReceive(pub) { (output) in
-//            print("RECEIVED NOTIFICATION - \(output)")
-//            let msg = output.object! as! String
-//            self.logMessage = msg
-//        }
+//class ScanViewModel: ObservableObject {
+//    @State var logMessageOpacity = 1.0
+//
+//    @Published var logMessage = "" {
+//        didSet {}
+//    }
 //}
 
 struct ScanView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var logMessage: String = ""
+    
+    @State private var logMessage: String = ""
+    @State private var logMessageOpacity = 1.0
     
     // @ObservedObject var model = ScanViewModel()
     
@@ -61,10 +51,15 @@ struct ScanView: View {
             Text(self.logMessage)
                 .padding(.bottom, 3)
                 .transition(.slide)
+                .opacity(self.logMessageOpacity)
                 .onReceive(pub) { (output) in
                     print("RECEIVED NOTIFICATION - \(output)")
-                    let msg = output.object! as! String
-                    self.logMessage = msg
+                    self.logMessage = output.object! as! String
+                    self.logMessageOpacity = 1.0
+                    
+                    withAnimation(.easeOut(duration: 3)) { // .linear(duration: 3)
+                        self.logMessageOpacity = 0.0
+                    }
                 }
         }
     }

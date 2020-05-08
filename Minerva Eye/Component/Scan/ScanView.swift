@@ -39,9 +39,6 @@ struct ScanView: View {
     
     // @ObservedObject var model = ScanViewModel()
     
-    let pub = NotificationCenter.default
-        .publisher(for: Logger.NotificationName)
-    
     var body: some View {
         VStack {
             ZStack {
@@ -52,14 +49,12 @@ struct ScanView: View {
                 .padding(.bottom, 3)
                 .transition(.slide)
                 .opacity(self.logMessageOpacity)
-                .onReceive(pub) { (output) in
-                    // print("RECEIVED NOTIFICATION - \(output)")
-                    
+                .onReceive(Logger.publisher()) { (output) in
                     DispatchQueue.main.async {
                         self.logMessage = output.object! as! String
                         self.logMessageOpacity = 1.0
                         
-                        withAnimation(.easeOut(duration: 5)) { // .linear(duration: 3)
+                        withAnimation(.easeOut(duration: 5)) {
                             self.logMessageOpacity = 0.0
                         }
                     }

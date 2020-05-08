@@ -19,4 +19,9 @@ class Logger {
             Logger.DefaultNotificationCenter.post(name: Logger.NotificationName, object: msg)
         }
     }
+    
+    static func publisher() -> NotificationCenter.Publisher {
+        return Logger.DefaultNotificationCenter
+            .publisher(for: Logger.NotificationName)
+    }
 }

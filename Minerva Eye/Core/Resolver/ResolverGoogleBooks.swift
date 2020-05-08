@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Resolver {
+class ResolverGoogleBooks {
     static private var cache: [String: BookItem] = [:]
     
     enum LookupError: Error {

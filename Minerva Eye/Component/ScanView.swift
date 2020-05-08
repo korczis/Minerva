@@ -23,20 +23,50 @@ extension UIView {
     }
 }
 
+//class ScanViewModel: ObservableObject {
+//    @Published var logMessage = "" {
+//        didSet {
+//            print("set")
+//            //do whatever you want
+//        }
+//    }
+//}
+
+//func createLogLine(text: String): Text {
+//    return Text(text)
+//        .padding(.bottom, 3)
+//        .transition(.slide)
+//        .onReceive(pub) { (output) in
+//            print("RECEIVED NOTIFICATION - \(output)")
+//            let msg = output.object! as! String
+//            self.logMessage = msg
+//        }
+//}
+
 struct ScanView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var logMessage: String = ""
     
+    // @ObservedObject var model = ScanViewModel()
+    
+    let pub = NotificationCenter.default
+        .publisher(for: NSNotification.Name("LogMessage"))
+    
     var body: some View {
-        VStack {
+       return VStack {
             ZStack {
-                ScanViewController(logMessage: $logMessage, managedObjectContext: self.managedObjectContext)
+                ScanViewController(managedObjectContext: self.managedObjectContext)
                  // .navigationBarTitle(Text("Scan"), displayMode: .inline)
             }
-            Text(logMessage)
+            Text(self.logMessage)
                 .padding(.bottom, 3)
+                .transition(.slide)
+                .onReceive(pub) { (output) in
+                    print("RECEIVED NOTIFICATION - \(output)")
+                    let msg = output.object! as! String
+                    self.logMessage = msg
+                }
         }
-        // .navigationBarTitle(Text("Scan"), displayMode: .inline)
     }
 }
 

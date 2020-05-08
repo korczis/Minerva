@@ -12,8 +12,6 @@ import SwiftUI
 import UIKit
 
 final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @Binding var logMessage: String
-    
     var managedObjectContext: NSManagedObjectContext
     
     // FIXME: This is per view! Should be computed or inferred!
@@ -23,8 +21,9 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     var previewLayer: AVCaptureVideoPreviewLayer!
     var boundsView: UIView?
     
-    init(logMessage: Binding<String>, managedObjectContext: NSManagedObjectContext) {
-        self._logMessage = logMessage
+    private var notificationCenter = NotificationCenter.default
+    
+    init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
         super.init(nibName: nil, bundle: nil)
    }
@@ -107,7 +106,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         super.viewWillAppear(animated)
         
         DispatchQueue.main.async {
-            self.logMessage = ""
+            self.notificationCenter.post(name: Notification.Name("LogMessage"), object: "")
         }
         
         if (captureSession?.isRunning == false) {
@@ -141,8 +140,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             // Prevent multiple lookups of same code/isbn
             if let _ = self.cache[stringValue] {
                 let msg = "Book already processed, ISBN: \(stringValue)"
-                self.logMessage = msg
-                print(msg)
+                self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
                 return
             }
             
@@ -162,12 +160,14 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func process(code: String) {
-        self.logMessage = "Processing book, ISBN: \(code)"
+        var msg = "Processing book, ISBN: \(code)"
+        self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
         
         DispatchQueue.global(qos: .utility).async {
-            self.logMessage = "Fetching book info, ISBN: \(code)"
+            msg = "Fetching book info, ISBN: \(code)"
+            self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
             
-            let res = Resolver.fetchBookInfo(isbn: code)
+            let res = ResolverGoogleBooks.fetchBookInfo(isbn: code)
 
 //            if let data = try? res.get() {
 //                if (data == nil) {
@@ -184,7 +184,8 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
                     }
                 }
             } else {
-                self.logMessage = "Fetching book info failed, ISBN: \(code)"
+                msg = "Fetching book info failed, ISBN: \(code)"
+                self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
             }
 
             // When metadata are proccessed, continue capturing again
@@ -203,17 +204,19 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
     // MARK: Helpers
     
     private func saveBookInfo(isbn: String, book: BookItem) {
-        self.logMessage = "Saving book info, ISBN: \(isbn)"
+        var msg = "Saving book info, ISBN: \(isbn)"
+        self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
            let data = try encoder.encode(book)
             print(String(data: data, encoding: .utf8)!)
-            self.logMessage = "Decoded book info, ISBN: \(isbn)"
+            msg = "Decoded book info, ISBN: \(isbn)"
+            self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
         } catch {
-            print(error)
-            self.logMessage = "Unable to decode book info, ISBN: \(isbn)"
+            msg = "Unable to decode book info, ISBN: \(isbn)"
+            self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
         }
         
         DispatchQueue.main.async {
@@ -230,10 +233,12 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             
             do {
                 try self.managedObjectContext.save()
-                self.logMessage = "Saved book info, ISBN: \(isbn)"
+                msg = "Saved book info, ISBN: \(isbn)"
+                self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
+                
             } catch let error {
-                print("Error saving context, reason: \(error)")
-                self.logMessage = "Unable to save book info: ISBN \(isbn), reason: \(error)"
+                msg = "Unable to save book info: ISBN \(isbn), reason: \(error)"
+                self.notificationCenter.post(name: Notification.Name("LogMessage"), object: msg)
             }
         }
     }
@@ -245,7 +250,7 @@ extension ScanViewController: UIViewControllerRepresentable {
     public typealias UIViewControllerType = ScanViewController
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ScanViewController>) -> ScanViewController {
-        return ScanViewController(logMessage: self.$logMessage, managedObjectContext: self.managedObjectContext)
+        return ScanViewController(managedObjectContext: self.managedObjectContext)
     }
     
     func updateUIViewController(_ uiViewController: ScanViewController, context: UIViewControllerRepresentableContext<ScanViewController>) {

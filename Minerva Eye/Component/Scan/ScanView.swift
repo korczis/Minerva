@@ -21,9 +21,7 @@ struct ScanView: View {
     
     @State private var logMessage: String = ""
     @State private var logMessageOpacity = 1.0
-    
-    // @ObservedObject var model = ScanViewModel()
-    
+        
     var body: some View {
         VStack {
             ZStack {

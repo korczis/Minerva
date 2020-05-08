@@ -18,6 +18,8 @@
 		8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CA8245B7D17001DA368 /* ImageHelper.swift */; };
 		8B534CB3245B9A8A001DA368 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CB1245B9A8A001DA368 /* Book+CoreDataClass.swift */; };
 		8B534CB4245B9A8A001DA368 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CB2245B9A8A001DA368 /* Book+CoreDataProperties.swift */; };
+		8B701903246606D900907BBE /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B701902246606D900907BBE /* EyeView.swift */; };
+		8B7019052466084500907BBE /* EyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7019042466084500907BBE /* EyeViewController.swift */; };
 		8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38224571F4700538C91 /* AppDelegate.swift */; };
 		8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38424571F4700538C91 /* SceneDelegate.swift */; };
 		8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */; };
@@ -63,6 +65,8 @@
 		8B534CA8245B7D17001DA368 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		8B534CB1245B9A8A001DA368 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8B534CB2245B9A8A001DA368 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B701902246606D900907BBE /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
+		8B7019042466084500907BBE /* EyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeViewController.swift; sourceTree = "<group>"; };
 		8BAAC37F24571F4700538C91 /* Minerva Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minerva Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAAC38224571F4700538C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BAAC38424571F4700538C91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			children = (
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		8B701901246606BA00907BBE /* Eye */ = {
+			isa = PBXGroup;
+			children = (
+				8B701902246606D900907BBE /* EyeView.swift */,
+				8B7019042466084500907BBE /* EyeViewController.swift */,
+			);
+			path = Eye;
 			sourceTree = "<group>";
 		};
 		8BAAC37624571F4600538C91 = {
@@ -269,6 +282,7 @@
 			children = (
 				8BDF0E0B24651D4200606CB7 /* Book */,
 				8BDF0E0A24651D3300606CB7 /* Books */,
+				8B701901246606BA00907BBE /* Eye */,
 				8BDF0E0C24651D7100606CB7 /* Scan */,
 				8B151025245B23F500313A36 /* MainView.swift */,
 			);
@@ -414,12 +428,14 @@
 				8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */,
 				8B1510102459F52D00313A36 /* BookDetailView.swift in Sources */,
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
+				8B7019052466084500907BBE /* EyeViewController.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
 				8B151026245B23F500313A36 /* MainView.swift in Sources */,
 				8B151020245B214700313A36 /* BooksView.swift in Sources */,
 				8BF521CB246387D1007302F7 /* ContentView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* ResolverGoogleBooks.swift in Sources */,
 				8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */,
+				8B701903246606D900907BBE /* EyeView.swift in Sources */,
 				8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */,
 				8B1510122459F58100313A36 /* BooksListRowView.swift in Sources */,
 				8BE30E9924573B200042280E /* BooksListView.swift in Sources */,

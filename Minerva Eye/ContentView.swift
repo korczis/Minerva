@@ -40,7 +40,7 @@ struct InformationDetailView: View {
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink(destination: MainView(selection: MainView.Tab.Library)) { // MainView.Tab.Scan
+            NavigationLink(destination: ScanView()) { // MainView(selection: MainView.Tab.Library
                 InformationDetailView(
                     title: "Scan",
                     subTitle: "Manage your books using ISBN/Barcodes",
@@ -48,7 +48,7 @@ struct InformationContainerView: View {
                 )
             }
             
-            NavigationLink(destination: MainView(selection: MainView.Tab.Library)) {
+            NavigationLink(destination: BooksView()) { // MainView(selection: MainView.Tab.Library)
                 InformationDetailView(
                     title: "Library",
                     subTitle: "Keep your books organized",

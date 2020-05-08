@@ -32,6 +32,16 @@ struct MainView: View {
             }
             .tag(MainView.Tab.Library)
             
+            EyeView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "eye")
+                        Text("Eye")
+                    }
+                    .navigationBarTitle(Text("Eye"), displayMode: .inline)
+            }
+            .tag(MainView.Tab.Eye)
+            
             ScanView()
                 .tabItem {
                     VStack {
@@ -47,6 +57,7 @@ struct MainView: View {
 
 extension MainView {
     enum Tab: Hashable {
+        case Eye
         case Library
         case Scan
     }

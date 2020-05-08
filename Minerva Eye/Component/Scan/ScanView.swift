@@ -60,6 +60,7 @@ struct ScanView: View {
                     }
             }
         }
+        .navigationBarTitle("Scan")
     }
 }
 

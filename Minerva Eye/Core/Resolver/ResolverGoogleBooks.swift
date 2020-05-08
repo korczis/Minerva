@@ -34,10 +34,6 @@ class ResolverGoogleBooks {
         
         print("Calling Google Books API - ISBN: \(isbn)")
         URLSession.shared.dataTask(with: url) { data, response, error in
-//            print(data)
-//            print(response)
-//            print(error)
-            
             if let error = error {
                 print("Google Books API failed - ISBN: \(isbn), error: \(error)")
                 result = .failure(.wrongResponse)

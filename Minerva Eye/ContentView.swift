@@ -40,7 +40,7 @@ struct InformationDetailView: View {
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink(destination: MainView(selection: 0)) {
+            NavigationLink(destination: MainView(selection: MainView.Tab.Scan)) {
                 InformationDetailView(
                     title: "Scan",
                     subTitle: "Manage your books using ISBN/Barcodes",
@@ -48,7 +48,7 @@ struct InformationContainerView: View {
                 )
             }
             
-            NavigationLink(destination: MainView(selection: 0)) {
+            NavigationLink(destination: MainView(selection: MainView.Tab.Library)) {
                 InformationDetailView(
                     title: "Library",
                     subTitle: "Keep your books organized",
@@ -92,7 +92,7 @@ struct InformationContainerView: View {
 
 struct TitleView: View {
     var body: some View {
-        NavigationLink(destination: MainView(selection: 0)) {
+        NavigationLink(destination: MainView(selection: MainView.Tab.Library)) {
             VStack {
                 Text("Minerva Eye")
                     .font(.largeTitle)

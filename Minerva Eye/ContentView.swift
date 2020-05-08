@@ -85,6 +85,15 @@ struct InformationContainerView: View {
                 .padding(.top)
             }
             
+            // Testing stuff
+            Group {
+                Button(action: {
+                    ResolverGoodReads.fetchBookInfo(isbn: "9780140514810")
+                }) {
+                    Text("Test GoodReads")
+                }
+            }
+            
         }
         .padding(.horizontal)
     }

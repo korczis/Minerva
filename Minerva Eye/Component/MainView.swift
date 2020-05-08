@@ -29,6 +29,38 @@ struct MainView: View {
                         Text("Library (\(self.data.count))")
                     }
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
+                    .navigationBarItems(trailing:
+                        Button(action: {}) {
+                            Text("Actions")
+                                .contextMenu {
+                                    Button(action: {
+                                        do {
+                                            for item in self.data {
+                                                self.managedObjectContext.delete(item)
+                                            }
+
+                                            // Save Changes
+                                            try self.managedObjectContext.save()
+
+                                        } catch {
+                                            // Error Handling
+                                            // ...
+                                        }
+                                    }) {
+                                        Text("Flush Database")
+                                            .foregroundColor(.red)
+                                        Image(systemName: "trash")
+                                    }
+
+//                                    Button(action: {
+//                                        // enable geolocation
+//                                    }) {
+//                                        Text("Detect Location")
+//                                        Image(systemName: "location.circle")
+//                                    }
+                                }
+                        }
+                    )
             }
             .tag(MainView.Tab.Library)
             

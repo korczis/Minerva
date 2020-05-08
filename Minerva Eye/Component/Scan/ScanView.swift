@@ -40,27 +40,30 @@ struct ScanView: View {
     // @ObservedObject var model = ScanViewModel()
     
     let pub = NotificationCenter.default
-        .publisher(for: NSNotification.Name("LogMessage"))
+        .publisher(for: Logger.NotificationName)
     
     var body: some View {
-       return VStack {
+        VStack {
             ZStack {
                 ScanViewController(managedObjectContext: self.managedObjectContext)
-                 // .navigationBarTitle(Text("Scan"), displayMode: .inline)
             }
+            
             Text(self.logMessage)
                 .padding(.bottom, 3)
                 .transition(.slide)
                 .opacity(self.logMessageOpacity)
                 .onReceive(pub) { (output) in
-                    print("RECEIVED NOTIFICATION - \(output)")
-                    self.logMessage = output.object! as! String
-                    self.logMessageOpacity = 1.0
+                    // print("RECEIVED NOTIFICATION - \(output)")
                     
-                    withAnimation(.easeOut(duration: 3)) { // .linear(duration: 3)
-                        self.logMessageOpacity = 0.0
+                    DispatchQueue.main.async {
+                        self.logMessage = output.object! as! String
+                        self.logMessageOpacity = 1.0
+                        
+                        withAnimation(.easeOut(duration: 5)) { // .linear(duration: 3)
+                            self.logMessageOpacity = 0.0
+                        }
                     }
-                }
+            }
         }
     }
 }

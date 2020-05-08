@@ -45,12 +45,8 @@ struct BooksListView: View {
     }
 }
 
-//struct BooksListView_Previews: PreviewProvider {
-//    var handleScan: () -> () = {
-//        
-//    }
-//    
-//    static var previews: some View {
-//        BooksListView(handleScan: self.handleScan)
-//    }
-//}
+struct BooksListView_Previews: PreviewProvider {
+    static var previews: some View {
+        BooksListView()
+    }
+}

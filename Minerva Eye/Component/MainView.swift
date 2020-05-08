@@ -21,13 +21,12 @@ struct MainView: View {
     @State var selection: Int = 0
     
     var body: some View {
-        TabView(selection: self.$selection){
+        TabView(selection: self.$selection) {
             BooksView()
                 .tabItem {
                     VStack {
                         Image(systemName: "book")
-//                        Text("Books")
-                         Text("Library (\(self.data.count))")
+                        Text("Library (\(self.data.count))")
                     }
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
             }
@@ -39,17 +38,15 @@ struct MainView: View {
                         Image(systemName: "camera")
                         Text("Scan")
                     }
-                    // .navigationBarTitle(Text("Scan"), displayMode: .inline)
+                    .navigationBarTitle(Text("Scan"), displayMode: .inline)
             }
             .tag(1)
         }
     }
 }
 
-//struct MainView_Previews: PreviewProvider {
-//    @State var selection: Int = 0
-//    
-//    static var previews: some View {
-//        MainView(selection: self.$selection)
-//    }
-//}
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}

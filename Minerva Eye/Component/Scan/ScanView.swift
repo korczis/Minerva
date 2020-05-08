@@ -9,30 +9,15 @@
 import SwiftUI
 import AVFoundation
 
-//extension UIView {
-//    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-//            self.alpha = 1.0
-//        }, completion: completion)
-//    }
-//
-//    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-//            self.alpha = 0.0
-//        }, completion: completion)
-//    }
-//}
-
-//class ScanViewModel: ObservableObject {
-//    @State var logMessageOpacity = 1.0
-//
-//    @Published var logMessage = "" {
-//        didSet {}
-//    }
-//}
-
 struct ScanView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+        ]
+    ) var data: FetchedResults<Book>
     
     @State private var logMessage: String = ""
     @State private var logMessageOpacity = 1.0
@@ -60,7 +45,7 @@ struct ScanView: View {
                     }
             }
         }
-        .navigationBarTitle("Scan")
+        .navigationBarTitle("Scan (\(self.data.count))")
     }
 }
 

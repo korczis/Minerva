@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var clicks: Int = 0
     @State private var messages: [String] = []
     
+    static private var maxMessagesCount: Int = 1_000
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -30,8 +32,13 @@ struct ContentView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(Logger.publisher()) { (output) in
             DispatchQueue.main.async {
+                
                 let msg = output.object! as! String
                 self.messages.append(msg)
+                
+                while(self.messages.count > ContentView.maxMessagesCount) {
+                    self.messages.removeFirst()
+                }
             }
         }
     }

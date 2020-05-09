@@ -19,7 +19,7 @@ struct TitleView: View {
                 .foregroundColor(.blue)
             
             Button(action: {
-                self.clicks += 1
+                self.clicks = (self.clicks + 1) % 14
                 
                 puts("Minerva Logo clicked - \(self.clicks)")
             }) {

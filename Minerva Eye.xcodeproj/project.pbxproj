@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,14 @@
 		8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */; };
 		8BAAC39D24571F4900538C91 /* Minerva_EyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */; };
 		8BAAC3A824571F4900538C91 /* Minerva_EyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */; };
+		8BBA465024667DAF004EAB23 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA464F24667DAF004EAB23 /* KingfisherStatic */; };
+		8BBA465224667DAF004EAB23 /* KingfisherSwiftUIStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */; };
+		8BBA465424667DAF004EAB23 /* KingfisherDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465324667DAF004EAB23 /* KingfisherDynamic */; };
+		8BBA465524667DAF004EAB23 /* KingfisherDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465324667DAF004EAB23 /* KingfisherDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8BBA465724667DAF004EAB23 /* KingfisherSwiftUIDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */; };
+		8BBA465824667DAF004EAB23 /* KingfisherSwiftUIDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465924667DAF004EAB23 /* Kingfisher */; };
+		8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */; };
 		8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF0E0D24651D9F00606CB7 /* Logger.swift */; };
 		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
 		8BE30E9924573B200042280E /* BooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9824573B200042280E /* BooksListView.swift */; };
@@ -54,6 +62,21 @@
 			remoteInfo = "Minerva Eye";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8BBA465D24667DAF004EAB23 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BBA465824667DAF004EAB23 /* KingfisherSwiftUIDynamic in Embed Frameworks */,
+				8BBA465524667DAF004EAB23 /* KingfisherDynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8B15100F2459F52D00313A36 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -99,8 +122,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBA465724667DAF004EAB23 /* KingfisherSwiftUIDynamic in Frameworks */,
+				8BBA465224667DAF004EAB23 /* KingfisherSwiftUIStatic in Frameworks */,
+				8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */,
 				8B7019132466461B00907BBE /* Vision.framework in Frameworks */,
 				8B151029245B32BF00313A36 /* CloudKit.framework in Frameworks */,
+				8BBA465024667DAF004EAB23 /* KingfisherStatic in Frameworks */,
+				8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */,
+				8BBA465424667DAF004EAB23 /* KingfisherDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,12 +362,21 @@
 				8BAAC37B24571F4700538C91 /* Sources */,
 				8BAAC37C24571F4700538C91 /* Frameworks */,
 				8BAAC37D24571F4700538C91 /* Resources */,
+				8BBA465D24667DAF004EAB23 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Minerva Eye";
+			packageProductDependencies = (
+				8BBA464F24667DAF004EAB23 /* KingfisherStatic */,
+				8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */,
+				8BBA465324667DAF004EAB23 /* KingfisherDynamic */,
+				8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */,
+				8BBA465924667DAF004EAB23 /* Kingfisher */,
+				8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */,
+			);
 			productName = "Minerva Eye";
 			productReference = 8BAAC37F24571F4700538C91 /* Minerva Eye.app */;
 			productType = "com.apple.product-type.application";
@@ -411,6 +449,9 @@
 				Base,
 			);
 			mainGroup = 8BAAC37624571F4600538C91;
+			packageReferences = (
+				8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 8BAAC38024571F4700538C91 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -799,6 +840,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BBA464F24667DAF004EAB23 /* KingfisherStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherStatic;
+		};
+		8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUIStatic;
+		};
+		8BBA465324667DAF004EAB23 /* KingfisherDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherDynamic;
+		};
+		8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUIDynamic;
+		};
+		8BBA465924667DAF004EAB23 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */ = {

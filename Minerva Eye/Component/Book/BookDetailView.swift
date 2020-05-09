@@ -11,6 +11,7 @@ import CoreImage
 import Foundation
 import SwiftUI
 
+import KingfisherSwiftUI
 ///
 
 struct CodeRenderer {
@@ -131,21 +132,28 @@ struct BookDetailView: View {
                 // ISBN Preview and Barcode
                 if data.isbn != nil {
                     VStack {
-                        // Preview
-                        AsyncImage(
-                            url: URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
-                            placeholder: Text("Loading preview..."),
-                            cache: self.cache
-                        )
-                        .scaledToFit()
-                        .background(Color.gray)
-                        
-                        Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
+                        KFImage(URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!)
                             .renderingMode(.original)
                             .resizable()
                             .scaledToFit()
                             .border(Color.black, width: 2)
-                            .background(Color.white)
+                            .background(Color.gray)
+
+//                        // Preview
+//                        AsyncImage(
+//                            url: URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+//                            placeholder: Text("Loading preview..."),
+//                            cache: self.cache
+//                        )
+//                        .scaledToFit()
+//                        .background(Color.gray)
+//
+//                        Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
+//                            .renderingMode(.original)
+//                            .resizable()
+//                            .scaledToFit()
+//                            .border(Color.black, width: 2)
+//                            .background(Color.white)
                     }
                 }
                 

@@ -40,7 +40,7 @@ class ResolverGoogleBooks {
             }
             
             if let data = data {
-                Logger.log(msg: "Google API returned data - \(data)")
+                Logger.log(msg: "Google Books API returned data - \(data)")
                 
                 do {
                     let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
@@ -51,7 +51,7 @@ class ResolverGoogleBooks {
                     }
                     
                 } catch  {
-                    Logger.log(msg: "Unable to decode Google API response - ISBN: \(isbn)")
+                    Logger.log(msg: "Unable to decode Google Books API response - ISBN: \(isbn)")
                     result = .failure(.wrongResponse)
                 }
             }

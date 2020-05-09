@@ -87,6 +87,14 @@ struct InformationContainerView: View {
                     
                     NavigationLink(
                         destination: LogView(messages: $messages)
+                            .navigationBarItems(trailing:
+                                Button(action: {
+                                    self.messages = []
+                                })
+                                {
+                                    Text("Flush")
+                                        .foregroundColor(.red)
+                            })
                             .navigationBarTitle(Text("Logs"), displayMode: .inline)) {
                                 InformationDetailView(
                                     title: "Logs",

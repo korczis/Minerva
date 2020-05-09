@@ -147,13 +147,13 @@ struct BookDetailView: View {
 //                        )
 //                        .scaledToFit()
 //                        .background(Color.gray)
-//
-//                        Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
-//                            .renderingMode(.original)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .border(Color.black, width: 2)
-//                            .background(Color.white)
+
+                        Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFit()
+                            .border(Color.black, width: 2)
+                            .background(Color.white)
                     }
                 }
                 

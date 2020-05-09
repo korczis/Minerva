@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainViewOld: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(
@@ -24,13 +24,13 @@ struct MainView: View {
         Group {
             if selection == .Scan {
                 ScanView()
-                    .navigationBarTitle(Text("Scan (\(self.data.count))"), displayMode: .inline)
+                    .navigationBarTitle(Text("Scan"), displayMode: .inline)
                     .navigationBarItems(trailing:
                     Button(action: {
-                            self.selection = .Library
+                            
                         })
                         {
-                            Text("Library")
+                            Text("Library (\(data.count))")
                                 .foregroundColor(.blue)
                         }
                     )
@@ -75,8 +75,8 @@ struct MainView: View {
 //    }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

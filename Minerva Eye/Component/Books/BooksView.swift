@@ -9,11 +9,18 @@
 import SwiftUI
 
 struct BooksView: View {
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+        ]
+    ) var data: FetchedResults<Book>
+    
     var body: some View {
         VStack {
             BooksListView()
         }
-        
+        .navigationBarTitle("Library (\(self.data.count))")
     }
 }
 

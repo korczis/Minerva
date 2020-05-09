@@ -34,6 +34,13 @@ import AVFoundation
 struct ScanView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
+//    @FetchRequest(
+//        entity: Book.entity(),
+//        sortDescriptors: [
+//            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+//        ]
+//    ) var data: FetchedResults<Book>
+    
     @State private var logMessage: String = ""
     @State private var logMessageOpacity = 1.0
     
@@ -59,7 +66,7 @@ struct ScanView: View {
                         }
                     }
             }
-        }
+        }.navigationBarTitle("Scan")
     }
 }
 

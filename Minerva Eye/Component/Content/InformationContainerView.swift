@@ -9,6 +9,15 @@
 import SwiftUI
 
 struct InformationContainerView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+        ]
+    ) var data: FetchedResults<Book>
+    
     var body: some View {
         VStack(alignment: .leading) {
             // MARK: Help
@@ -20,13 +29,13 @@ struct InformationContainerView: View {
                         .font(.largeTitle)
                         .foregroundColor(.blue)
                         .padding()
-                        // .accessibility(hidden: true)
+                    // .accessibility(hidden: true)
                     
                     VStack(alignment: .leading) {
                         Text("Getting Started")
                             .font(.headline)
                             .foregroundColor(.primary)
-                            // .accessibility(addTraits: .isHeader)
+                        // .accessibility(addTraits: .isHeader)
                         
                         Group {
                             Text("Scan book")
@@ -37,7 +46,7 @@ struct InformationContainerView: View {
                         .foregroundColor(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                     }
-                        
+                    
                 }
                 .padding(.top)
             }
@@ -46,20 +55,37 @@ struct InformationContainerView: View {
             Group {
                 Divider()
                 
-                NavigationLink(destination: MainView(selection: AppState.View.Library)) { // MainView.Tab.Scan
-                    InformationDetailView(
-                        title: "Scan",
-                        subTitle: "Manage your books using ISBN/Barcodes",
-                        imageName: "camera"
+                NavigationLink(
+                    destination: ScanView()
+                        .navigationBarItems(trailing:
+                            NavigationLink(destination: BooksView()) {
+                                Text("Library (\(data.count))")
+                                    .foregroundColor(.blue)
+                            }
+                            
                     )
+                        .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
+                            InformationDetailView(
+                                title: "Scan",
+                                subTitle: "Manage your books using ISBN/Barcodes",
+                                imageName: "camera"
+                            )
+                            
                 }
                 
-                NavigationLink(destination: MainView(selection: AppState.View.Library)) {
-                    InformationDetailView(
-                        title: "Library",
-                        subTitle: "Keep your books organized",
-                        imageName: "book"
-                    )
+                NavigationLink(
+                    destination: BooksView()
+                        .navigationBarItems(trailing:
+                            NavigationLink(destination: ScanView()) {
+                                Text("Scan")
+                                    .foregroundColor(.blue)
+                        })
+                        .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)) {
+                            InformationDetailView(
+                                title: "Library",
+                                subTitle: "Keep your books organized",
+                                imageName: "book"
+                            )
                 }
             }
         }

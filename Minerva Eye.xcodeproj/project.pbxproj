@@ -38,6 +38,7 @@
 		8BBA465824667DAF004EAB23 /* KingfisherSwiftUIDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465924667DAF004EAB23 /* Kingfisher */; };
 		8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */; };
+		8BBA466024668DD5004EAB23 /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA465F24668DD5004EAB23 /* EyeView.swift */; };
 		8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF0E0D24651D9F00606CB7 /* Logger.swift */; };
 		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
 		8BE30E9924573B200042280E /* BooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9824573B200042280E /* BooksListView.swift */; };
@@ -109,6 +110,7 @@
 		8BAAC3A324571F4900538C91 /* Minerva EyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minerva EyeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minerva_EyeUITests.swift; sourceTree = "<group>"; };
 		8BAAC3A924571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BBA465F24668DD5004EAB23 /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
 		8BDF0E0D24651D9F00606CB7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8BE30E9624573A570042280E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		8BE30E9824573B200042280E /* BooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,14 @@
 			path = "Minerva EyeUITests";
 			sourceTree = "<group>";
 		};
+		8BBA465E24668DBC004EAB23 /* Eye */ = {
+			isa = PBXGroup;
+			children = (
+				8BBA465F24668DD5004EAB23 /* EyeView.swift */,
+			);
+			path = Eye;
+			sourceTree = "<group>";
+		};
 		8BDF0E092464F71B00606CB7 /* Resolver */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +356,7 @@
 				8BDF0E0B24651D4200606CB7 /* Book */,
 				8BDF0E0A24651D3300606CB7 /* Books */,
 				8B70191524664A1D00907BBE /* Content */,
+				8BBA465E24668DBC004EAB23 /* Eye */,
 				8B701920246670B600907BBE /* Log */,
 				8BDF0E0C24651D7100606CB7 /* Scan */,
 			);
@@ -514,6 +525,7 @@
 				8B70191B24664AAA00907BBE /* InformationDetailView.swift in Sources */,
 				8B70191F24664BEB00907BBE /* AppState.swift in Sources */,
 				8B70191724664A5C00907BBE /* InformationContainerView.swift in Sources */,
+				8BBA466024668DD5004EAB23 /* EyeView.swift in Sources */,
 				8BE30E9924573B200042280E /* BooksListView.swift in Sources */,
 				8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */,
 				8B70191924664A8700907BBE /* TitleView.swift in Sources */,
@@ -672,7 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -697,7 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

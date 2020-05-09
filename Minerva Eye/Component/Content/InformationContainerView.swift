@@ -18,6 +18,8 @@ struct InformationContainerView: View {
         ]
     ) var data: FetchedResults<Book>
     
+    @Binding var clicks: Int
+    
     var body: some View {
         VStack(alignment: .leading) {
             // MARK: Help
@@ -78,19 +80,31 @@ struct InformationContainerView: View {
             }
             
             // MARK: Experimental
-            Group {
-                Divider()
-                
-                NavigationLink(
-                    destination: LogView()
-                        .navigationBarTitle(Text("Logs"), displayMode: .inline)) {
-                            InformationDetailView(
-                                title: "Logs",
-                                subTitle: "Application log messages",
-                                imageName: "list.dash"
-                            )
+            if self.clicks >= 13 {
+                Group {
+                    Divider()
+                    
+                    NavigationLink(
+                        destination: LogView()
+                            .navigationBarTitle(Text("Logs"), displayMode: .inline)) {
+                                InformationDetailView(
+                                    title: "Logs",
+                                    subTitle: "Application log messages",
+                                    imageName: "list.dash"
+                                )
+                    }
+                    
+                    NavigationLink(
+                        destination: EyeView()
+                            .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
+                                InformationDetailView(
+                                    title: "Eye",
+                                    subTitle: "Minerva Eye at its finest",
+                                    imageName: "eye"
+                                )
+                    }
                 }
-            }.disabled(true)
+            }
         }
         .padding(.horizontal)
     }

@@ -9,15 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var clicks: Int = 0
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
                     Spacer()
                     
-                    TitleView()
+                    TitleView(clicks: $clicks)
                     
-                    InformationContainerView()
+                    InformationContainerView(clicks: $clicks)
                     
                     Spacer(minLength: 30)
                 }

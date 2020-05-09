@@ -18,10 +18,11 @@ struct MainView: View {
         ]
     ) var data: FetchedResults<Book>
     
-    @State var selection: MainView.Tab = .Library
+    // @State var selection: MainView.Tab = .Library
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
-        TabView(selection: self.$selection) {
+        TabView(selection: $appState.selectedView) {
             BooksView()
                 .tabItem {
                     VStack {
@@ -31,6 +32,7 @@ struct MainView: View {
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
             }
             .tag(MainView.Tab.Library)
+            .environmentObject(appState)
             
             EyeView()
                 .tabItem {
@@ -52,6 +54,16 @@ struct MainView: View {
             }
             .tag(MainView.Tab.Scan)
         }
+    }
+}
+
+extension MainView {
+    class ViewModel: ObservableObject {
+        var selectedTab: MainView.Tab = .Library {
+            willSet { objectWillChange.send() }
+        }
+        // Alternatively:
+        // @Published var selectedTab: ContentView.Tab = .home
     }
 }
 

@@ -38,6 +38,8 @@ struct InformationDetailView: View {
 }
 
 struct InformationContainerView: View {
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         VStack(alignment: .leading) {
             Divider()
@@ -110,7 +112,7 @@ struct InformationContainerView: View {
 
 struct TitleView: View {
     var body: some View {
-        NavigationLink(destination: MainView(selection: MainView.Tab.Library)) {
+        NavigationLink(destination: MainView()) {
             VStack {
                 Text("Minerva Eye")
                     .font(.largeTitle)
@@ -129,6 +131,8 @@ struct TitleView: View {
 }
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         NavigationView {
             ScrollView {

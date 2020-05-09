@@ -13,7 +13,7 @@ class Logger {
     static let NotificationName = Notification.Name("LogMessage")
     
     static func log(msg: String) -> Void {
-        // print(msg)
+        print(msg)
         
         DispatchQueue.main.async {
             Logger.DefaultNotificationCenter.post(name: Logger.NotificationName, object: msg)

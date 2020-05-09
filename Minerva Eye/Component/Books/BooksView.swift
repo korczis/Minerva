@@ -11,6 +11,9 @@ import SwiftUI
 struct BooksView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    // @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState: AppState
+    
     @FetchRequest(
         entity: Book.entity(),
         sortDescriptors: [
@@ -23,12 +26,21 @@ struct BooksView: View {
             BooksListView()
         }
         .navigationBarTitle("Library (\(self.data.count))")
-        
+        .navigationBarItems(trailing:
+            Button(action: {
+                Logger.log(msg: "Scan button clicked!")
+                self.appState.selectView(view: MainView.Tab.Scan)
+            })
+            {
+                Text("Scan")
+                    .foregroundColor(.blue)
+            }
+        )
     }
 }
 
-struct BooksView_Previews: PreviewProvider {
-    static var previews: some View {
-        BooksView()
-    }
-}
+//struct BooksView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BooksView()
+//    }
+//}

@@ -31,14 +31,14 @@ struct BooksListView: View {
     }
     
     func delete(at offsets: IndexSet) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async  {
             offsets.forEach() { idx in
                 // Saving the Delete operation
                 do {
                     self.managedObjectContext.delete(self.data[idx])
                     try self.managedObjectContext.save()
                 } catch {
-                    print("Failed saving")
+                    Logger.log(msg: "Delete failed")
                 }
             }
         }

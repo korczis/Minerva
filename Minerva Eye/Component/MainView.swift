@@ -25,27 +25,27 @@ struct MainViewOld: View {
             if selection == .Scan {
                 ScanView()
                     .navigationBarTitle(Text("Scan"), displayMode: .inline)
-                    .navigationBarItems(trailing:
-                    Button(action: {
-                            
-                        })
-                        {
-                            Text("Library (\(data.count))")
-                                .foregroundColor(.blue)
-                        }
-                    )
+//                    .navigationBarItems(trailing:
+//                    Button(action: {
+//
+//                        })
+//                        {
+//                            Text("Library (\(data.count))")
+//                                .foregroundColor(.blue)
+//                        }
+//                    )
             } else if selection == .Library {
                 BooksView()
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
-                    .navigationBarItems(trailing:
-                    Button(action: {
-                            self.selection = .Scan
-                        })
-                        {
-                            Text("Scan")
-                                .foregroundColor(.blue)
-                        }
-                    )
+//                    .navigationBarItems(trailing:
+//                    Button(action: {
+//                            self.selection = .Scan
+//                        })
+//                        {
+//                            Text("Scan")
+//                                .foregroundColor(.blue)
+//                        }
+//                    )
             }
         }
     }

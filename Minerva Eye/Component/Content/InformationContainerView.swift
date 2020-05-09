@@ -57,14 +57,14 @@ struct InformationContainerView: View {
                 
                 NavigationLink(
                     destination: ScanView()
-                        .navigationBarItems(trailing:
-                            NavigationLink(destination: BooksView()) {
-                                Text("Library (\(data.count))")
-                                    .foregroundColor(.blue)
-                            }
-                            
-                    )
-                        .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
+//                        .navigationBarItems(trailing:
+//                            NavigationLink(destination: BooksView()) {
+//                                Text("Library (\(data.count))")
+//                                    .foregroundColor(.blue)
+//                            }
+//                            
+//                    )
+                        .navigationBarTitle(Text("Scan (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Scan",
                                 subTitle: "Manage your books using ISBN/Barcodes",
@@ -75,11 +75,11 @@ struct InformationContainerView: View {
                 
                 NavigationLink(
                     destination: BooksView()
-                        .navigationBarItems(trailing:
-                            NavigationLink(destination: ScanView()) {
-                                Text("Scan")
-                                    .foregroundColor(.blue)
-                        })
+                        //                        .navigationBarItems(trailing:
+                        //                            NavigationLink(destination: ScanView()) {
+                        //                                Text("Scan")
+                        //                                    .foregroundColor(.blue)
+                        //                        })
                         .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Library",

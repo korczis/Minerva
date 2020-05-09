@@ -16,6 +16,8 @@ struct TitleView: View {
                     .font(.largeTitle)
                     .foregroundColor(.blue)
                 
+                // Divider()
+                
                 Image(uiImage: UIImage(named: "AppIcon")!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

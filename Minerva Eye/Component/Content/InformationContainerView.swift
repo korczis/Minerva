@@ -46,7 +46,7 @@ struct InformationContainerView: View {
             Group {
                 Divider()
                 
-                NavigationLink(destination: MainView(selection: AppState.View.Library)) { // MainView.Tab.Scan
+                NavigationLink(destination: MainView(selection: AppState.View.Scan)) { // MainView.Tab.Scan
                     InformationDetailView(
                         title: "Scan",
                         subTitle: "Manage your books using ISBN/Barcodes",

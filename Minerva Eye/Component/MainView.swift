@@ -21,28 +21,58 @@ struct MainView: View {
     @State var selection: AppState.View = .Library
     
     var body: some View {
-        TabView(selection: self.$selection) {
-            BooksView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "book")
-                        Text("Library (\(self.data.count))")
-                    }
+        Group {
+            if selection == .Scan {
+                ScanView()
+                    .navigationBarTitle(Text("Scan (\(self.data.count))"), displayMode: .inline)
+                    .navigationBarItems(trailing:
+                    Button(action: {
+                            self.selection = .Library
+                        })
+                        {
+                            Text("Library")
+                                .foregroundColor(.blue)
+                        }
+                    )
+            } else if selection == .Library {
+                BooksView()
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
+                    .navigationBarItems(trailing:
+                    Button(action: {
+                            self.selection = .Scan
+                        })
+                        {
+                            Text("Scan")
+                                .foregroundColor(.blue)
+                        }
+                    )
             }
-            .tag(AppState.View.Library)
-            
-            ScanView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "camera")
-                        Text("Scan")
-                    }
-                    .navigationBarTitle(Text("Scan"), displayMode: .inline)
-            }
-            .tag(AppState.View.Scan)
         }
     }
+    
+//    var body: some View {
+//        TabView(selection: self.$selection) {
+//            BooksView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "book")
+//                        Text("Library (\(self.data.count))")
+//                    }
+//                    .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
+//            }
+//            .tag(AppState.View.Library)
+//
+//            ScanView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "camera")
+//                        Text("Scan")
+//                    }
+//                    .navigationBarTitle(Text("Scan"), displayMode: .inline)
+//            }
+//            .tag(AppState.View.Scan)
+//        }
+//    }
 }
 
 struct MainView_Previews: PreviewProvider {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TitleView: View {
     var body: some View {
-        NavigationLink(destination: MainView(selection: ContentView.Tab.Library)) {
+        NavigationLink(destination: MainView(selection: AppState.View.Library)) {
             VStack {
                 Text("Minerva Eye")
                     .font(.largeTitle)

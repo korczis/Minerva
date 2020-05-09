@@ -18,7 +18,7 @@ struct MainView: View {
         ]
     ) var data: FetchedResults<Book>
     
-    @State var selection: ContentView.Tab = .Library
+    @State var selection: AppState.View = .Library
     
     var body: some View {
         TabView(selection: self.$selection) {
@@ -30,7 +30,7 @@ struct MainView: View {
                     }
                     .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)
             }
-            .tag(ContentView.Tab.Library)
+            .tag(AppState.View.Library)
             
             ScanView()
                 .tabItem {
@@ -40,7 +40,7 @@ struct MainView: View {
                     }
                     .navigationBarTitle(Text("Scan"), displayMode: .inline)
             }
-            .tag(ContentView.Tab.Scan)
+            .tag(AppState.View.Scan)
         }
     }
 }

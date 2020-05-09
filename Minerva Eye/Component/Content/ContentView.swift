@@ -27,13 +27,6 @@ struct ContentView: View {
     }
 }
 
-extension ContentView {
-    enum Tab: Hashable {
-        case Library
-        case Scan
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

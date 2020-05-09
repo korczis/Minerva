@@ -109,3 +109,12 @@ struct AsyncImage<Placeholder: View>: View {
         }
     }
 }
+
+// // Preview
+// AsyncImage(
+//     url: URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+//     placeholder: Text("Loading preview..."),
+//     cache: self.cache
+// )
+// .scaledToFit()
+// .background(Color.gray)

@@ -12,6 +12,9 @@ import Foundation
 import SwiftUI
 
 import KingfisherSwiftUI
+import struct Kingfisher.BlackWhiteProcessor
+import struct Kingfisher.DownsamplingImageProcessor
+
 ///
 
 struct CodeRenderer {
@@ -132,21 +135,23 @@ struct BookDetailView: View {
                 // ISBN Preview and Barcode
                 if data.isbn != nil {
                     VStack {
-                        KFImage(URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!)
+                        KFImage(
+                            URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+                            options: [
+                                .transition(.fade(0.5)),
+                                // .processor(
+                                //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
+                                //     BlackWhiteProcessor()
+                                // ),
+                                .scaleFactor(UIScreen.main.scale),
+                                .cacheOriginalImage
+                            ]
+                        )
                             .renderingMode(.original)
                             .resizable()
                             .scaledToFit()
                             .border(Color.black, width: 2)
                             .background(Color.gray)
-
-//                        // Preview
-//                        AsyncImage(
-//                            url: URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
-//                            placeholder: Text("Loading preview..."),
-//                            cache: self.cache
-//                        )
-//                        .scaledToFit()
-//                        .background(Color.gray)
 
                         Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
                             .renderingMode(.original)

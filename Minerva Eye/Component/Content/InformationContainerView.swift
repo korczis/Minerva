@@ -19,6 +19,7 @@ struct InformationContainerView: View {
     ) var data: FetchedResults<Book>
     
     @Binding var clicks: Int
+    @Binding var messages: [String]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -85,7 +86,7 @@ struct InformationContainerView: View {
                     Divider()
                     
                     NavigationLink(
-                        destination: LogView()
+                        destination: LogView(messages: $messages)
                             .navigationBarTitle(Text("Logs"), displayMode: .inline)) {
                                 InformationDetailView(
                                     title: "Logs",

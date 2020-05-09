@@ -30,6 +30,7 @@ struct TitleView: View {
                     // .accessibility(hidden: true)
                     .cornerRadius(25)
             }
+            .padding(.bottom)
         }
         // }
     }

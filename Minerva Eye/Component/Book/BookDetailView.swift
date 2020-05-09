@@ -178,7 +178,7 @@ struct BookDetailView: View {
                         title: Text("Delete this book?"),
                         message: Text("There is no way back"),
                         primaryButton: .destructive(Text("Delete")) {
-                            print("Deleting book \(self.data)")
+                            Logger.log(msg: "Deleting book \(self.data)")
                             
                             DispatchQueue.main.async {
                                 do {
@@ -186,7 +186,7 @@ struct BookDetailView: View {
                                     try self.managedObjectContext.save()
                                     self.presentationMode.wrappedValue.dismiss()
                                 } catch {
-                                    print("Failed to delete book \(self.data)")
+                                    Logger.log(msg: "Failed to delete book \(self.data)")
                                 }
                             }
                             

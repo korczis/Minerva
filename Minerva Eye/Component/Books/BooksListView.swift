@@ -38,7 +38,7 @@ struct BooksListView: View {
                     self.managedObjectContext.delete(self.data[idx])
                     try self.managedObjectContext.save()
                 } catch {
-                    print("Failed saving")
+                    Logger.log(msg: "Saving failed ...")
                 }
             }
         }

@@ -200,7 +200,7 @@ final class ScanViewController: UIViewController, AVCaptureMetadataOutputObjects
         encoder.outputFormatting = .prettyPrinted
         do {
            let data = try encoder.encode(book)
-            print(String(data: data, encoding: .utf8)!)
+            Logger.log(msg: String(data: data, encoding: .utf8)!)
             Logger.log(msg: "Decoded book info, ISBN: \(isbn)")
         } catch {
             Logger.log(msg: "Unable to decode book info, ISBN: \(isbn)")

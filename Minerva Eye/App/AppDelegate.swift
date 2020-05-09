@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        do {
 //            try container.initializeCloudKitSchema(options: schemaOptions)
 //        } catch {
-//            print("Unable to init container")
+//            Logger.log(msg: "Unable to init container")
 //        }
 //
 //        return container

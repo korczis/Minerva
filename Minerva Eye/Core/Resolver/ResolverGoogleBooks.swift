@@ -19,7 +19,7 @@ class ResolverGoogleBooks {
     static func fetchBookInfo(isbn: String) -> Result<BookItem?, LookupError> {
         
         if let book = cache[isbn] {
-            print("Using cached book info - ISBN: \(isbn)")
+            Logger.log(msg: "Using cached book info - ISBN: \(isbn)")
             return .success(book)
         }
         
@@ -32,19 +32,15 @@ class ResolverGoogleBooks {
         
         let semaphore = DispatchSemaphore(value: 0)
         
-        print("Calling Google Books API - ISBN: \(isbn)")
+        Logger.log(msg: "Calling Google Books API - ISBN: \(isbn)")
         URLSession.shared.dataTask(with: url) { data, response, error in
-//            print(data)
-//            print(response)
-//            print(error)
-            
             if let error = error {
-                print("Google Books API failed - ISBN: \(isbn), error: \(error)")
+                Logger.log(msg: "Google Books API failed - ISBN: \(isbn), error: \(error)")
                 result = .failure(.wrongResponse)
             }
             
             if let data = data {
-                print("Google API returned data - \(data)")
+                Logger.log(msg: "Google API returned data - \(data)")
                 
                 do {
                     let res = try JSONDecoder().decode(BookQueryResult.self, from: data)
@@ -55,7 +51,7 @@ class ResolverGoogleBooks {
                     }
                     
                 } catch  {
-                    print("Unable to decode Google API response - ISBN: \(isbn)")
+                    Logger.log(msg: "Unable to decode Google API response - ISBN: \(isbn)")
                     result = .failure(.wrongResponse)
                 }
             }

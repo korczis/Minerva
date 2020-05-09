@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var clicks: Int = 0
+    @State private var messages: [String] = []
     
     var body: some View {
         NavigationView {
@@ -19,7 +20,7 @@ struct ContentView: View {
                     
                     TitleView(clicks: $clicks)
                     
-                    InformationContainerView(clicks: $clicks)
+                    InformationContainerView(clicks: $clicks, messages: $messages)
                     
                     Spacer(minLength: 30)
                 }
@@ -27,6 +28,13 @@ struct ContentView: View {
             .navigationBarTitle(Text("Home"), displayMode: .inline)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onReceive(Logger.publisher()) { (output) in
+            DispatchQueue.main.async {
+                puts("Received new log message!")
+                let msg = output.object! as! String
+                self.messages.append(msg)
+            }
+        }
     }
 }
 

@@ -9,16 +9,21 @@
 import SwiftUI
 
 struct LogView: View {
+    @Binding var messages: [String]
+    
     var body: some View {
         VStack {
-            Text("Logs")
-            Text("Not implemented yet")
+            List(self.messages, id: \.self) { msg in
+                Text("\(msg)")
+            }
+            .id(UUID())
         }
+        
     }
 }
 
-struct LogView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogView()
-    }
-}
+//struct LogView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LogView()
+//    }
+//}

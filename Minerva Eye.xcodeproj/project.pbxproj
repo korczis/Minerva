@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465924667DAF004EAB23 /* Kingfisher */; };
 		8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */; };
 		8BBA466024668DD5004EAB23 /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA465F24668DD5004EAB23 /* EyeView.swift */; };
+		8BBA46632466AE48004EAB23 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA46622466AE48004EAB23 /* DataView.swift */; };
 		8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF0E0D24651D9F00606CB7 /* Logger.swift */; };
 		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
 		8BE30E9924573B200042280E /* BooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9824573B200042280E /* BooksListView.swift */; };
@@ -111,6 +112,7 @@
 		8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minerva_EyeUITests.swift; sourceTree = "<group>"; };
 		8BAAC3A924571F4900538C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BBA465F24668DD5004EAB23 /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
+		8BBA46622466AE48004EAB23 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		8BDF0E0D24651D9F00606CB7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8BE30E9624573A570042280E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		8BE30E9824573B200042280E /* BooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,14 @@
 			path = Eye;
 			sourceTree = "<group>";
 		};
+		8BBA46612466AE35004EAB23 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8BBA46622466AE48004EAB23 /* DataView.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		8BDF0E092464F71B00606CB7 /* Resolver */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +366,7 @@
 				8BDF0E0B24651D4200606CB7 /* Book */,
 				8BDF0E0A24651D3300606CB7 /* Books */,
 				8B70191524664A1D00907BBE /* Content */,
+				8BBA46612466AE35004EAB23 /* Data */,
 				8BBA465E24668DBC004EAB23 /* Eye */,
 				8B701920246670B600907BBE /* Log */,
 				8BDF0E0C24651D7100606CB7 /* Scan */,
@@ -434,6 +445,7 @@
 		8BAAC37724571F4600538C91 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Tomas Korcak";
@@ -458,6 +470,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"cs-CZ",
 			);
 			mainGroup = 8BAAC37624571F4600538C91;
 			packageReferences = (
@@ -512,6 +525,7 @@
 				8B534CB3245B9A8A001DA368 /* Book+CoreDataClass.swift in Sources */,
 				8BE30E9B245743930042280E /* ScanViewController.swift in Sources */,
 				8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */,
+				8BBA46632466AE48004EAB23 /* DataView.swift in Sources */,
 				8B1510102459F52D00313A36 /* BookDetailView.swift in Sources */,
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
@@ -684,7 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -709,7 +723,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

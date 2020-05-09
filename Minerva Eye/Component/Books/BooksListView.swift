@@ -14,7 +14,10 @@ struct BooksListView: View {
     @FetchRequest(
         entity: Book.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Book.title, ascending: true),
+            NSSortDescriptor(
+                keyPath: \Book.title,
+                ascending: true
+            )
         ]
     ) var data: FetchedResults<Book>
         

@@ -30,7 +30,6 @@ struct ContentView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(Logger.publisher()) { (output) in
             DispatchQueue.main.async {
-                puts("Received new log message!")
                 let msg = output.object! as! String
                 self.messages.append(msg)
             }

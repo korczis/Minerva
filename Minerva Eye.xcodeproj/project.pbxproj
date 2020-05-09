@@ -22,6 +22,7 @@
 		8B70191924664A8700907BBE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70191824664A8700907BBE /* TitleView.swift */; };
 		8B70191B24664AAA00907BBE /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70191A24664AAA00907BBE /* InformationDetailView.swift */; };
 		8B70191F24664BEB00907BBE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70191E24664BEB00907BBE /* AppState.swift */; };
+		8B701922246670CC00907BBE /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B701921246670CC00907BBE /* LogView.swift */; };
 		8BAAC38324571F4700538C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38224571F4700538C91 /* AppDelegate.swift */; };
 		8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38424571F4700538C91 /* SceneDelegate.swift */; };
 		8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC38624571F4700538C91 /* Minerva_Eye.xcdatamodeld */; };
@@ -71,6 +72,7 @@
 		8B70191824664A8700907BBE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8B70191A24664AAA00907BBE /* InformationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
 		8B70191E24664BEB00907BBE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8B701921246670CC00907BBE /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		8BAAC37F24571F4700538C91 /* Minerva Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minerva Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAAC38224571F4700538C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BAAC38424571F4700538C91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		8B701920246670B600907BBE /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				8B701921246670CC00907BBE /* LogView.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		8BAAC37624571F4600538C91 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +317,7 @@
 				8BDF0E0B24651D4200606CB7 /* Book */,
 				8BDF0E0A24651D3300606CB7 /* Books */,
 				8B70191524664A1D00907BBE /* Content */,
+				8B701920246670B600907BBE /* Log */,
 				8BDF0E0C24651D7100606CB7 /* Scan */,
 			);
 			path = Component;
@@ -452,6 +463,7 @@
 				8B1510102459F52D00313A36 /* BookDetailView.swift in Sources */,
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
+				8B701922246670CC00907BBE /* LogView.swift in Sources */,
 				8B151020245B214700313A36 /* BooksView.swift in Sources */,
 				8BF521CB246387D1007302F7 /* ContentView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* ResolverGoogleBooks.swift in Sources */,
@@ -619,7 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -644,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

@@ -57,13 +57,6 @@ struct InformationContainerView: View {
                 
                 NavigationLink(
                     destination: ScanView()
-//                        .navigationBarItems(trailing:
-//                            NavigationLink(destination: BooksView()) {
-//                                Text("Library (\(data.count))")
-//                                    .foregroundColor(.blue)
-//                            }
-//                            
-//                    )
                         .navigationBarTitle(Text("Scan (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Scan",
@@ -75,11 +68,6 @@ struct InformationContainerView: View {
                 
                 NavigationLink(
                     destination: BooksView()
-                        //                        .navigationBarItems(trailing:
-                        //                            NavigationLink(destination: ScanView()) {
-                        //                                Text("Scan")
-                        //                                    .foregroundColor(.blue)
-                        //                        })
                         .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Library",
@@ -88,6 +76,21 @@ struct InformationContainerView: View {
                             )
                 }
             }
+            
+            // MARK: Experimental
+            Group {
+                Divider()
+                
+                NavigationLink(
+                    destination: LogView()
+                        .navigationBarTitle(Text("Logs"), displayMode: .inline)) {
+                            InformationDetailView(
+                                title: "Logs",
+                                subTitle: "Application log messages",
+                                imageName: "list.dash"
+                            )
+                }
+            }.disabled(true)
         }
         .padding(.horizontal)
     }

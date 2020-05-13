@@ -46,6 +46,10 @@
 		8BE30E9B245743930042280E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9A245743930042280E /* ScanViewController.swift */; };
 		8BE30E9D245746F80042280E /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9C245746F80042280E /* Schema.swift */; };
 		8BF521CB246387D1007302F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF521CA246387D1007302F7 /* ContentView.swift */; };
+		8BFF7E9C246B6F5D0094AE3B /* EyeScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7E98246B6F5D0094AE3B /* EyeScanButton.swift */; };
+		8BFF7E9D246B6F5D0094AE3B /* EyeOcrTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7E99246B6F5D0094AE3B /* EyeOcrTextView.swift */; };
+		8BFF7E9E246B6F5D0094AE3B /* EyeScanImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7E9A246B6F5D0094AE3B /* EyeScanImageView.swift */; };
+		8BFF7E9F246B6F5D0094AE3B /* EyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7E9B246B6F5D0094AE3B /* EyeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,10 @@
 		8BE30E9A245743930042280E /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		8BE30E9C245746F80042280E /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		8BF521CA246387D1007302F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BFF7E98246B6F5D0094AE3B /* EyeScanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeScanButton.swift; sourceTree = "<group>"; };
+		8BFF7E99246B6F5D0094AE3B /* EyeOcrTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeOcrTextView.swift; sourceTree = "<group>"; };
+		8BFF7E9A246B6F5D0094AE3B /* EyeScanImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeScanImageView.swift; sourceTree = "<group>"; };
+		8BFF7E9B246B6F5D0094AE3B /* EyeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +320,11 @@
 		8BBA465E24668DBC004EAB23 /* Eye */ = {
 			isa = PBXGroup;
 			children = (
+				8BFF7E99246B6F5D0094AE3B /* EyeOcrTextView.swift */,
+				8BFF7E98246B6F5D0094AE3B /* EyeScanButton.swift */,
+				8BFF7E9A246B6F5D0094AE3B /* EyeScanImageView.swift */,
 				8BBA465F24668DD5004EAB23 /* EyeView.swift */,
+				8BFF7E9B246B6F5D0094AE3B /* EyeViewController.swift */,
 			);
 			path = Eye;
 			sourceTree = "<group>";
@@ -521,6 +533,7 @@
 			files = (
 				8B534CB4245B9A8A001DA368 /* Book+CoreDataProperties.swift in Sources */,
 				8BE30E9D245746F80042280E /* Schema.swift in Sources */,
+				8BFF7E9D246B6F5D0094AE3B /* EyeOcrTextView.swift in Sources */,
 				8BAAC38824571F4700538C91 /* Minerva_Eye.xcdatamodeld in Sources */,
 				8B534CB3245B9A8A001DA368 /* Book+CoreDataClass.swift in Sources */,
 				8BE30E9B245743930042280E /* ScanViewController.swift in Sources */,
@@ -529,11 +542,14 @@
 				8B1510102459F52D00313A36 /* BookDetailView.swift in Sources */,
 				8B4B7EE32457906500B94D17 /* StateData.swift in Sources */,
 				8BE30E9724573A570042280E /* ScanView.swift in Sources */,
+				8BFF7E9C246B6F5D0094AE3B /* EyeScanButton.swift in Sources */,
 				8B701922246670CC00907BBE /* LogView.swift in Sources */,
 				8B151020245B214700313A36 /* BooksView.swift in Sources */,
 				8BF521CB246387D1007302F7 /* ContentView.swift in Sources */,
 				8B4B7EDC24576BE800B94D17 /* ResolverGoogleBooks.swift in Sources */,
 				8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */,
+				8BFF7E9E246B6F5D0094AE3B /* EyeScanImageView.swift in Sources */,
+				8BFF7E9F246B6F5D0094AE3B /* EyeViewController.swift in Sources */,
 				8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */,
 				8B1510122459F58100313A36 /* BooksListRowView.swift in Sources */,
 				8B70191B24664AAA00907BBE /* InformationDetailView.swift in Sources */,
@@ -698,7 +714,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 61;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -723,7 +739,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Minerva Eye/Minerva Eye.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 61;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_ASSET_PATHS = "\"Minerva Eye/Preview Content\"";
 				DEVELOPMENT_TEAM = KX95WW6S4G;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

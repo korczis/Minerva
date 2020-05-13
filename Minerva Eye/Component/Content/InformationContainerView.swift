@@ -103,16 +103,16 @@ struct InformationContainerView: View {
                                 )
                     }
                     
-//                    NavigationLink(
-//                        destination: EyeView()
-//                            .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
-//                                InformationDetailView(
-//                                    title: "Eye",
-//                                    subTitle: "Minerva Eye at its finest",
-//                                    imageName: "eye"
-//                                )
-//                    }
-//                    
+                    NavigationLink(
+                        destination: EyeView()
+                            .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
+                                InformationDetailView(
+                                    title: "Eye",
+                                    subTitle: "Minerva Eye at its finest",
+                                    imageName: "eye"
+                                )
+                    }
+                    
 //                    NavigationLink(
 //                        destination: DataView()
 //                            .navigationBarTitle(Text("Data"), displayMode: .inline)) {

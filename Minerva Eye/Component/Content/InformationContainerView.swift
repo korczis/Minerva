@@ -81,7 +81,7 @@ struct InformationContainerView: View {
             }
             
             // MARK: Experimental
-            if self.clicks >= 0 {
+            if self.clicks >= 13 {
                 Group {
                     Divider()
                     

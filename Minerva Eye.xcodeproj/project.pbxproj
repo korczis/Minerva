@@ -52,6 +52,7 @@
 		8BFF7EAD246DC9690094AE3B /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7EAC246DC9690094AE3B /* EyeView.swift */; };
 		8BFF7EAF246DC9CC0094AE3B /* EyeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7EAE246DC9CC0094AE3B /* EyeScannerView.swift */; };
 		8BFF7EB1246DC9FD0094AE3B /* EyeTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7EB0246DC9FD0094AE3B /* EyeTextRecognizer.swift */; };
+		8BFF7EB4246E02A70094AE3B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF7EB3246E02A70094AE3B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		8BFF7EAC246DC9690094AE3B /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
 		8BFF7EAE246DC9CC0094AE3B /* EyeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeScannerView.swift; sourceTree = "<group>"; };
 		8BFF7EB0246DC9FD0094AE3B /* EyeTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTextRecognizer.swift; sourceTree = "<group>"; };
+		8BFF7EB3246E02A70094AE3B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,8 +382,17 @@
 				8BBA465E24668DBC004EAB23 /* Eye */,
 				8B701920246670B600907BBE /* Log */,
 				8BDF0E0C24651D7100606CB7 /* Scan */,
+				8BFF7EB2246E028C0094AE3B /* Settings */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		8BFF7EB2246E028C0094AE3B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8BFF7EB3246E02A70094AE3B /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,6 +569,7 @@
 				8BE30E9924573B200042280E /* BooksListView.swift in Sources */,
 				8BFF7EAD246DC9690094AE3B /* EyeView.swift in Sources */,
 				8BAAC38524571F4700538C91 /* SceneDelegate.swift in Sources */,
+				8BFF7EB4246E02A70094AE3B /* SettingsView.swift in Sources */,
 				8B70191924664A8700907BBE /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

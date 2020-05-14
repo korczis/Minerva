@@ -63,7 +63,10 @@ struct InformationContainerView: View {
                         .navigationBarTitle(Text("Scan (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Scan",
-                                subTitle: "Manage your books using ISBN/Barcodes",
+                                subTitle: [
+                                    "Scan the ISBN",
+                                    "Scan the Barcode"
+                                ].joined(separator: "\n"),
                                 imageName: "camera"
                             )
                             
@@ -74,11 +77,17 @@ struct InformationContainerView: View {
                         .navigationBarTitle(Text("Library (\(self.data.count))"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Library",
-                                subTitle: "Keep your books organized",
+                                subTitle: [
+                                    "See your books",
+                                    "See the details"
+                                ].joined(separator: "\n"),
                                 imageName: "book"
                             )
                 }
-                
+            }
+            
+            // Mark: Beta
+            Group {
                 Divider()
                 
                 NavigationLink(
@@ -86,15 +95,14 @@ struct InformationContainerView: View {
                         .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Eye",
-                                subTitle: "Scan and remember anything (beta)",
+                                subTitle: "Scan anything (beta)",
                                 imageName: "eye"
                             )
                 }
-                
             }
             
             // MARK: Experimental
-            if self.clicks >= 13 {
+            if self.clicks >= TitleView.HiddenClicks {
                 Group {
                     Divider()
                     
@@ -129,6 +137,21 @@ struct InformationContainerView: View {
                     }
                 }
             }
+            
+//            // MARK: Settings
+//            Group {
+//                Divider()
+//                
+//                NavigationLink(
+//                    destination: SettingsView()
+//                        .navigationBarTitle(Text("Settings"), displayMode: .inline)) {
+//                            InformationDetailView(
+//                                title: "Settings",
+//                                subTitle: "Customize application settings",
+//                                imageName: "gear"
+//                            )
+//                }
+//            }
         }
         .padding(.horizontal)
     }

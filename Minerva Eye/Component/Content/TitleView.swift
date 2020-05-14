@@ -11,15 +11,18 @@ import SwiftUI
 struct TitleView: View {
     @Binding var clicks: Int
     
+    static let HiddenClicks = 13;
+    
     var body: some View {
         // NavigationLink(destination: BooksView()) {
-        VStack {
+         
+        return VStack {
             Text("Minerva Eye")
                 .font(.largeTitle)
                 .foregroundColor(.blue)
             
             Button(action: {
-                self.clicks = (self.clicks + 1) % 14
+                self.clicks = (self.clicks + 1) % (TitleView.HiddenClicks + 1)
                 
                 puts("Minerva Logo clicked - \(self.clicks)")
             }) {

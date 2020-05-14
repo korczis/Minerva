@@ -24,7 +24,17 @@ final class EyeTextRecognizer {
     func recognizeText(withCompletionHandler completionHandler: @escaping ([String]) -> Void) {
         queue.async {
             let images = (0..<self.cameraScan.pageCount).compactMap({ self.cameraScan.imageOfPage(at: $0).cgImage })
-            let imagesAndRequests = images.map({ (image: $0, request: VNRecognizeTextRequest()) })
+            
+            let request = VNRecognizeTextRequest()
+            request.recognitionLanguages = [
+                "en-US",
+                "en-GB"
+            ]
+            request.recognitionLevel = .accurate
+            request.usesLanguageCorrection = true
+            
+            let imagesAndRequests = images.map({ (image: $0, request: request) })
+            
             let textPerPage = imagesAndRequests.map { image, request -> String in
                 let handler = VNImageRequestHandler(cgImage: image, options: [:])
                 do {

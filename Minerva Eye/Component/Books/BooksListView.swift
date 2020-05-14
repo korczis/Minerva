@@ -48,8 +48,10 @@ struct BooksListView: View {
     }
 }
 
+#if DEBUG
 struct BooksListView_Previews: PreviewProvider {
     static var previews: some View {
         BooksListView()
     }
 }
+#endif

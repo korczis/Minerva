@@ -81,7 +81,7 @@ struct InformationContainerView: View {
             }
             
             // MARK: Experimental
-            if self.clicks >= 13 {
+            if self.clicks >= 0 {
                 Group {
                     Divider()
                     
@@ -104,7 +104,9 @@ struct InformationContainerView: View {
                     }
                     
                     NavigationLink(
-                        destination: EyeView()
+                        destination: EyeView(completion: { msg in
+                            print(msg!)
+                        })
                             .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
                                 InformationDetailView(
                                     title: "Eye",
@@ -128,3 +130,4 @@ struct InformationContainerView: View {
         .padding(.horizontal)
     }
 }
+

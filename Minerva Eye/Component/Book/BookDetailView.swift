@@ -135,24 +135,44 @@ struct BookDetailView: View {
                 // ISBN Preview and Barcode
                 if data.isbn != nil {
                     VStack {
-                        KFImage(
-                            URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
-                            options: [
-                                .transition(.fade(0.5)),
-                                // .processor(
-                                //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
-                                //     BlackWhiteProcessor()
-                                // ),
-                                .scaleFactor(UIScreen.main.scale),
-                                .cacheOriginalImage
-                            ]
-                        )
-                            .renderingMode(.original)
-                            .resizable()
-                            .scaledToFit()
-                            .border(Color.black, width: 2)
-                            .background(Color.gray)
-
+                        ZStack {
+                            KFImage(
+                                URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+                                options: [
+                                    .transition(.fade(0.5)),
+                                    // .processor(
+                                    //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
+                                    //     BlackWhiteProcessor()
+                                    // ),
+                                    .scaleFactor(UIScreen.main.scale),
+                                    .cacheOriginalImage
+                                ]
+                            )
+                                .renderingMode(.original)
+                                .resizable()
+                            
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    
+                                    NavigationLink(
+                                        destination: EyeView(completion: { msg in
+                                            print("Scanned new image - \(msg)")
+                                        })
+                                            .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
+                                                Image(systemName: "camera")
+                                                    .font(.largeTitle)
+                                    }
+                                    .padding()
+                                }
+                                
+                                Spacer()
+                            }
+                        }
+                        .scaledToFit()
+                        .border(Color.black, width: 2)
+                        .background(Color.gray)
+                        
                         Image(uiImage: UIImage(barcode: data.isbn ?? "") ?? UIImage())
                             .renderingMode(.original)
                             .resizable()
@@ -241,3 +261,19 @@ extension UIImage {
         self.init(cgImage: cgImage)
     }
 }
+
+#if DEBUG
+struct BookDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewWrapper()
+    }
+    
+    struct PreviewWrapper: View {
+        @State() var data: Book = Book ()
+        
+        var body: some View {
+            BookDetailView(data: data)
+        }
+    }
+}
+#endif

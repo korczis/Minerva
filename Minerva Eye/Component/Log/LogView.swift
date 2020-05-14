@@ -22,8 +22,18 @@ struct LogView: View {
     }
 }
 
-//struct LogView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LogView()
-//    }
-//}
+#if DEBUG
+struct LogView_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewWrapper()
+    }
+    
+    struct PreviewWrapper: View {
+      @State() var messages: [String] = []
+
+      var body: some View {
+        LogView(messages: $messages)
+      }
+    }
+}
+#endif

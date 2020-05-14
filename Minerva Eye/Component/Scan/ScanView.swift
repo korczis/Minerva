@@ -70,8 +70,10 @@ struct ScanView: View {
     }
 }
 
+#if DEBUG
 struct ScanView_Previews: PreviewProvider {
     static var previews: some View {
         ScanView()
     }
 }
+#endif

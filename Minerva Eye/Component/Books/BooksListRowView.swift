@@ -22,3 +22,19 @@ struct BooksListRowView: View {
         }
     }
 }
+
+#if DEBUG
+struct BooksListRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewWrapper()
+    }
+    
+    struct PreviewWrapper: View {
+      @State() var data: Book = Book ()
+
+      var body: some View {
+        BooksListRowView(data: data)
+      }
+    }
+}
+#endif

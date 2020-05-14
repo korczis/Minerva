@@ -242,10 +242,10 @@ extension ScanViewController: UIViewControllerRepresentable {
     }
 }
 
-
-
+#if DEBUG
 struct ScanViewController_Previews: PreviewProvider {
     static var previews: some View {
         Text("ScanViewController Preview")
     }
 }
+#endif

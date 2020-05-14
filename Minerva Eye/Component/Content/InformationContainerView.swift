@@ -78,6 +78,19 @@ struct InformationContainerView: View {
                                 imageName: "book"
                             )
                 }
+                
+                Divider()
+                
+                NavigationLink(
+                    destination: EyeViewOld()
+                        .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
+                            InformationDetailView(
+                                title: "Eye",
+                                subTitle: "Try scan options",
+                                imageName: "eye"
+                            )
+                }
+                
             }
             
             // MARK: Experimental
@@ -114,16 +127,6 @@ struct InformationContainerView: View {
                                     imageName: "eye"
                                 )
                     }
-                    
-//                    NavigationLink(
-//                        destination: DataView()
-//                            .navigationBarTitle(Text("Data"), displayMode: .inline)) {
-//                                InformationDetailView(
-//                                    title: "Data",
-//                                    subTitle: "Import or Export Data",
-//                                    imageName: "list.bullet.below.rectangle"
-//                                )
-//                    }
                 }
             }
         }

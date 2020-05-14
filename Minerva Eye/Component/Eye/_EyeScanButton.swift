@@ -27,6 +27,6 @@ class EyeScanButton: UIButton {
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
         titleLabel?.textColor = .white
         layer.cornerRadius = 7.0
-        backgroundColor = UIColor.systemIndigo
+        backgroundColor = UIColor.blue
     }
 }

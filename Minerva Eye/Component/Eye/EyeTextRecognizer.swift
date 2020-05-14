@@ -11,6 +11,11 @@ import Vision
 import VisionKit
 
 final class EyeTextRecognizer {
+    static let RecognitionLanguages: [String] = [
+        "cs-CZ",
+        "en-GB",
+        "en-US",
+    ]
     let cameraScan: VNDocumentCameraScan
     
     init(cameraScan: VNDocumentCameraScan) {
@@ -26,10 +31,8 @@ final class EyeTextRecognizer {
             let images = (0..<self.cameraScan.pageCount).compactMap({ self.cameraScan.imageOfPage(at: $0).cgImage })
             
             let request = VNRecognizeTextRequest()
-            request.recognitionLanguages = [
-                "en-US",
-                "en-GB"
-            ]
+            request.recognitionLanguages = EyeTextRecognizer.RecognitionLanguages
+            
             request.recognitionLevel = .accurate
             request.usesLanguageCorrection = true
             

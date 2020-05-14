@@ -95,7 +95,7 @@ final class EyeViewController: UIViewController {
         }
         
         ocrRequest.recognitionLevel = .accurate
-        ocrRequest.recognitionLanguages = ["en-US", "en-GB"]
+        ocrRequest.recognitionLanguages = EyeTextRecognizer.RecognitionLanguages
         ocrRequest.usesLanguageCorrection = true
     }
 }

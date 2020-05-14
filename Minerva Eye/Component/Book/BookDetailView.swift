@@ -28,6 +28,7 @@ struct BookDetailView: View {
     
     @State var data: Book
     @State private var showingAlert = false
+    @State private var showingScanCoverButton = false
     
     private let pasteboard = UIPasteboard.general
     
@@ -136,37 +137,44 @@ struct BookDetailView: View {
                 if data.isbn != nil {
                     VStack {
                         ZStack {
-                            KFImage(
-                                URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
-                                options: [
-                                    .transition(.fade(0.5)),
-                                    // .processor(
-                                    //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
-                                    //     BlackWhiteProcessor()
-                                    // ),
-                                    .scaleFactor(UIScreen.main.scale),
-                                    .cacheOriginalImage
-                                ]
-                            )
-                                .renderingMode(.original)
-                                .resizable()
+                            Button(action: {
+                                print("Clicked on book cover image")
+                                self.showingScanCoverButton.toggle()
+                            }) {
+                                KFImage(
+                                    URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+                                    options: [
+                                        .transition(.fade(0.5)),
+                                        // .processor(
+                                        //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
+                                        //     BlackWhiteProcessor()
+                                        // ),
+                                        .scaleFactor(UIScreen.main.scale),
+                                        .cacheOriginalImage
+                                    ]
+                                )
+                                    .renderingMode(.original)
+                                    .resizable()
+                            }
                             
-                            VStack {
-                                HStack {
-                                    Spacer()
-                                    
-                                    NavigationLink(
-                                        destination: EyeView(completion: { msg in
-                                            print("Scanned new image - \(msg)")
-                                        })
-                                            .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
-                                                Image(systemName: "camera")
-                                                    .font(.largeTitle)
+                            if self.showingScanCoverButton {
+                                VStack {
+                                    HStack {
+                                        Spacer()
+                                        
+                                        NavigationLink(
+                                            destination: EyeView(completion: { msg in
+                                                print("Scanned new image - \(msg)")
+                                            })
+                                                .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
+                                                    Image(systemName: "camera")
+                                                        .font(.largeTitle)
+                                        }
+                                        .padding()
                                     }
-                                    .padding()
+                                    
+                                    Spacer()
                                 }
-                                
-                                Spacer()
                             }
                         }
                         .scaledToFit()

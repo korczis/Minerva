@@ -95,7 +95,7 @@ struct InformationContainerView: View {
                         .navigationBarTitle(Text("Eye"), displayMode: .inline)) {
                             InformationDetailView(
                                 title: "Eye",
-                                subTitle: "Scan anything (beta)",
+                                subTitle: "Scan anything", // (beta)
                                 imageName: "eye"
                             )
                 }

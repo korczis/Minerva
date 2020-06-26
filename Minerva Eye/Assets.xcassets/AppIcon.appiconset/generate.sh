@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-APP_ICON_SOURCE="AppIcon.png"
+APP_ICON_SOURCE="../../../Assets/logo/minerva.png"
 APP_ICON_SIZES=(\
     "20x20" \
     "29x29" \
@@ -20,6 +20,8 @@ APP_ICON_SIZES=(\
 for icon_size in "${APP_ICON_SIZES[@]}"
 do
    :
-   convert ${APP_ICON_SOURCE} -resize ${icon_size} AppIcon-${icon_size}.png
+   APP_ICON_NAME=AppIcon-${icon_size}.png
+   echo "Generating ${APP_ICON_NAME}"
+   convert ${APP_ICON_SOURCE} -resize ${icon_size} ${APP_ICON_NAME}
 done
 

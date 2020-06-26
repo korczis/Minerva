@@ -111,7 +111,7 @@ struct InformationContainerView: View {
                             .navigationBarItems(trailing:
                                 Button(action: {
                                     self.messages = []
-                                })
+                                }) 
                                 {
                                     Text("Flush")
                                         .foregroundColor(.red)

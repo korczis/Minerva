@@ -23,7 +23,7 @@ class ResolverGoogleBooks {
             return .success(book)
         }
         
-        let path = "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key="
+        let path = "https://www.googleapis.com/books/v1/volumes?q=isbn:\(isbn)&key=AIzaSyD9VE8TZy5ai4Ioc3Kzagr2ehibpiksxKA"
         guard let url = URL(string: path) else {
             return .failure(.wrongRequest)
         }

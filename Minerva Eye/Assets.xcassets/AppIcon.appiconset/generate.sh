@@ -22,6 +22,6 @@ do
    :
    APP_ICON_NAME=AppIcon-${icon_size}.png
    echo "Generating ${APP_ICON_NAME}"
-   convert ${APP_ICON_SOURCE} -resize ${icon_size} ${APP_ICON_NAME}
+   convert ${APP_ICON_SOURCE} -background black -alpha remove -resize ${icon_size} ${APP_ICON_NAME}
 done
 

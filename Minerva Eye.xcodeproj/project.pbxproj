@@ -17,6 +17,7 @@
 		8B534CA9245B7D17001DA368 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CA8245B7D17001DA368 /* ImageHelper.swift */; };
 		8B534CB3245B9A8A001DA368 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CB1245B9A8A001DA368 /* Book+CoreDataClass.swift */; };
 		8B534CB4245B9A8A001DA368 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534CB2245B9A8A001DA368 /* Book+CoreDataProperties.swift */; };
+		8B6093B725B0C94100C6D3E0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6093B625B0C94100C6D3E0 /* Kingfisher */; };
 		8B7019132466461B00907BBE /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7019122466461B00907BBE /* Vision.framework */; };
 		8B70191724664A5C00907BBE /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70191624664A5C00907BBE /* InformationContainerView.swift */; };
 		8B70191924664A8700907BBE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70191824664A8700907BBE /* TitleView.swift */; };
@@ -30,14 +31,6 @@
 		8BAAC38F24571F4900538C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAAC38E24571F4900538C91 /* Preview Assets.xcassets */; };
 		8BAAC39D24571F4900538C91 /* Minerva_EyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC39C24571F4900538C91 /* Minerva_EyeTests.swift */; };
 		8BAAC3A824571F4900538C91 /* Minerva_EyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAAC3A724571F4900538C91 /* Minerva_EyeUITests.swift */; };
-		8BBA465024667DAF004EAB23 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA464F24667DAF004EAB23 /* KingfisherStatic */; };
-		8BBA465224667DAF004EAB23 /* KingfisherSwiftUIStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */; };
-		8BBA465424667DAF004EAB23 /* KingfisherDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465324667DAF004EAB23 /* KingfisherDynamic */; };
-		8BBA465524667DAF004EAB23 /* KingfisherDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465324667DAF004EAB23 /* KingfisherDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		8BBA465724667DAF004EAB23 /* KingfisherSwiftUIDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */; };
-		8BBA465824667DAF004EAB23 /* KingfisherSwiftUIDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465924667DAF004EAB23 /* Kingfisher */; };
-		8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */; };
 		8BBA466024668DD5004EAB23 /* _EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA465F24668DD5004EAB23 /* _EyeView.swift */; };
 		8BDF0E0E24651D9F00606CB7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF0E0D24651D9F00606CB7 /* Logger.swift */; };
 		8BE30E9724573A570042280E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE30E9624573A570042280E /* ScanView.swift */; };
@@ -79,8 +72,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8BBA465824667DAF004EAB23 /* KingfisherSwiftUIDynamic in Embed Frameworks */,
-				8BBA465524667DAF004EAB23 /* KingfisherDynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,14 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BBA465724667DAF004EAB23 /* KingfisherSwiftUIDynamic in Frameworks */,
-				8BBA465224667DAF004EAB23 /* KingfisherSwiftUIStatic in Frameworks */,
-				8BBA465A24667DAF004EAB23 /* Kingfisher in Frameworks */,
+				8B6093B725B0C94100C6D3E0 /* Kingfisher in Frameworks */,
 				8B7019132466461B00907BBE /* Vision.framework in Frameworks */,
 				8B151029245B32BF00313A36 /* CloudKit.framework in Frameworks */,
-				8BBA465024667DAF004EAB23 /* KingfisherStatic in Frameworks */,
-				8BBA465C24667DAF004EAB23 /* KingfisherSwiftUI in Frameworks */,
-				8BBA465424667DAF004EAB23 /* KingfisherDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,15 +396,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				8B6093BD25B0CB5500C6D3E0 /* PBXTargetDependency */,
 			);
 			name = "Minerva Eye";
 			packageProductDependencies = (
-				8BBA464F24667DAF004EAB23 /* KingfisherStatic */,
-				8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */,
-				8BBA465324667DAF004EAB23 /* KingfisherDynamic */,
-				8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */,
-				8BBA465924667DAF004EAB23 /* Kingfisher */,
-				8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */,
+				8B6093B625B0C94100C6D3E0 /* Kingfisher */,
 			);
 			productName = "Minerva Eye";
 			productReference = 8BAAC37F24571F4700538C91 /* Minerva Eye.app */;
@@ -467,8 +449,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Tomas Korcak";
 				TargetAttributes = {
 					8BAAC37E24571F4700538C91 = {
@@ -495,7 +480,7 @@
 			);
 			mainGroup = 8BAAC37624571F4600538C91;
 			packageReferences = (
-				8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				8B6093B525B0C94100C6D3E0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8BAAC38024571F4700538C91 /* Products */;
 			projectDirPath = "";
@@ -593,6 +578,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8B6093BD25B0CB5500C6D3E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 8B6093BC25B0CB5500C6D3E0 /* Kingfisher */;
+		};
 		8BAAC39A24571F4900538C91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8BAAC37E24571F4700538C91 /* Minerva Eye */;
@@ -610,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -632,6 +622,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -670,6 +661,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -692,6 +684,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -896,46 +889,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		8B6093B525B0C94100C6D3E0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.13.4;
+				minimumVersion = 6.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8BBA464F24667DAF004EAB23 /* KingfisherStatic */ = {
+		8B6093B625B0C94100C6D3E0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherStatic;
-		};
-		8BBA465124667DAF004EAB23 /* KingfisherSwiftUIStatic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUIStatic;
-		};
-		8BBA465324667DAF004EAB23 /* KingfisherDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherDynamic;
-		};
-		8BBA465624667DAF004EAB23 /* KingfisherSwiftUIDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUIDynamic;
-		};
-		8BBA465924667DAF004EAB23 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 8B6093B525B0C94100C6D3E0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		8BBA465B24667DAF004EAB23 /* KingfisherSwiftUI */ = {
+		8B6093BC25B0CB5500C6D3E0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8BBA464E24667DAF004EAB23 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
+			package = 8B6093B525B0C94100C6D3E0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

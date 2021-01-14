@@ -11,7 +11,7 @@ import CoreImage
 import Foundation
 import SwiftUI
 
-import KingfisherSwiftUI
+import Kingfisher
 import struct Kingfisher.BlackWhiteProcessor
 import struct Kingfisher.DownsamplingImageProcessor
 

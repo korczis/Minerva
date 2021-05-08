@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            .appendingPathComponent("local.sqlite")
         let localStoreDescription =
             NSPersistentStoreDescription(url: localStoreLocation)
-        // localStoreDescription.configuration = "Default" // "Local"
+        
 
         // Create a store description for a CloudKit-backed local store
         let cloudStoreLocation = try! FileManager

@@ -142,7 +142,8 @@ struct BookDetailView: View {
                                 self.showingScanCoverButton.toggle()
                             }) {
                                 KFImage(
-                                    URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!,
+                                    source:
+                                        .network(URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!),
                                     options: [
                                         .transition(.fade(0.5)),
                                         // .processor(

@@ -24,7 +24,7 @@ struct BooksListView: View {
     var body: some View {
         List {
             ForEach(data, id: \.self) { book in
-                NavigationLink(destination: BookDetailView(data: book)) {
+                NavigationLink(destination: BookDetailView(book: book)) {
                     BooksListRowView(data: book)
                 }
             }

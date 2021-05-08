@@ -29,8 +29,28 @@ struct BookDetailView: View {
     @State var data: Book
     @State private var showingAlert = false
     @State private var showingScanCoverButton = false
+    @State private var coverKfImage: KFImage
+    
+//    @state private var coverImageBinder: KFImage.ImageBinder
     
     private let pasteboard = UIPasteboard.general
+    
+    init(book: Book) {
+        _data = State(initialValue: book)
+        _coverKfImage = State(initialValue: KFImage(
+            source:
+                .network(URL(string: "https://covers.openlibrary.org/b/isbn/\(book.isbn!)-L.jpg")!)
+//            options: [
+//                .transition(.fade(0.5)),
+//                .scaleFactor(UIScreen.main.scale),
+//                .cacheOriginalImage
+//            ]
+        )
+        .onSuccess { result in
+            print(result)
+        })
+        
+    }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -141,19 +161,8 @@ struct BookDetailView: View {
                                 print("Clicked on book cover image")
                                 self.showingScanCoverButton.toggle()
                             }) {
-                                KFImage(
-                                    source:
-                                        .network(URL(string: "https://covers.openlibrary.org/b/isbn/\(data.isbn!)-L.jpg")!),
-                                    options: [
-                                        .transition(.fade(0.5)),
-                                        // .processor(
-                                        //     // DownsamplingImageProcessor(size: CGSize(width: 50, height: 50)),
-                                        //     BlackWhiteProcessor()
-                                        // ),
-                                        .scaleFactor(UIScreen.main.scale),
-                                        .cacheOriginalImage
-                                    ]
-                                )
+                                self.coverKfImage
+                                    .scaleFactor(UIScreen.main.scale)
                                     .renderingMode(.original)
                                     .resizable()
                             }
@@ -165,13 +174,13 @@ struct BookDetailView: View {
                                         
                                         NavigationLink(
                                             destination: EyeView(completion: { msg in
-                                                print("Scanned new image - \(msg)")
+                                                print("Scanned new image - \(String(describing: msg))")
                                             })
-                                                .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
-                                                    Image(systemName: "camera")
-                                                        .font(.largeTitle)
-                                        }
-                                        .padding()
+                                             .navigationBarTitle(Text("Scan"), displayMode: .inline)) {
+                                                Image(systemName: "camera")
+                                                .font(.largeTitle)
+                                            }
+                                            .padding()
                                     }
                                     
                                     Spacer()
@@ -281,7 +290,7 @@ struct BookDetailView_Previews: PreviewProvider {
         @State() var data: Book = Book ()
         
         var body: some View {
-            BookDetailView(data: data)
+            BookDetailView(book: data)
         }
     }
 }
